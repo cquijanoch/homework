@@ -1,0 +1,7 @@
+setwd("D:/testingScatterplot/scatterplotTraining/Assets/Assets/Resources")
+data1 -> read.csv(fixing_dataset)
+data1 -> read.csv("fixing_dataset.csv",header=TRUE)
+data1 -> read.csv("fixing_dataset.csv",header=TRUE)
+data -> read.csv("fixing_dataset.csv",header=TRUE)
+data <- read.csv("fixing_dataset.csv",header=TRUE)
+dim(data)
