@@ -233,7 +233,7 @@ public class DataPlotter : MonoBehaviour
         //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(0, 35, 116);
         //            break;
         //    }
-        //}
+        }
     }
 
     private float FindMaxValue(string columnName)
