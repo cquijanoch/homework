@@ -92,148 +92,148 @@ public class DataPlotter : MonoBehaviour
           
 
 
-            switch (System.Convert.ToString(pointList[i][cColor]))
-            {
-                case "Bal-musette":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(218, 72, 59);
-                    break;
-                case "Ballad":
-                    dataPoint.GetComponent<Renderer>().material.color = ConvertColor(255, 158, 15);
-                    break;
-                case "Bluegrass":
-                    dataPoint.GetComponent<Renderer>().material.color = ConvertColor(68, 134, 244);
-                    break;
-                case "Blues":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 199, 24);
-                    break;
-                case "Cabaret":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(28, 164, 92);
-                    break;
-                case "Celtic":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(141, 196, 79);
-                    break;
-                case "Chanson":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(90, 237, 213);
-                    break;
-                case "Charanga":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(48, 137, 172);
-                    break;
-                case "Chinese":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(157, 231, 173);
-                    break;
-                case "Classical":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(254, 196, 118);
-                    break;
-                case "Country":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(209, 64, 109);
-                    break;
-                case "Cumbia":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(163, 54, 180);
-                    break;
-                case "Disco":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(211, 144, 79);
-                    break;
-                case "Dubstep":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(246, 181, 71);
-                    break;
-                case "Electronic":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 236, 179);
-                    break;
-                case "Folk":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(0, 0, 0);
-                    break;
-                case "Funk":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 130, 130);
-                    break;
-                case "Gospel":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(244, 237, 216);
-                    break;
-                case "Greek":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(140, 95, 61);
-                    break;
-                case "Happy Hardcore":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(169, 124, 80);
-                    break;
-                case "Heavy Metal":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(230, 177, 117);
-                    break;
-                case "Hip Hop":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(227, 149, 129);
-                    break;
-                case "House":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 193, 173);
-                    break;
-                case "Indie":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(18, 231, 114);
-                    break;
-                case "Irish":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(53, 181, 53);
-                    break;
-                case "Jazz":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(0, 107, 60);
-                    break;
-                case "Metal":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(0, 86, 63);
-                    break;
-                case "New Wave":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(1, 50, 32);
-                    break;
-                case "Opera":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(81, 40, 136);
-                    break;
-                case "Polka":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(191, 0, 255);
-                    break;
-                case "Pop":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(223, 0, 255);
-                    break;
-                case "Pop Rock":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(246, 94, 255);
-                    break;
-                case "Punk":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(253, 179, 255);
-                    break;
-                case "R&B":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(8, 57, 194);
-                    break;
-                case "Rap":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(38, 110, 246);
-                    break;
-                case "Reggae":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(71, 201, 255);
-                    break;
-                case "Reggaeton":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(130, 233, 255);
-                    break;
-                case "Religius":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(184, 242, 255);
-                    break;
-                case "Rock":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 176, 71);
-                    break;
-                case "Salsa":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 211, 0);
-                    break;
-                case "Samba":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 240, 0);
-                    break;
-                case "Soukous":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 254, 85);
-                    break;
-                case "Soul":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 255, 194);
-                    break;
-                case "Soundtrack":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(199, 175, 113);
-                    break;
-                case "Tango":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(121, 94, 23);
-                    break;
-                case "Zouk":
-                    dataPoint.GetComponent<Renderer>().material.color =ConvertColor(0, 35, 116);
-                    break;
-            }
-        }
+        //    switch (System.Convert.ToString(pointList[i][cColor]))
+        //    {
+        //        case "Bal-musette":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(218, 72, 59);
+        //            break;
+        //        case "Ballad":
+        //            dataPoint.GetComponent<Renderer>().material.color = ConvertColor(255, 158, 15);
+        //            break;
+        //        case "Bluegrass":
+        //            dataPoint.GetComponent<Renderer>().material.color = ConvertColor(68, 134, 244);
+        //            break;
+        //        case "Blues":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 199, 24);
+        //            break;
+        //        case "Cabaret":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(28, 164, 92);
+        //            break;
+        //        case "Celtic":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(141, 196, 79);
+        //            break;
+        //        case "Chanson":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(90, 237, 213);
+        //            break;
+        //        case "Charanga":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(48, 137, 172);
+        //            break;
+        //        case "Chinese":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(157, 231, 173);
+        //            break;
+        //        case "Classical":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(254, 196, 118);
+        //            break;
+        //        case "Country":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(209, 64, 109);
+        //            break;
+        //        case "Cumbia":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(163, 54, 180);
+        //            break;
+        //        case "Disco":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(211, 144, 79);
+        //            break;
+        //        case "Dubstep":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(246, 181, 71);
+        //            break;
+        //        case "Electronic":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 236, 179);
+        //            break;
+        //        case "Folk":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(0, 0, 0);
+        //            break;
+        //        case "Funk":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 130, 130);
+        //            break;
+        //        case "Gospel":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(244, 237, 216);
+        //            break;
+        //        case "Greek":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(140, 95, 61);
+        //            break;
+        //        case "Happy Hardcore":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(169, 124, 80);
+        //            break;
+        //        case "Heavy Metal":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(230, 177, 117);
+        //            break;
+        //        case "Hip Hop":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(227, 149, 129);
+        //            break;
+        //        case "House":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 193, 173);
+        //            break;
+        //        case "Indie":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(18, 231, 114);
+        //            break;
+        //        case "Irish":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(53, 181, 53);
+        //            break;
+        //        case "Jazz":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(0, 107, 60);
+        //            break;
+        //        case "Metal":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(0, 86, 63);
+        //            break;
+        //        case "New Wave":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(1, 50, 32);
+        //            break;
+        //        case "Opera":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(81, 40, 136);
+        //            break;
+        //        case "Polka":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(191, 0, 255);
+        //            break;
+        //        case "Pop":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(223, 0, 255);
+        //            break;
+        //        case "Pop Rock":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(246, 94, 255);
+        //            break;
+        //        case "Punk":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(253, 179, 255);
+        //            break;
+        //        case "R&B":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(8, 57, 194);
+        //            break;
+        //        case "Rap":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(38, 110, 246);
+        //            break;
+        //        case "Reggae":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(71, 201, 255);
+        //            break;
+        //        case "Reggaeton":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(130, 233, 255);
+        //            break;
+        //        case "Religius":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(184, 242, 255);
+        //            break;
+        //        case "Rock":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 176, 71);
+        //            break;
+        //        case "Salsa":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 211, 0);
+        //            break;
+        //        case "Samba":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 240, 0);
+        //            break;
+        //        case "Soukous":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 254, 85);
+        //            break;
+        //        case "Soul":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(255, 255, 194);
+        //            break;
+        //        case "Soundtrack":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(199, 175, 113);
+        //            break;
+        //        case "Tango":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(121, 94, 23);
+        //            break;
+        //        case "Zouk":
+        //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(0, 35, 116);
+        //            break;
+        //    }
+        //}
     }
 
     private float FindMaxValue(string columnName)
