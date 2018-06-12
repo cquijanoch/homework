@@ -15,7 +15,7 @@ public class MouseController : MonoBehaviour {
         RaycastHit hitInfo;
         if(Physics.Raycast(ray, out hitInfo))
         {
-
+            Debug.DrawRay(Camera.main.transform.position, Input.mousePosition);
             GameObject hitObject = hitInfo.transform.root.gameObject;
             Debug.Log("Mouse is over: " + hitInfo.collider.name);
             if (hitInfo.collider.name != "Plane")
