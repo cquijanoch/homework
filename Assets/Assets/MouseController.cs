@@ -6,11 +6,11 @@ public class MouseController : MonoBehaviour
 {
     GameObject selectedObject;
     RaycastHit selectedCoordinate; //Stores the PCA coordinate 
-    private LineRenderer lr;
+    //private LineRenderer lr;
     // Use this for initialization
     void Start()
     {
-        lr = GetComponent<LineRenderer>();
+       // lr = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -21,22 +21,30 @@ public class MouseController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hitInfo;
-        Debug.DrawRay(ray.origin, ray.direction, Color.red, 1000, false);
-        if (Physics.Raycast(ray, out hitInfo))
+        //Debug.DrawRay(ray.origin, ray.direction, Color.red, 1000, false);
+
+        if (Input.GetMouseButton(0))
         {
-            GameObject hitObject = hitInfo.transform.root.gameObject;
-            lr.SetPosition(1, new Vector3(0, 0, hitInfo.distance));
-            if (hitInfo.collider.name != "Plane" && Input.GetMouseButton(0))
+            Debug.Log("Mouse is over:  click");
+            
+
+            if (Physics.Raycast(ray, out hitInfo) )
             {
-                // Debug.Log("Mouse is over: " + hitInfo.collider.name);
+                Debug.DrawRay(ray.origin, ray.direction, Color.yellow);
+                GameObject hitObject = hitInfo.transform.root.gameObject;
+                // lr.SetPosition(1, new Vector3(0, 0, hitInfo.distance));
+
                 SelectObject(hitObject, hitInfo);
+
+            }
+            else
+            {
+                // lr.SetPosition(1, new Vector3(0, 0, 5000));
+                ClearSelection();
             }
         }
-        else
-        {
-            lr.SetPosition(1, new Vector3(0, 0, 5000));
-            ClearSelection();
-        }
+
+        
     }
 
     void SelectObject(GameObject obj, RaycastHit point)
