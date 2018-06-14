@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WriteArtistName : MonoBehaviour {
+public class ArtistObj : MonoBehaviour {
 
-    public GameObject artistPrefab;
+    public string nameArtist;
+    public float hotness;
 
-    // Use this for initialization
-    void Start () {
+
+	// Use this for initialization
+	void Start () {
 		
 	}
 	
