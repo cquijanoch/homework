@@ -483,10 +483,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47a8ceb31cb834bba3e3524212c324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputfile: MyData
-  columnX: 0
-  columnY: 1
-  columnZ: 2
+  inputfile: music_fix_2
+  columnX: 14
+  columnY: 15
+  columnZ: 16
   xName: 
   yName: 
   zName: 

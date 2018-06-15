@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MouseController : MonoBehaviour
 {
@@ -25,8 +26,6 @@ public class MouseController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            Debug.Log("Mouse is over:  click");
-            
 
             if (Physics.Raycast(ray, out hitInfo) )
             {
@@ -34,7 +33,8 @@ public class MouseController : MonoBehaviour
                 GameObject hitObject = hitInfo.transform.root.gameObject;
                 // lr.SetPosition(1, new Vector3(0, 0, hitInfo.distance));
 
-                SelectObject(hitObject, hitInfo);
+                if(hitInfo.transform.name != "Plane")
+                    SelectObject(hitObject, hitInfo);
 
             }
             else
@@ -60,23 +60,28 @@ public class MouseController : MonoBehaviour
         }
         selectedObject = obj;
         selectedCoordinate = point;
+        
+        GameObject r = GameObject.Find(point.transform.name);
+        MusicObj musicObj = r.GetComponent<MusicObj>();
+        musicObj.GetComponent<Renderer>().material.color = Color.green;
 
-        Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer>();
-        //   GameObject r = GameObject.Find(point.transform.name);
 
+        //Material m = rs[0].material;
+        //m.color = Color.green;
+        //rs[0].material = m;
 
-        foreach (Renderer r in rs)
-        {
-            //    Debug.Log("Obj anterior " + r.name + "Obj atual: " + point.transform.name);
+        //foreach (Renderer r in rs)
+        //{
+        //    //    Debug.Log("Obj anterior " + r.name + "Obj atual: " + point.transform.name);
 
-            if (point.transform.name == r.name)
-            {
+        //    if (point.transform.name == r.name)
+        //    {
 
-                Material m = r.material;
-                m.color = Color.green;
-                r.material = m;
-            }
-        }
+        //        Material m = r.material;
+        //        m.color = Color.green;
+        //        r.material = m;
+        //    }
+        //}
 
     }
 
