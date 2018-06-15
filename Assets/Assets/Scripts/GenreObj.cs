@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArtistObj : MonoBehaviour {
+public class GenreObj : MonoBehaviour {
 
-    public string nameArtist;
-    public float hotness;
+    public string nameGenre;
     public bool selected = false;
 }

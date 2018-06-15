@@ -9,14 +9,19 @@ public class WriteArtistName : MonoBehaviour {
 
     [SerializeField] Transform artistName_t;
 
-    // Use this for initialization
+    public string inputfile;
+    private List<Dictionary<string, object>> artistList;
+    private string artistName = "artist";
+
     void Start () {
-        Debug.Log("aaa");
-        for (int y = 0; y < 15; y++)
+        artistList = CSVReader.Read(inputfile);
+        List<string> columnList = new List<string>(artistList[1].Keys);
+
+        for(int i = 0; i < artistList.Count ; i++)
         {
             GameObject artistName = Instantiate(artistPrefab,artistName_t) as GameObject;
-            artistName.GetComponentInChildren<Text>().text = y + "";
-            artistName.GetComponent<ArtistObj>().nameArtist = y + "";
+            artistName.GetComponentInChildren<Text>().text = System.Convert.ToString(artistList[i][columnList[0]]);
+            artistName.GetComponent<ArtistObj>().nameArtist = System.Convert.ToString(artistList[i][columnList[0]]);
             artistName.GetComponent<Button>().onClick.AddListener(
                 delegate
                 {
