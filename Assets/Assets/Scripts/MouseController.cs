@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class MouseController : MonoBehaviour
 {
-    GameObject selectedObject;
-    RaycastHit selectedCoordinate; //Stores the PCA coordinate 
+    public GameObject selectedObject = null;
+    public RaycastHit selectedCoordinate; //Stores the PCA coordinate 
+    public List<MusicObj> selectedObjects = null;
+    private bool firstOfMultipleSelection = true;
     //private LineRenderer lr;
     // Use this for initialization
     void Start()
@@ -17,25 +19,47 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hitInfo;
         //Debug.DrawRay(ray.origin, ray.direction, Color.red, 1000, false);
 
-        if (Input.GetMouseButton(0))
+
+       if(Input.GetMouseButton(1))
+       {
+
+            if(Input.GetMouseButton(0))
+            {
+
+                if (Physics.Raycast(ray, out hitInfo))
+                {
+                    GameObject hitObject = hitInfo.transform.root.gameObject;
+                    if (hitInfo.transform.name != "Plane")
+                    {
+                        SelectMultipleObjects(hitObject, hitInfo);
+                        firstOfMultipleSelection = false;
+                    }
+                }
+
+            }
+        }
+      
+
+        else if (Input.GetMouseButton(0))
         {
 
-            if (Physics.Raycast(ray, out hitInfo) )
+            ClearAllSelections();
+            if (Physics.Raycast(ray, out hitInfo))
             {
                 Debug.DrawRay(ray.origin, ray.direction, Color.yellow);
                 GameObject hitObject = hitInfo.transform.root.gameObject;
                 // lr.SetPosition(1, new Vector3(0, 0, hitInfo.distance));
 
-                if(hitInfo.transform.name != "Plane")
-                    SelectObject(hitObject, hitInfo);
-
+                if (hitInfo.transform.name != "Plane")
+                {
+                    SelectSingleObject(hitObject, hitInfo);
+                    firstOfMultipleSelection = true;
+                }
             }
             else
             {
@@ -44,24 +68,31 @@ public class MouseController : MonoBehaviour
             }
         }
 
+     //  else if()
+
         
     }
 
-    void SelectObject(GameObject obj, RaycastHit point)
+    void SelectSingleObject(GameObject obj, RaycastHit point)
     {
         Debug.Log("Objeto selecionado " + point.transform.name);
 
         if (selectedObject != null)
         {
+
             if (point.transform.name == selectedCoordinate.transform.name)
+            {
+              
                 return;
+            }
 
             ClearSelection();
+
         }
         selectedObject = obj;
         selectedCoordinate = point;
         
-        GameObject r = GameObject.Find(point.transform.name);
+        GameObject r = GameObject.Find(point.transform.name); //this might me slower than the foreach method
         MusicObj musicObj = r.GetComponent<MusicObj>();
         musicObj.GetComponent<Renderer>().material.color = Color.green;
 
@@ -85,6 +116,33 @@ public class MouseController : MonoBehaviour
 
     }
 
+    void SelectMultipleObjects(GameObject obj, RaycastHit point)
+    {
+
+        Debug.Log("Objeto selecionado " + point.transform.name);
+
+        if (firstOfMultipleSelection == true)
+            ClearSelection();
+
+        if (selectedObject != null)
+        {
+
+            if (point.transform.name == selectedCoordinate.transform.name)
+            {
+                return;
+            }
+        }
+        selectedObject = obj;
+        selectedCoordinate = point;
+
+        GameObject r = GameObject.Find(point.transform.name); //this might me slower than the foreach method
+        MusicObj musicObj = r.GetComponent<MusicObj>();
+        musicObj.GetComponent<Renderer>().material.color = Color.green;
+
+        selectedObjects.Add(musicObj);
+
+    }
+
     void ClearSelection()
     {
 
@@ -105,5 +163,19 @@ public class MouseController : MonoBehaviour
         }
         selectedObject = null;
         //selectedCoordinate = null;
+    }
+
+
+    public void ClearAllSelections()
+    {
+        
+        foreach (MusicObj obj in selectedObjects)
+        {
+            obj.GetComponent<Renderer>().material.color = Color.white;
+
+        }
+        ClearSelection();
+
+
     }
 }
