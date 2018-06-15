@@ -116,21 +116,21 @@ public class DataPlotter : MonoBehaviour
 
             MusicObj musicObj = dataPoint.GetComponent<MusicObj>();
             musicObj.ColumnArtistName = System.Convert.ToString(pointList[i][artistName]);
-            musicObj.ColumnArtistHotness = System.Convert.ToSingle(pointList[i][artistHotnessName]);
-            //musicObj.ColumnDuration = System.Convert.ToSingle(pointList[i][durationName]);
-            //musicObj.ColumnFamiliarity = System.Convert.ToSingle(pointList[i][familiarityName]);
-            //musicObj.ColumnKey = System.Convert.ToSingle(pointList[i][keyName]);
-            //musicObj.ColumnLocation = System.Convert.ToString(pointList[i][locationName]);
-            //musicObj.ColumnLoudness = System.Convert.ToSingle(pointList[i][loudnessName]);
+            musicObj.ColumnArtistHotness = System.Convert.ToDecimal(pointList[i][artistHotnessName]);
+            musicObj.ColumnDuration = System.Convert.ToDecimal(pointList[i][durationName]);
+            musicObj.ColumnFamiliarity = System.Convert.ToDecimal(pointList[i][familiarityName]);
+            musicObj.ColumnKey = System.Convert.ToDouble(pointList[i][keyName]);
+            musicObj.ColumnLocation = System.Convert.ToString(pointList[i][locationName]);
+            musicObj.ColumnLoudness = System.Convert.ToDecimal(pointList[i][loudnessName]);
             //musicObj.ColumnMode = System.Convert.ToInt32(pointList[i][modeName]);
-            //musicObj.ColumnReleaseName = System.Convert.ToString(pointList[i][releaseName]);
-            //musicObj.ColumnSongHotness = System.Convert.ToSingle(pointList[i][songHotnessName]);
-            //musicObj.ColumnTempo = System.Convert.ToSingle(pointList[i][tempoName]);
-            //musicObj.ColumnTerms = System.Convert.ToString(pointList[i][termsName]);
-            //musicObj.ColumnTitle = System.Convert.ToString(pointList[i][titleName]);
-            //musicObj.ColumnX = System.Convert.ToSingle(pointList[i][xName]);
-            //musicObj.ColumnY = System.Convert.ToSingle(pointList[i][yName]);
-            //musicObj.ColumnZ = System.Convert.ToSingle(pointList[i][zName]);
+            musicObj.ColumnReleaseName = System.Convert.ToString(pointList[i][releaseName]);
+            //musicObj.ColumnSongHotness = System.Convert.ToDecimal(pointList[i][songHotnessName]);
+            musicObj.ColumnTempo = System.Convert.ToDouble(pointList[i][tempoName]);
+            musicObj.ColumnTerms = System.Convert.ToString(pointList[i][termsName]);
+            musicObj.ColumnTitle = System.Convert.ToString(pointList[i][titleName]);
+            musicObj.ColumnX = System.Convert.ToDecimal(pointList[i][xName]);
+            musicObj.ColumnY = System.Convert.ToDecimal(pointList[i][yName]);
+            musicObj.ColumnZ = System.Convert.ToDecimal(pointList[i][zName]);
             //musicObj.ColumnYear = System.Convert.ToInt32(pointList[i][yearName]);
 
             //Debug.Log(System.Convert.ToString(pointList[i][cColor]));

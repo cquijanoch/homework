@@ -12,7 +12,7 @@ public class WriteArtistName : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Debug.Log("aaa");
-        for (int y = 0; y < 5; y++)
+        for (int y = 0; y < 15; y++)
         {
             GameObject artistName = Instantiate(artistPrefab,artistName_t) as GameObject;
             artistName.GetComponentInChildren<Text>().text = y + "";
