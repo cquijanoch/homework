@@ -10,7 +10,7 @@ public class DataPlotter : MonoBehaviour
     public string inputfile;
 
 
-    private List<Dictionary<string, object>> pointList;
+    public List<Dictionary<string, object>> pointList;
 
     // Indices for columns to be assigned
     public int columnX = 0;
