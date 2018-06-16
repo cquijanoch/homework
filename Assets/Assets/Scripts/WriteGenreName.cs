@@ -36,7 +36,7 @@ public class WriteGenreName : MonoBehaviour {
     void clickFunction(GameObject genreName)
     {
         Debug.Log(genreName.GetComponent<GenreObj>().nameGenre);
-        genreName.GetComponent<GenreObj>().selected = !genreName.GetComponent<ArtistObj>().selected;
+        genreName.GetComponent<GenreObj>().selected = !genreName.GetComponent<GenreObj>().selected;
         if(!genreName.GetComponent<GenreObj>().selected)
             genreName.GetComponent<Image>().color = ConvertColor(255, 255, 255, 65);
         else

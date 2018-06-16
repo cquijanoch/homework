@@ -59,7 +59,10 @@ public class DataPlotter : MonoBehaviour
     public GameObject PointPrefab;
     
     public GameObject PointHolder;
-    
+
+    public List<GameObject> dataPointList;
+
+
     void Start()
     {
         pointList = CSVReader.Read(inputfile);
@@ -109,8 +112,8 @@ public class DataPlotter : MonoBehaviour
             GameObject dataPoint = Instantiate( PointPrefab, new Vector3(x, y, z) * plotScale,  Quaternion.identity);
 
             dataPoint.transform.parent = PointHolder.transform;
-            
-            string dataPointName = pointList[i][xName] + " "  + pointList[i][yName] + " " + pointList[i][zName];
+
+            string dataPointName = i + "";// pointList[i][xName] + " "  + pointList[i][yName] + " " + pointList[i][zName];
             string dataPointGenero = pointList[i][cColor] + "";
             dataPoint.transform.name = dataPointName;
 
@@ -278,6 +281,7 @@ public class DataPlotter : MonoBehaviour
             //            dataPoint.GetComponent<Renderer>().material.color =ConvertColor(0, 35, 116);
             //            break;
             //    }
+            dataPointList.Add(dataPoint);
         }
     }
 

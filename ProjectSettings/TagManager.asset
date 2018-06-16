@@ -6,6 +6,8 @@ TagManager:
   tags:
   - FilterCanvas
   - FilterSearch
+  - ArtistButton
+  - GenreButton
   layers:
   - Default
   - TransparentFX
