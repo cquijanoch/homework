@@ -6,8 +6,8 @@ TagManager:
   tags:
   - FilterCanvas
   - FilterSearch
-  - ArtistButton
-  - GenreButton
+  - Fire
+  - PanelArtist
   layers:
   - Default
   - TransparentFX
