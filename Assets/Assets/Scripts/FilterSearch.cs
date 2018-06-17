@@ -15,8 +15,8 @@ public class FilterSearch : MonoBehaviour {
     List<string> genreFiltered;
 
     void Start () {
-        dpScript = myPlotter.GetComponent<DataPlotter>();
         
+     
         //filterSearchObj = GameObject.FindGameObjectWithTag("FilterSearch");
         //foreach (Transform child in artistNameContainer)
         //{
@@ -31,6 +31,7 @@ public class FilterSearch : MonoBehaviour {
 
     public void clickFunction()
     {
+        dpScript = myPlotter.GetComponent<DataPlotter>();
         buttonsArtistList = gArtistNameContainer.GetComponentsInChildren<GameObject>();
         foreach (GameObject buttArt in buttonsArtistList)
         {
