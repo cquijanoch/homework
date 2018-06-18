@@ -9,6 +9,7 @@ public class FilterHideShow : MonoBehaviour {
     {
         GameObject filterObj = GameObject.FindGameObjectWithTag("FilterCanvas");
         filterCanvas = filterObj.GetComponent<CanvasGroup>();
+        Hide();
 
     }
 

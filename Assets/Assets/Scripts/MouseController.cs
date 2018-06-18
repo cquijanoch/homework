@@ -9,11 +9,16 @@ public class MouseController : MonoBehaviour
     public RaycastHit selectedCoordinate; //Stores the PCA coordinate 
     public List<MusicObj> selectedObjects = null;
     private bool firstOfMultipleSelection = true;
+    [SerializeField] public Text musicCurrentText;
+    [SerializeField] public Text artistCurrentText;
+    [SerializeField] public Text genreCurrentText;
+    [SerializeField] public Text locationCurrentText;
     //private LineRenderer lr;
     // Use this for initialization
     void Start()
     {
-       // lr = GetComponent<LineRenderer>();
+        // lr = GetComponent<LineRenderer>();
+       
     }
 
     // Update is called once per frame
@@ -51,7 +56,7 @@ public class MouseController : MonoBehaviour
             ClearAllSelections();
             if (Physics.Raycast(ray, out hitInfo))
             {
-                Debug.DrawRay(ray.origin, ray.direction, Color.yellow);
+                //Debug.DrawRay(ray.origin, ray.direction, Color.yellow);
                 GameObject hitObject = hitInfo.transform.root.gameObject;
                 // lr.SetPosition(1, new Vector3(0, 0, hitInfo.distance));
 
@@ -76,7 +81,7 @@ public class MouseController : MonoBehaviour
     void SelectSingleObject(GameObject obj, RaycastHit point)
     {
         Debug.Log("Objeto selecionado " + point.transform.name);
-
+        
         if (selectedObject != null)
         {
 
@@ -95,7 +100,10 @@ public class MouseController : MonoBehaviour
         GameObject r = GameObject.Find(point.transform.name); //this might me slower than the foreach method
         MusicObj musicObj = r.GetComponent<MusicObj>();
         musicObj.GetComponent<Renderer>().material.color = Color.green;
-
+        musicCurrentText.text = musicObj.ColumnTitle;
+        artistCurrentText.text = musicObj.ColumnArtistName;
+        locationCurrentText.text = musicObj.ColumnLocation;
+        genreCurrentText.text = musicObj.ColumnTerms;
 
         //Material m = rs[0].material;
         //m.color = Color.green;
@@ -157,12 +165,15 @@ public class MouseController : MonoBehaviour
             if (selectedCoordinate.transform.name == r.name)
             {
                 Material m = r.material;
-                m.color = Color.white;
+                m.color = Color.clear;
                 r.material = m;
             }
         }
         selectedObject = null;
-        //selectedCoordinate = null;
+        musicCurrentText.text = "";
+        artistCurrentText.text = "";
+        locationCurrentText.text = "";
+        genreCurrentText.text = "";
     }
 
 
@@ -171,7 +182,7 @@ public class MouseController : MonoBehaviour
         
         foreach (MusicObj obj in selectedObjects)
         {
-            obj.GetComponent<Renderer>().material.color = Color.white;
+            obj.GetComponent<Renderer>().material.color = Color.clear;
 
         }
         ClearSelection();
