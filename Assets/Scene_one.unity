@@ -1829,6 +1829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPlotter: {fileID: 529365399}
+  artistName_t: {fileID: 0}
   gArtistNameContainer: {fileID: 0}
 --- !u!4 &1781224539
 Transform:
@@ -2056,6 +2057,7 @@ MonoBehaviour:
     type: 2}
   artistName_t: {fileID: 313942037}
   inputfile: artist
+  buttonArtistList: []
 --- !u!114 &1823340180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2083,4 +2085,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPlotter: {fileID: 529365399}
+  artistName_t: {fileID: 313942037}
   gArtistNameContainer: {fileID: 0}

@@ -7,9 +7,6 @@ public class FilterSearch : MonoBehaviour {
 
     DataPlotter dpScript;
     public GameObject myPlotter;
-
-    WriteArtistName waScript;
-
     public GameObject gArtistNameContainer;
     GameObject gGenreNameContainer;
     GameObject[] buttonsArtistList;
@@ -18,9 +15,10 @@ public class FilterSearch : MonoBehaviour {
     List<string> genreFiltered;
 
     void Start () {
-
-        
-       // waScript = GetComponent<WriteArtistName>().buttonArtistList;
+        artistFiltered = new List<string>();
+        genreFiltered = new List<string>();
+       
+        // waScript = GetComponent<WriteArtistName>().buttonArtistList;
 
 
         //filterSearchObj = GameObject.FindGameObjectWithTag("FilterSearch");
@@ -37,22 +35,28 @@ public class FilterSearch : MonoBehaviour {
 
     public void clickFunction()
     {
+        artistFiltered = new List<string>();
+        genreFiltered = new List<string>();
+        buttonsArtistList = GameObject.FindGameObjectsWithTag("ArtistButton");
+        buttonsGenreList = GameObject.FindGameObjectsWithTag("GenreButton");
         dpScript = myPlotter.GetComponent<DataPlotter>();
-        waScript = GetComponent<WriteArtistName>();
+       
 
-        foreach (GameObject buttArt in waScript.buttonArtistList)
+        foreach (GameObject buttArt in buttonsArtistList)
         {
-            if (buttArt.GetComponent<ArtistObj>().selected)
+            ArtistObj artObj = buttArt.GetComponent<ArtistObj>();
+            if (artObj.selected)
             {
-                artistFiltered.Add(buttArt.GetComponent<ArtistObj>().nameArtist);
+                artistFiltered.Add(artObj.nameArtist);
             }
         }
-        buttonsGenreList = gGenreNameContainer.GetComponentsInChildren<GameObject>();
-        foreach (GameObject buttGenre in buttonsArtistList)
+        
+        foreach (GameObject buttGenre in buttonsGenreList)
         {
-            if (buttGenre.GetComponent<GenreObj>().selected)
+            GenreObj genObj = buttGenre.GetComponent<GenreObj>();
+            if (genObj.selected)
             {
-                genreFiltered.Add(buttGenre.GetComponent<GenreObj>().nameGenre);
+                genreFiltered.Add(genObj.nameGenre);
             }
         }
 
@@ -71,6 +75,10 @@ public class FilterSearch : MonoBehaviour {
                 {
                     music.GetComponent<Renderer>().material.color = Color.red;
                 }
+                else
+                {
+                    music.GetComponent<Renderer>().material.color = Color.clear;
+                }
             }
 
             foreach (string genre in genreFiltered)
@@ -78,6 +86,10 @@ public class FilterSearch : MonoBehaviour {
                 if (genre.Equals(music.ColumnTerms))
                 {
                     music.GetComponent<Renderer>().material.color = Color.black;
+                }
+                else
+                {
+                    music.GetComponent<Renderer>().material.color = Color.clear;
                 }
             }
         }

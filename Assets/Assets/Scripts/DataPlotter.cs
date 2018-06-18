@@ -134,6 +134,8 @@ public class DataPlotter : MonoBehaviour
             musicObj.ColumnX = System.Convert.ToDecimal(pointList[i][xName]);
             musicObj.ColumnY = System.Convert.ToDecimal(pointList[i][yName]);
             musicObj.ColumnZ = System.Convert.ToDecimal(pointList[i][zName]);
+
+            dataPoint.GetComponent<Renderer>().material.color = Color.clear;
             //musicObj.ColumnYear = System.Convert.ToInt32(pointList[i][yearName]);
 
             //Debug.Log(System.Convert.ToString(pointList[i][cColor]));
