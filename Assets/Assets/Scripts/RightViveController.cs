@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ViveController : MonoBehaviour
+public class RightViveController : MonoBehaviour
 {
     public GameObject selectedObject = null;
     public RaycastHit selectedCoordinate; //Stores the PCA coordinate 
