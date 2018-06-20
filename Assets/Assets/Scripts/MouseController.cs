@@ -13,6 +13,11 @@ public class MouseController : MonoBehaviour
     [SerializeField] public Text artistCurrentText;
     [SerializeField] public Text genreCurrentText;
     [SerializeField] public Text locationCurrentText;
+    [SerializeField] public Text familiarityCurrentText;
+    [SerializeField] public Text artistHotnessCurrentText;
+    [SerializeField] public Text tempoCurrentText;
+    [SerializeField] public Text durationCurrentText;
+    string specifier = "G";
     //private LineRenderer lr;
     // Use this for initialization
     void Start()
@@ -104,6 +109,10 @@ public class MouseController : MonoBehaviour
         artistCurrentText.text = musicObj.ColumnArtistName;
         locationCurrentText.text = musicObj.ColumnLocation;
         genreCurrentText.text = musicObj.ColumnTerms;
+        familiarityCurrentText.text = musicObj.ColumnFamiliarity.ToString(specifier);
+        artistHotnessCurrentText.text = musicObj.ColumnArtistHotness.ToString(specifier);
+        tempoCurrentText.text = musicObj.ColumnTempo.ToString(specifier);
+        durationCurrentText.text = musicObj.ColumnDuration.ToString(specifier);
 
         //Material m = rs[0].material;
         //m.color = Color.green;
@@ -174,6 +183,10 @@ public class MouseController : MonoBehaviour
         artistCurrentText.text = "";
         locationCurrentText.text = "";
         genreCurrentText.text = "";
+        familiarityCurrentText.text = "";
+        artistHotnessCurrentText.text = "";
+        tempoCurrentText.text = "";
+        durationCurrentText.text = "";
     }
 
 

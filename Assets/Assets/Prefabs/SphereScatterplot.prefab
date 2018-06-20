@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135094119337295242}
   - component: {fileID: 23928877180025708}
   - component: {fileID: 114322736025517918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SphereScatterplot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

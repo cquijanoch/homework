@@ -8,6 +8,8 @@ TagManager:
   - FilterSearch
   - Fire
   - PanelArtist
+  - ArtistButton
+  - GenreButton
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - sphere
   - 
   - 
   - 

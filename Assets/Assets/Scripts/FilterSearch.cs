@@ -69,27 +69,19 @@ public class FilterSearch : MonoBehaviour {
         foreach (GameObject point in dpScript.dataPointList)
         {
             MusicObj music = point.GetComponent<MusicObj>();
+            music.GetComponent<Renderer>().material.color = Color.clear;
             foreach (string artist in artistFiltered)
             {
                 if (artist.Equals(music.ColumnArtistName))
                 {
                     music.GetComponent<Renderer>().material.color = Color.red;
                 }
-                else
-                {
-                    music.GetComponent<Renderer>().material.color = Color.clear;
-                }
             }
-
             foreach (string genre in genreFiltered)
             {
                 if (genre.Equals(music.ColumnTerms))
                 {
                     music.GetComponent<Renderer>().material.color = Color.black;
-                }
-                else
-                {
-                    music.GetComponent<Renderer>().material.color = Color.clear;
                 }
             }
         }
