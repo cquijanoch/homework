@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using HTC.UnityPlugin.Vive;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ public class FilterHideShow : MonoBehaviour {
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.F))
+        if(Input.GetKeyUp(KeyCode.F) || (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger)))
         {
             if (isLocked) Show(); else Hide();
             isLocked = !isLocked;

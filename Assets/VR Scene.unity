@@ -734,7 +734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.53947, y: 0.44}
+  m_AnchoredPosition: {x: 0.042, y: -0.22300011}
   m_SizeDelta: {x: 0.995, y: 3.266}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &642192158
@@ -843,6 +843,34 @@ Prefab:
     - target: {fileID: 463184, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 475582, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 470082, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 404836, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430650, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 418338, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 475928, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071970, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
@@ -1076,6 +1104,10 @@ MonoBehaviour:
   artistCurrentText: {fileID: 0}
   genreCurrentText: {fileID: 0}
   locationCurrentText: {fileID: 0}
+  familiarityCurrentText: {fileID: 0}
+  artistHotnessCurrentText: {fileID: 0}
+  tempoCurrentText: {fileID: 0}
+  durationCurrentText: {fileID: 0}
 --- !u!4 &957972570
 Transform:
   m_ObjectHideFlags: 0
@@ -1216,7 +1248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.656, y: 0.29799986}
+  m_AnchoredPosition: {x: 0.044, y: -0.766}
   m_SizeDelta: {x: 12.669, y: 40.299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1012625721

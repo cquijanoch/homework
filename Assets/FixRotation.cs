@@ -11,10 +11,10 @@ public class FixRotation : MonoBehaviour {
     }
     void Update()
     {
-        transform.eulerAngles = new Vector3(
-            0,
-            transform.eulerAngles.y,
-            0
-        );
+        //transform.eulerAngles = new Vector3(
+        //    0,
+        //    transform.eulerAngles.y,
+        //    0
+        //);
     }
 }
