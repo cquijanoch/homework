@@ -41,7 +41,7 @@ public class ReticlePoser : MonoBehaviour
 
     private void Update()
     {
-        viveEventsController = scriptViveEventsController.GetComponent<ViveEventsController>();
+        
 
     }
     protected virtual void LateUpdate()
@@ -84,24 +84,30 @@ public class ReticlePoser : MonoBehaviour
             hitTarget = result.gameObject;
             hitDistance = result.distance;
 
-            viveEventsController.GetComponent<ViveEventsController>();
-           
-            if (hitTarget.layer == 8)
-            {
-                if (isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+
+            
+           if (viveEventsController != null )
+           {
+                viveEventsController = scriptViveEventsController.GetComponent<ViveEventsController>();
+                viveEventsController.GetComponent<ViveEventsController>();
+                if (hitTarget.layer == 8)
                 {
-                    viveEventsController.leftRightHandTrigger(hitTarget);
+                    if (isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                    {
+                        viveEventsController.leftRightHandTrigger(hitTarget);
+                    }
+                    else if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                    {
+                        viveEventsController.rightHandTrigger(hitTarget);
+                    }
                 }
-                else if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                else
                 {
-                    viveEventsController.rightHandTrigger(hitTarget);
-                }
-            } else
-            {
-                if (!isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
-                {
-                    viveEventsController.GetComponent<ViveEventsController>();
-                    viveEventsController.ClearAllSelections();
+                    if (!isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                    {
+                        viveEventsController.GetComponent<ViveEventsController>();
+                        viveEventsController.ClearAllSelections();
+                    }
                 }
             }
             
@@ -113,7 +119,7 @@ public class ReticlePoser : MonoBehaviour
                 targetReticle.position = points[pointCount - 1];
                 targetReticle.rotation = Quaternion.LookRotation(points[pointCount - 1] - points[pointCount - 2], raycaster.transform.forward);
             }
-            if (!isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+            if (viveEventsController != null && !isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
             {
                 viveEventsController.GetComponent<ViveEventsController>();
                 viveEventsController.ClearAllSelections();
