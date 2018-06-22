@@ -35,10 +35,10 @@ public class MouseController : MonoBehaviour
         //Debug.DrawRay(ray.origin, ray.direction, Color.red, 1000, false);
 
 
-       if(Input.GetMouseButton(1))
+       if(Input.GetMouseButton(1)) // secondary
        {
 
-            if(Input.GetMouseButton(0))
+            if(Input.GetMouseButton(0)) //primary
             {
 
                 if (Physics.Raycast(ray, out hitInfo))
@@ -101,8 +101,8 @@ public class MouseController : MonoBehaviour
         }
         selectedObject = obj;
         selectedCoordinate = point;
-        
-        GameObject r = GameObject.Find(point.transform.name); //this might me slower than the foreach method
+        GameObject r = point.transform.gameObject;
+        //GameObject r = GameObject.Find(point.transform.name); //this might me slower than the foreach method
         MusicObj musicObj = r.GetComponent<MusicObj>();
         musicObj.GetComponent<Renderer>().material.color = Color.green;
         musicCurrentText.text = musicObj.ColumnTitle;
@@ -113,24 +113,6 @@ public class MouseController : MonoBehaviour
         artistHotnessCurrentText.text = musicObj.ColumnArtistHotness.ToString(specifier);
         tempoCurrentText.text = musicObj.ColumnTempo.ToString(specifier);
         durationCurrentText.text = musicObj.ColumnDuration.ToString(specifier);
-
-        //Material m = rs[0].material;
-        //m.color = Color.green;
-        //rs[0].material = m;
-
-        //foreach (Renderer r in rs)
-        //{
-        //    //    Debug.Log("Obj anterior " + r.name + "Obj atual: " + point.transform.name);
-
-        //    if (point.transform.name == r.name)
-        //    {
-
-        //        Material m = r.material;
-        //        m.color = Color.green;
-        //        r.material = m;
-        //    }
-        //}
-
     }
 
     void SelectMultipleObjects(GameObject obj, RaycastHit point)
@@ -151,8 +133,8 @@ public class MouseController : MonoBehaviour
         }
         selectedObject = obj;
         selectedCoordinate = point;
-
-        GameObject r = GameObject.Find(point.transform.name); //this might me slower than the foreach method
+        GameObject r = point.transform.gameObject;
+        //GameObject r = GameObject.Find(point.transform.name); //this might me slower than the foreach method
         MusicObj musicObj = r.GetComponent<MusicObj>();
         musicObj.GetComponent<Renderer>().material.color = Color.green;
 
@@ -165,19 +147,19 @@ public class MouseController : MonoBehaviour
 
         if (selectedObject == null)
             return;
-        Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer>();
+        //Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer>();
+        selectedObject.GetComponent<Renderer>().material.color = Color.clear;
 
+        //foreach (Renderer r in rs)
+        //{
 
-        foreach (Renderer r in rs)
-        {
-
-            if (selectedCoordinate.transform.name == r.name)
-            {
-                Material m = r.material;
-                m.color = Color.clear;
-                r.material = m;
-            }
-        }
+        //    if (selectedCoordinate.transform.name == r.name)
+        //    {
+        //        Material m = r.material;
+        //        m.color = Color.clear;
+        //        r.material = m;
+        //    }
+        //}
         selectedObject = null;
         musicCurrentText.text = "";
         artistCurrentText.text = "";

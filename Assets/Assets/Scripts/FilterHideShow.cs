@@ -16,7 +16,7 @@ public class FilterHideShow : MonoBehaviour {
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.F) || (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger)))
+        if(Input.GetKeyUp(KeyCode.F) || (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Menu)))
         {
             if (isLocked) Show(); else Hide();
             isLocked = !isLocked;

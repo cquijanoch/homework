@@ -1,6 +1,7 @@
 ﻿//========= Copyright 2016-2018, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.Pointer3D;
+using HTC.UnityPlugin.Vive;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -13,15 +14,18 @@ public class ReticlePoser : MonoBehaviour
 
     public Pointer3DRaycaster raycaster;
     [FormerlySerializedAs("Target")]
-    public Transform reticleForDefaultRay;
-    public Transform reticleForCurvedRay;
+    public Transform reticleForDefaultRay; // sphere
+    public Transform reticleForCurvedRay; //pyramid
     public bool showOnHitOnly = true;
 
-    public GameObject hitTarget;
+    public GameObject hitTarget; 
     public float hitDistance;
     public Material defaultReticleMaterial;
     public MeshRenderer[] reticleRenderer;
-
+    public GameObject scriptViveEventsController;
+    private ViveEventsController viveEventsController;
+    private bool isPressingRight = false;
+    private bool isPressingLeft = false;
     private Material m_matFromChanger;
 #if UNITY_EDITOR
     protected virtual void Reset()
@@ -34,6 +38,12 @@ public class ReticlePoser : MonoBehaviour
         reticleRenderer = GetComponentsInChildren<MeshRenderer>(true);
     }
 #endif
+
+    private void Update()
+    {
+        viveEventsController = scriptViveEventsController.GetComponent<ViveEventsController>();
+
+    }
     protected virtual void LateUpdate()
     {
         var points = raycaster.BreakPoints;
@@ -53,6 +63,16 @@ public class ReticlePoser : MonoBehaviour
         if (reticleForCurvedRay != null) { reticleForCurvedRay.gameObject.SetActive(isCurvedRay); }
 
         var targetReticle = isCurvedRay ? reticleForCurvedRay : reticleForDefaultRay;
+
+        if (ViveInput.GetPressUp(HandRole.LeftHand, ControllerButton.Trigger))
+            isPressingLeft = false;
+        if (ViveInput.GetPressDown(HandRole.LeftHand, ControllerButton.Trigger))
+            isPressingLeft = true;
+        if (ViveInput.GetPressUp(HandRole.RightHand, ControllerButton.Trigger))
+            isPressingRight = false;
+        if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+            isPressingRight = true;
+
         if (result.isValid)
         {
             if (targetReticle != null)
@@ -63,6 +83,28 @@ public class ReticlePoser : MonoBehaviour
 
             hitTarget = result.gameObject;
             hitDistance = result.distance;
+
+            viveEventsController.GetComponent<ViveEventsController>();
+           
+            if (hitTarget.layer == 8)
+            {
+                if (isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                {
+                    viveEventsController.leftRightHandTrigger(hitTarget);
+                }
+                else if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                {
+                    viveEventsController.rightHandTrigger(hitTarget);
+                }
+            } else
+            {
+                if (!isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                {
+                    viveEventsController.GetComponent<ViveEventsController>();
+                    viveEventsController.ClearAllSelections();
+                }
+            }
+            
         }
         else
         {
@@ -71,7 +113,11 @@ public class ReticlePoser : MonoBehaviour
                 targetReticle.position = points[pointCount - 1];
                 targetReticle.rotation = Quaternion.LookRotation(points[pointCount - 1] - points[pointCount - 2], raycaster.transform.forward);
             }
-
+            if (!isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+            {
+                viveEventsController.GetComponent<ViveEventsController>();
+                viveEventsController.ClearAllSelections();
+            }
             hitTarget = null;
             hitDistance = 0f;
         }
