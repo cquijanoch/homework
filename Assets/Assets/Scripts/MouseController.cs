@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MouseController : MonoBehaviour
@@ -18,7 +19,16 @@ public class MouseController : MonoBehaviour
     [SerializeField] public Text tempoCurrentText;
     [SerializeField] public Text durationCurrentText;
     string specifier = "G";
+    private int fingerID = -1;
     //private LineRenderer lr;
+
+    private void Awake()
+    {
+        #if !UNITY_EDITOR
+             fingerID = 0; 
+        #endif
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -30,18 +40,21 @@ public class MouseController : MonoBehaviour
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
         RaycastHit hitInfo;
         //Debug.DrawRay(ray.origin, ray.direction, Color.red, 1000, false);
+        if (EventSystem.current.IsPointerOverGameObject(fingerID))    // is the touch on the GUI
+        {
+            // GUI Action
+            return;
+        }
 
-
-       if(Input.GetMouseButton(1)) // secondary
+        if (Input.GetMouseButton(1)) // secondary
        {
 
             if(Input.GetMouseButton(0)) //primary
             {
 
-                if (Physics.Raycast(ray, out hitInfo))
+                if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
                 {
                     GameObject hitObject = hitInfo.transform.root.gameObject;
                     if (hitInfo.transform.name != "Plane")
@@ -59,7 +72,7 @@ public class MouseController : MonoBehaviour
         {
 
             ClearAllSelections();
-            if (Physics.Raycast(ray, out hitInfo))
+            if (Physics.Raycast(ray, out hitInfo , Mathf.Infinity))
             {
                 //Debug.DrawRay(ray.origin, ray.direction, Color.yellow);
                 GameObject hitObject = hitInfo.transform.root.gameObject;
@@ -147,19 +160,19 @@ public class MouseController : MonoBehaviour
 
         if (selectedObject == null)
             return;
-        //Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer>();
-        selectedObject.GetComponent<Renderer>().material.color = Color.clear;
+        Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer>();
+        //selectedObject.GetComponent<Renderer>().material.color = Color.clear;
 
-        //foreach (Renderer r in rs)
-        //{
+        foreach (Renderer r in rs)
+        {
 
-        //    if (selectedCoordinate.transform.name == r.name)
-        //    {
-        //        Material m = r.material;
-        //        m.color = Color.clear;
-        //        r.material = m;
-        //    }
-        //}
+            if (selectedCoordinate.transform.name == r.name)
+            {
+                Material m = r.material;
+                m.color = Color.clear;
+                r.material = m;
+            }
+        }
         selectedObject = null;
         musicCurrentText.text = "";
         artistCurrentText.text = "";
