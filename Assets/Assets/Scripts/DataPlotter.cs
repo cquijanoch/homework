@@ -100,7 +100,7 @@ public class DataPlotter : MonoBehaviour
         float yMin = FindMinValue(yName);
         float zMin = FindMinValue(zName);
 
-        for (var i = 0; i < pointList.Count; i++)
+        for (var i = 0; i < 500; i++)
         {
           
             float x = (System.Convert.ToSingle(pointList[i][xName]) - xMin) / (xMax - xMin);
@@ -112,6 +112,7 @@ public class DataPlotter : MonoBehaviour
             GameObject dataPoint = Instantiate( PointPrefab, new Vector3(x, y, z) * plotScale,  Quaternion.identity);
 
             dataPoint.transform.parent = PointHolder.transform;
+            dataPoint.AddComponent<ScatterplotRotation>();
 
             string dataPointName = i + "";// pointList[i][xName] + " "  + pointList[i][yName] + " " + pointList[i][zName];
             //string dataPointGenero = pointList[i][cColor] + "";
