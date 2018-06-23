@@ -18,9 +18,6 @@ public class ViveEventsController : MonoBehaviour {
     [SerializeField] public Text tempoCurrentText;
     [SerializeField] public Text durationCurrentText;
 
-    bool isPressingRightTrigger = false;
-    bool isPressingLeftTrigger = true;
-
     string specifier = "G";
 
     void Update ()

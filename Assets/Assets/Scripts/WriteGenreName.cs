@@ -11,7 +11,7 @@ public class WriteGenreName : MonoBehaviour {
 
     public string inputfile;
     private List<Dictionary<string, object>> genreList;
-    private string genreName = "genero";
+    //private string genreName = "genero";
 
     void Start () {
         genreList = CSVReader.Read(inputfile);

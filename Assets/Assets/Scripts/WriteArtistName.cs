@@ -12,7 +12,7 @@ public class WriteArtistName : MonoBehaviour {
     public string inputfile;
     private List<Dictionary<string, object>> artistList;
     public List<GameObject> buttonArtistList;
-    private string artistName = "artist";
+    //private string artistName = "artist";
 
     void Start () {
         artistList = CSVReader.Read(inputfile);

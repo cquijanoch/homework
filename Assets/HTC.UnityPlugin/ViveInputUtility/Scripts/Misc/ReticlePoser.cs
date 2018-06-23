@@ -24,7 +24,6 @@ public class ReticlePoser : MonoBehaviour
     public MeshRenderer[] reticleRenderer;
     public GameObject scriptViveEventsController;
     private ViveEventsController viveEventsController;
-    private bool isPressingRight = false;
     private bool isPressingLeft = false;
     private Material m_matFromChanger;
 #if UNITY_EDITOR
@@ -68,10 +67,6 @@ public class ReticlePoser : MonoBehaviour
             isPressingLeft = false;
         if (ViveInput.GetPressDown(HandRole.LeftHand, ControllerButton.Trigger))
             isPressingLeft = true;
-        if (ViveInput.GetPressUp(HandRole.RightHand, ControllerButton.Trigger))
-            isPressingRight = false;
-        if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
-            isPressingRight = true;
 
         if (result.isValid)
         {
@@ -83,10 +78,8 @@ public class ReticlePoser : MonoBehaviour
 
             hitTarget = result.gameObject;
             hitDistance = result.distance;
-
-
             
-           if (viveEventsController != null )
+           if (scriptViveEventsController != null )
            {
                 viveEventsController = scriptViveEventsController.GetComponent<ViveEventsController>();
                 viveEventsController.GetComponent<ViveEventsController>();
@@ -119,8 +112,9 @@ public class ReticlePoser : MonoBehaviour
                 targetReticle.position = points[pointCount - 1];
                 targetReticle.rotation = Quaternion.LookRotation(points[pointCount - 1] - points[pointCount - 2], raycaster.transform.forward);
             }
-            if (viveEventsController != null && !isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+            if (scriptViveEventsController != null && !isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
             {
+                viveEventsController = scriptViveEventsController.GetComponent<ViveEventsController>();
                 viveEventsController.GetComponent<ViveEventsController>();
                 viveEventsController.ClearAllSelections();
             }

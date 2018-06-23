@@ -114,7 +114,7 @@ public class DataPlotter : MonoBehaviour
             dataPoint.transform.parent = PointHolder.transform;
 
             string dataPointName = i + "";// pointList[i][xName] + " "  + pointList[i][yName] + " " + pointList[i][zName];
-            string dataPointGenero = pointList[i][cColor] + "";
+            //string dataPointGenero = pointList[i][cColor] + "";
             dataPoint.transform.name = dataPointName;
 
             MusicObj musicObj = dataPoint.GetComponent<MusicObj>();
