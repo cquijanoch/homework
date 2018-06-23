@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ViveEventsController : MonoBehaviour {
 
     private bool firstOfMultipleSelection = true;
+    public GameObject myFPS;
     public GameObject selectedObject = null;
     public List<MusicObj> selectedObjects = null;
     [SerializeField] public Text musicCurrentText;
