@@ -36,3 +36,13 @@ fviz_pca_ind(data1.pca,
                           addEllipses = TRUE, # Concentration ellipses
              legend.title = "Groups"
              )
+			 
+			 
+		
+ data1.subdataset1 <- read.csv("msd-subdataset1.csv",header=T)
+ 
+for (i in 1:59600){
+	if(i %% 100 != 0) {
+		next
+	}
+	data1.subdataset1[ nrow(data1.subdataset1) + 1,

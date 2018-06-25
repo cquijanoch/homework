@@ -100,7 +100,7 @@ public class DataPlotter : MonoBehaviour
         float yMin = FindMinValue(yName);
         float zMin = FindMinValue(zName);
 
-        for (var i = 0; i < pointList.Count; i++)
+        for (var i = 0; i < pointList.Count; i=i+10)
         {
           
             float x = (System.Convert.ToSingle(pointList[i][xName]) - xMin) / (xMax - xMin);
