@@ -48,10 +48,10 @@ public class MouseController : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButton(1)) // secondary
+        if (Input.GetMouseButton(1)) // secondary (right)
        {
 
-            if(Input.GetMouseButton(0)) //primary
+            if(Input.GetMouseButton(0)) //primary (left)
             {
 
                 if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))

@@ -112,6 +112,7 @@ public class DataPlotter : MonoBehaviour
             GameObject dataPoint = Instantiate( PointPrefab, new Vector3(x, y, z) * plotScale,  Quaternion.identity);
 
             dataPoint.transform.parent = PointHolder.transform;
+            dataPoint.AddComponent<ScatterplotRotation>();
 
             string dataPointName = i + "";// pointList[i][xName] + " "  + pointList[i][yName] + " " + pointList[i][zName];
             //string dataPointGenero = pointList[i][cColor] + "";
