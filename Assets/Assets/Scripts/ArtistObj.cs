@@ -6,5 +6,5 @@ public class ArtistObj : MonoBehaviour {
 
     public string nameArtist;
     public float hotness;
-    public bool selected = false;
+    public bool selected = true;
 }

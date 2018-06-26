@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameGenre: 
-  selected: 0
+  selected: 1
 --- !u!114 &114526157009803098
 MonoBehaviour:
   m_ObjectHideFlags: 1
