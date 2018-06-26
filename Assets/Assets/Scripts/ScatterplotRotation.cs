@@ -6,6 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class ScatterplotRotation : MonoBehaviour {
 
     public GameObject myFPS;
+    public GameObject myPivot;
     public FirstPersonController myFPSControllerScript;
     
     float rotationSpeed = 20;
@@ -29,18 +30,17 @@ public class ScatterplotRotation : MonoBehaviour {
 
     }
 
-
-
     void OnMouseDrag()
     {
-          myFPSControllerScript.useMouseLook = false;
-          float rotationX = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Deg2Rad;
-          float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Deg2Rad;
+        myPivot = GameObject.Find("PointHolderPivot"); //might be slow
+        myFPSControllerScript.useMouseLook = false;
+        //myPivot = 
+         float rotationX = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Deg2Rad;
+         float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Deg2Rad;
 
         obj.transform.RotateAround(Vector3.up, rotationX);
         obj.transform.RotateAround(Vector3.right, rotationY) ;
-        //myFPSControllerScript.useMouseLook = true;
-
+        //myFPSControllerScript.useMouseLook = true; 
 
         // obj.transform.Rotate(Vector3.up, -rotationX);
         //obj.transform.Rotate(Vector3.right, rotationY);
