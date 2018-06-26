@@ -1246,10 +1246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47a8ceb31cb834bba3e3524212c324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputfile: music_fix_2
-  columnX: 14
-  columnY: 15
-  columnZ: 16
+  inputfile: msd-subdataset1
+  columnX: 0
+  columnY: 1
+  columnZ: 2
   xName: 
   yName: 
   zName: 
@@ -1319,7 +1319,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 191206, guid: 12ee41758a687f54e98120e486ccd16e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12ee41758a687f54e98120e486ccd16e, type: 2}
