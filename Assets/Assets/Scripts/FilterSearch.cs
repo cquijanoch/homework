@@ -17,20 +17,6 @@ public class FilterSearch : MonoBehaviour {
     void Start () {
         artistFiltered = new List<string>();
         genreFiltered = new List<string>();
-       
-        // waScript = GetComponent<WriteArtistName>().buttonArtistList;
-
-
-        //filterSearchObj = GameObject.FindGameObjectWithTag("FilterSearch");
-        //foreach (Transform child in artistNameContainer)
-        //{
-        //    filterSearchObj.GetComponent<Button>().onClick.AddListener(
-        //    delegate
-        //        {
-        //            clickFunction();
-        //        }
-        //    );
-        //}
     }
 
     public void clickFunction()
@@ -59,7 +45,6 @@ public class FilterSearch : MonoBehaviour {
                 genreFiltered.Add(genObj.nameGenre);
             }
         }
-
         search();
        
     }
@@ -74,14 +59,16 @@ public class FilterSearch : MonoBehaviour {
             {
                 if (artist.Equals(music.ColumnArtistName))
                 {
-                    music.GetComponent<Renderer>().material.color = Color.red;
+                    Color c = music.Color;
+                    c.a = 100 / 255.0f;
+                    music.GetComponent<Renderer>().material.color = c;
                 }
             }
             foreach (string genre in genreFiltered)
             {
                 if (genre.Equals(music.ColumnTerms))
                 {
-                    music.GetComponent<Renderer>().material.color = Color.black;
+                    music.GetComponent<Renderer>().material.color = music.Color;
                 }
             }
         }

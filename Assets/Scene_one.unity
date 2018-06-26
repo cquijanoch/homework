@@ -1075,10 +1075,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47a8ceb31cb834bba3e3524212c324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputfile: music_fix_2
-  columnX: 14
-  columnY: 15
-  columnZ: 16
+  inputfile: msd-subdataset1
+  columnX: 0
+  columnY: 1
+  columnZ: 2
   xName: 
   yName: 
   zName: 
@@ -3182,7 +3182,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a3384ef3e2313034f9016ad8a1f3999f, type: 2}
+  - {fileID: 2100000, guid: 7e90f10e44a186a49a00679d068515ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3362,8 +3362,7 @@ MonoBehaviour:
   artistPrefab: {fileID: 1592366871215766, guid: a495fe11ecf7aaa4c874ee35c9529306,
     type: 2}
   artistName_t: {fileID: 313942037}
-  inputfile: artist
-  buttonArtistList: []
+  myPlotter: {fileID: 529365399}
 --- !u!114 &1823340180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3378,7 +3377,7 @@ MonoBehaviour:
   genrePrefab: {fileID: 1679679119017066, guid: 4a74607b38b409a4385128b5dfe78fbd,
     type: 2}
   genreName_t: {fileID: 516473237}
-  inputfile: genero
+  myPlotter: {fileID: 529365399}
 --- !u!114 &1823340181
 MonoBehaviour:
   m_ObjectHideFlags: 0

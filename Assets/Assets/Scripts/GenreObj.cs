@@ -5,5 +5,5 @@ using UnityEngine;
 public class GenreObj : MonoBehaviour {
 
     public string nameGenre;
-    public bool selected = false;
+    public bool selected = true;
 }

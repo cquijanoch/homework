@@ -80,7 +80,7 @@ public class ViveEventsController : MonoBehaviour {
     {
         if (selectedObject == null)
             return;
-        selectedObject.GetComponent<Renderer>().material.color = Color.clear;
+        selectedObject.GetComponent<Renderer>().material.color = selectedObject.GetComponent<MusicObj>().Color;
         selectedObject = null;
         musicCurrentText.text = "";
         artistCurrentText.text = "";
@@ -96,7 +96,7 @@ public class ViveEventsController : MonoBehaviour {
     {
         foreach (MusicObj obj in selectedObjects)
         {
-            obj.GetComponent<Renderer>().material.color = Color.clear;
+            obj.GetComponent<Renderer>().material.color = obj.Color;
         }
         ClearSelection();
     }

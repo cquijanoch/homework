@@ -50,10 +50,8 @@ public class MouseController : MonoBehaviour
 
         if (Input.GetMouseButton(1)) // secondary (right)
        {
-
             if(Input.GetMouseButton(0)) //primary (left)
             {
-
                 if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
                 {
                     GameObject hitObject = hitInfo.transform.root.gameObject;
@@ -63,21 +61,16 @@ public class MouseController : MonoBehaviour
                         firstOfMultipleSelection = false;
                     }
                 }
-
             }
         }
       
 
         else if (Input.GetMouseButton(0))
         {
-
             ClearAllSelections();
             if (Physics.Raycast(ray, out hitInfo , Mathf.Infinity))
             {
-                //Debug.DrawRay(ray.origin, ray.direction, Color.yellow);
                 GameObject hitObject = hitInfo.transform.root.gameObject;
-                // lr.SetPosition(1, new Vector3(0, 0, hitInfo.distance));
-
                 if (hitInfo.transform.name != "Plane")
                 {
                     SelectSingleObject(hitObject, hitInfo);
@@ -86,20 +79,13 @@ public class MouseController : MonoBehaviour
             }
             else
             {
-                // lr.SetPosition(1, new Vector3(0, 0, 5000));
                 ClearSelection();
             }
         }
-
-     //  else if()
-
-        
     }
 
     void SelectSingleObject(GameObject obj, RaycastHit point)
     {
-        Debug.Log("Objeto selecionado " + point.transform.name);
-        
         if (selectedObject != null)
         {
 
@@ -130,9 +116,6 @@ public class MouseController : MonoBehaviour
 
     void SelectMultipleObjects(GameObject obj, RaycastHit point)
     {
-
-        Debug.Log("Objeto selecionado " + point.transform.name);
-
         if (firstOfMultipleSelection == true)
             ClearSelection();
 
@@ -150,27 +133,23 @@ public class MouseController : MonoBehaviour
         //GameObject r = GameObject.Find(point.transform.name); //this might me slower than the foreach method
         MusicObj musicObj = r.GetComponent<MusicObj>();
         musicObj.GetComponent<Renderer>().material.color = Color.green;
-
         selectedObjects.Add(musicObj);
 
     }
 
     void ClearSelection()
     {
-
         if (selectedObject == null)
             return;
         Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer>();
         //selectedObject.GetComponent<Renderer>().material.color = Color.clear;
-
+        GameObject rh = selectedCoordinate.transform.gameObject;
+        MusicObj musicObj = rh.GetComponent<MusicObj>();
         foreach (Renderer r in rs)
         {
-
             if (selectedCoordinate.transform.name == r.name)
             {
-                Material m = r.material;
-                m.color = Color.clear;
-                r.material = m;
+                r.material.color = musicObj.Color;
             }
         }
         selectedObject = null;
@@ -187,14 +166,11 @@ public class MouseController : MonoBehaviour
 
     public void ClearAllSelections()
     {
-        
         foreach (MusicObj obj in selectedObjects)
         {
-            obj.GetComponent<Renderer>().material.color = Color.clear;
+            obj.GetComponent<Renderer>().material.color = obj.Color;
 
         }
         ClearSelection();
-
-
     }
 }

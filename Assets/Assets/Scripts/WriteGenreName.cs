@@ -9,19 +9,18 @@ public class WriteGenreName : MonoBehaviour {
 
     [SerializeField] Transform genreName_t;
 
-    public string inputfile;
-    private List<Dictionary<string, object>> genreList;
-    //private string genreName = "genero";
+    DataPlotter dpScript;
+    public GameObject myPlotter;
 
     void Start () {
-        genreList = CSVReader.Read(inputfile);
-        List<string> columnList = new List<string>(genreList[1].Keys);
-
-        for(int i = 0; i < genreList.Count ; i++)
+        dpScript = myPlotter.GetComponent<DataPlotter>();
+        foreach (string genreN in dpScript.dataGenres.Keys )
         {
             GameObject genreName = Instantiate(genrePrefab,genreName_t) as GameObject;
-            genreName.GetComponentInChildren<Text>().text = System.Convert.ToString(genreList[i][columnList[0]]);
-            genreName.GetComponent<GenreObj>().nameGenre = System.Convert.ToString(genreList[i][columnList[0]]);
+            genreName.GetComponentInChildren<Text>().text = genreN;
+            genreName.GetComponent<GenreObj>().nameGenre = genreN;
+            genreName.GetComponent<GenreObj>().selected = true;
+            genreName.GetComponent<Image>().color = ConvertColor(255, 255, 255, 200);
             genreName.GetComponent<Button>().onClick.AddListener(
                 delegate
                 {

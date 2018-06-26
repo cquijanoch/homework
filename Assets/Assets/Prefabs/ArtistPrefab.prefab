@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameArtist: 
   hotness: 0
-  selected: 0
+  selected: 1
 --- !u!114 &114436241756320324
 MonoBehaviour:
   m_ObjectHideFlags: 1

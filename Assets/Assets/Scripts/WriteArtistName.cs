@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+
 public class WriteArtistName : MonoBehaviour {
 
     [SerializeField]
@@ -9,20 +11,19 @@ public class WriteArtistName : MonoBehaviour {
 
     [SerializeField] Transform artistName_t;
 
-    public string inputfile;
-    private List<Dictionary<string, object>> artistList;
-    public List<GameObject> buttonArtistList;
-    //private string artistName = "artist";
+    DataPlotter dpScript;
+    public GameObject myPlotter;
 
     void Start () {
-        artistList = CSVReader.Read(inputfile);
-        List<string> columnList = new List<string>(artistList[1].Keys);
-
-        for(int i = 0; i < artistList.Count ; i++)
+        dpScript = myPlotter.GetComponent<DataPlotter>();
+    
+        foreach(string artist in dpScript.dataArtist.Keys)
         {
             GameObject artistName = Instantiate(artistPrefab,artistName_t) as GameObject;
-            artistName.GetComponentInChildren<Text>().text = System.Convert.ToString(artistList[i][columnList[0]]);
-            artistName.GetComponent<ArtistObj>().nameArtist = System.Convert.ToString(artistList[i][columnList[0]]);
+            artistName.GetComponentInChildren<Text>().text = artist;
+            artistName.GetComponent<ArtistObj>().nameArtist = artist;
+            artistName.GetComponent<ArtistObj>().selected = true;
+            artistName.GetComponent<Image>().color = ConvertColor(255, 255, 255, 200);
             artistName.GetComponent<Button>().onClick.AddListener(
                 delegate
                 {
