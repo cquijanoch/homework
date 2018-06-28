@@ -18,6 +18,7 @@ public class WriteGenreName : MonoBehaviour {
         {
             GameObject genreName = Instantiate(genrePrefab,genreName_t) as GameObject;
             genreName.GetComponentInChildren<Text>().text = genreN;
+            genreName.GetComponentInChildren<Image>().material.color = dpScript.dataGenres[genreN];
             genreName.GetComponent<GenreObj>().nameGenre = genreN;
             genreName.GetComponent<GenreObj>().selected = true;
             genreName.GetComponent<Image>().color = ConvertColor(255, 255, 255, 200);
