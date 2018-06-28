@@ -60,7 +60,7 @@ public class FilterSearch : MonoBehaviour {
                 if (artist.Equals(music.ColumnArtistName))
                 {
                     Color c = music.Color;
-                    c.a = 100 / 255.0f;
+                    //c.a = 100 / 255.0f;
                     music.GetComponent<Renderer>().material.color = c;
                 }
             }
@@ -71,6 +71,7 @@ public class FilterSearch : MonoBehaviour {
                     music.GetComponent<Renderer>().material.color = music.Color;
                 }
             }
+            music.CurrentColor = music.GetComponent<Renderer>().material.color;
         }
       
     }

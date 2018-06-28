@@ -208,7 +208,7 @@ public class DataPlotter : MonoBehaviour
                 dataPoint.GetComponent<Renderer>().material.color = dataGenres[musicObj.ColumnTerms];
                 musicObj.Color = dataGenres[musicObj.ColumnTerms];
             }
-
+            musicObj.CurrentColor = musicObj.Color;
             dataPointList.Add(dataPoint);
         }
     }

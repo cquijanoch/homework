@@ -63,9 +63,9 @@ public class ReticlePoser : MonoBehaviour
 
         var targetReticle = isCurvedRay ? reticleForCurvedRay : reticleForDefaultRay;
 
-        if (ViveInput.GetPressUp(HandRole.LeftHand, ControllerButton.Trigger))
+        if (ViveInput.GetPressUp(HandRole.LeftHand, ControllerButton.Trigger) || !ViveInput.GetPress(HandRole.LeftHand, ControllerButton.Trigger))
             isPressingLeft = false;
-        if (ViveInput.GetPressDown(HandRole.LeftHand, ControllerButton.Trigger))
+        if (ViveInput.GetPressDown(HandRole.LeftHand, ControllerButton.Trigger) || ViveInput.GetPress(HandRole.LeftHand, ControllerButton.Trigger))
             isPressingLeft = true;
 
         if (result.isValid)

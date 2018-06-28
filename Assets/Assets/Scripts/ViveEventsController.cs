@@ -53,8 +53,9 @@ public class ViveEventsController : MonoBehaviour {
         if (firstOfMultipleSelection == true)
             ClearSelection();
         MusicObj musicObj = objectTarget.GetComponent<MusicObj>();
-        musicObj.GetComponent<Renderer>().material.color = Color.green;
         selectedObjects.Add(musicObj);
+        musicObj.GetComponent<Renderer>().material.color = Color.green;
+        
     }
 
     void SelectSingleObject(GameObject objectTarget)
@@ -80,7 +81,7 @@ public class ViveEventsController : MonoBehaviour {
     {
         if (selectedObject == null)
             return;
-        selectedObject.GetComponent<Renderer>().material.color = selectedObject.GetComponent<MusicObj>().Color;
+        selectedObject.GetComponent<Renderer>().material.color = selectedObject.GetComponent<MusicObj>().CurrentColor;
         selectedObject = null;
         musicCurrentText.text = "";
         artistCurrentText.text = "";
@@ -96,7 +97,7 @@ public class ViveEventsController : MonoBehaviour {
     {
         foreach (MusicObj obj in selectedObjects)
         {
-            obj.GetComponent<Renderer>().material.color = obj.Color;
+            obj.GetComponent<Renderer>().material.color = obj.CurrentColor;
         }
         ClearSelection();
     }

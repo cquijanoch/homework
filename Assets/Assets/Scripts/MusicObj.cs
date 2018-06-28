@@ -46,6 +46,7 @@ public class MusicObj : MonoBehaviour {
     public decimal ColumnSongHotness { get { return columnSongHotness; } set { columnSongHotness = value; } }
 
     public Color Color { get; set; }
+    public Color CurrentColor { get; set; }
 
 
 }
