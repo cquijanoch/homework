@@ -1821,7 +1821,18 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2110039934}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
@@ -2182,111 +2193,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 873062567}
---- !u!1001 &912602721
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1059141530}
-    m_Modifications:
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 8.885
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.785
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 17.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 1.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 4a74607b38b409a4385128b5dfe78fbd, type: 2}
-  m_IsPrefabParent: 0
---- !u!224 &912602722 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224849638898589154, guid: 4a74607b38b409a4385128b5dfe78fbd,
-    type: 2}
-  m_PrefabInternal: {fileID: 912602721}
 --- !u!1 &997972424
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,7 +2270,18 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2110039936}
+        m_MethodName: selectAllGenres
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
@@ -2957,8 +2874,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7079504, y: 1, z: 1}
-  m_Children:
-  - {fileID: 912602722}
+  m_Children: []
   m_Father: {fileID: 1023150008}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

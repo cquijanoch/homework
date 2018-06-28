@@ -75,4 +75,14 @@ public class FilterSearch : MonoBehaviour {
         }
       
     }
+
+    public void selectAllGenres ()
+    {
+        Debug.Log("selectAllGenres");
+    }
+
+    public void deselectAllGenres()
+    {
+        Debug.Log("deselectAllGenres");
+    }
 }
