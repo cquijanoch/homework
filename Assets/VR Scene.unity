@@ -1822,7 +1822,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2110039934}
+      - m_Target: {fileID: 0}
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -2411,7 +2411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPlotter: {fileID: 529365399}
-  gArtistNameContainer: {fileID: 0}
+  gGenreNameContainer: {fileID: 0}
+  isChecked: 1
 --- !u!114 &1012625722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2427,6 +2428,7 @@ MonoBehaviour:
     type: 2}
   genreName_t: {fileID: 1059141530}
   myPlotter: {fileID: 529365399}
+  isChecked: 1
 --- !u!114 &1012625723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4481,7 +4483,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPlotter: {fileID: 529365399}
-  gArtistNameContainer: {fileID: 0}
+  gGenreNameContainer: {fileID: 0}
+  isChecked: 1
 --- !u!1 &2123395488
 GameObject:
   m_ObjectHideFlags: 0

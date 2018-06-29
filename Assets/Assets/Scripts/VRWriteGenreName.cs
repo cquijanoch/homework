@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class WriteGenreName : MonoBehaviour {
+public class VRWriteGenreName : MonoBehaviour {
 
     [SerializeField]
     public GameObject genrePrefab;
@@ -30,10 +30,7 @@ public class WriteGenreName : MonoBehaviour {
                     clickFunction(genreName);
                 }
             );
-           
-
         } 
-            //artistName.transform.SetParent(artistName_t); 
         
     }
 	    

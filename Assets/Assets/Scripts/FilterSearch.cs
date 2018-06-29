@@ -7,12 +7,13 @@ public class FilterSearch : MonoBehaviour {
 
     DataPlotter dpScript;
     public GameObject myPlotter;
-    public GameObject gArtistNameContainer;
-    GameObject gGenreNameContainer;
+    //public GameObject gArtistNameContainer;
+    public GameObject gGenreNameContainer;
     GameObject[] buttonsArtistList;
     List<string> artistFiltered;
     GameObject[] buttonsGenreList;
     List<string> genreFiltered;
+    public bool isChecked = true;
 
     void Start () {
         artistFiltered = new List<string>();
@@ -76,13 +77,19 @@ public class FilterSearch : MonoBehaviour {
       
     }
 
-    public void selectAllGenres ()
+    public void selectAllGenres()
     {
-        Debug.Log("selectAllGenres");
+        isChecked = !isChecked;
+
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("GenreButton"))
+        {
+            obj.GetComponent<GenreObj>().selected = isChecked;
+            if (!isChecked)
+                obj.GetComponent<Image>().color = new Color(255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 65 / 255.0f); 
+            else
+                obj.GetComponent<Image>().color = new Color(255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 200 / 255.0f); 
+        }
+
     }
 
-    public void deselectAllGenres()
-    {
-        Debug.Log("deselectAllGenres");
-    }
 }
