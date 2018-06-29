@@ -13,10 +13,10 @@ public class MouseController : MonoBehaviour
     [SerializeField] public Text musicCurrentText;
     [SerializeField] public Text artistCurrentText;
     [SerializeField] public Text genreCurrentText;
-    [SerializeField] public Text locationCurrentText;
-    [SerializeField] public Text familiarityCurrentText;
-    [SerializeField] public Text artistHotnessCurrentText;
-    [SerializeField] public Text tempoCurrentText;
+    //[SerializeField] public Text locationCurrentText;
+    //[SerializeField] public Text familiarityCurrentText;
+    //[SerializeField] public Text artistHotnessCurrentText;
+    //[SerializeField] public Text tempoCurrentText;
     [SerializeField] public Text durationCurrentText;
     string specifier = "G";
     private int fingerID = -1;
@@ -106,11 +106,11 @@ public class MouseController : MonoBehaviour
         musicObj.GetComponent<Renderer>().material.color = Color.green;
         musicCurrentText.text = musicObj.ColumnTitle;
         artistCurrentText.text = musicObj.ColumnArtistName;
-        locationCurrentText.text = musicObj.ColumnLocation;
+        //locationCurrentText.text = musicObj.ColumnLocation;
         genreCurrentText.text = musicObj.ColumnTerms;
-        familiarityCurrentText.text = musicObj.ColumnFamiliarity.ToString(specifier);
-        artistHotnessCurrentText.text = musicObj.ColumnArtistHotness.ToString(specifier);
-        tempoCurrentText.text = musicObj.ColumnTempo.ToString(specifier);
+        //familiarityCurrentText.text = musicObj.ColumnFamiliarity.ToString(specifier);
+        //artistHotnessCurrentText.text = musicObj.ColumnArtistHotness.ToString(specifier);
+        //tempoCurrentText.text = musicObj.ColumnTempo.ToString(specifier);
         durationCurrentText.text = musicObj.ColumnDuration.ToString(specifier);
     }
 
@@ -155,11 +155,11 @@ public class MouseController : MonoBehaviour
         selectedObject = null;
         musicCurrentText.text = "";
         artistCurrentText.text = "";
-        locationCurrentText.text = "";
+        //locationCurrentText.text = "";
         genreCurrentText.text = "";
-        familiarityCurrentText.text = "";
-        artistHotnessCurrentText.text = "";
-        tempoCurrentText.text = "";
+        //familiarityCurrentText.text = "";
+        //artistHotnessCurrentText.text = "";
+        //tempoCurrentText.text = "";
         durationCurrentText.text = "";
     }
 
