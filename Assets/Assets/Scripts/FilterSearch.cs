@@ -13,7 +13,8 @@ public class FilterSearch : MonoBehaviour {
     List<string> artistFiltered;
     GameObject[] buttonsGenreList;
     List<string> genreFiltered;
-    public bool isChecked = true;
+    public bool isCheckedGenres = true;
+    public bool isCheckedArtist = true;
 
     void Start () {
         artistFiltered = new List<string>();
@@ -79,15 +80,30 @@ public class FilterSearch : MonoBehaviour {
 
     public void selectAllGenres()
     {
-        isChecked = !isChecked;
+        isCheckedGenres = !isCheckedGenres;
 
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("GenreButton"))
         {
-            obj.GetComponent<GenreObj>().selected = isChecked;
-            if (!isChecked)
+            obj.GetComponent<GenreObj>().selected = isCheckedGenres;
+            if (!isCheckedGenres)
                 obj.GetComponent<Image>().color = new Color(255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 65 / 255.0f); 
             else
                 obj.GetComponent<Image>().color = new Color(255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 200 / 255.0f); 
+        }
+
+    }
+
+    public void selectAllArtist()
+    {
+        isCheckedArtist = !isCheckedArtist;
+
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("ArtistButton"))
+        {
+            obj.GetComponent<ArtistObj>().selected = isCheckedArtist;
+            if (!isCheckedArtist)
+                obj.GetComponent<Image>().color = new Color(255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 65 / 255.0f);
+            else
+                obj.GetComponent<Image>().color = new Color(255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 200 / 255.0f);
         }
 
     }

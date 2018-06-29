@@ -38,7 +38,7 @@ public class ScatterplotRotation : MonoBehaviour {
          float rotationX = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Deg2Rad;
          float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Deg2Rad;
 
-        obj.transform.RotateAround(Vector3.up, rotationX);
+        obj.transform.RotateAround(Vector3.down, rotationX);
         obj.transform.RotateAround(Vector3.right, rotationY) ;
         //myFPSControllerScript.useMouseLook = true; 
 

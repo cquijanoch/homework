@@ -7,19 +7,39 @@ public class TaskGuide : MonoBehaviour {
     // Use this for initialization
     public int taskID;
     public int userID;
+    public int datasetID;
 
-	void Start () {
+    public bool VR; //0 se for 3D, 1 se for VR
+
+    //------3d
+    //clicks dereito izquerdo
+    //tempo
+    //resultado
+    //-------vr
+    /// <summary>
+    /// trigger
+    /// tempo
+    /// resultado
+    /// </summary>
+
+
+    void Start () {
         //StartExperiment()
     }
 
     private void Update()
     {
         /*Collect data from the user input (mouse or controller)*/
+        //if (VR)
+        //{ }
+        //else
+
     }
 
     public void StartExperiment()
     {
         //Set experiment variables
+       // VR = 1;
         //TaskOne()
         //TaskTwo()
         //TaskThree()
@@ -34,7 +54,8 @@ public class TaskGuide : MonoBehaviour {
         taskID = 1;
         //Step 1.5: Maybe it would be good to provide the task instructions with some text?
         //Step 2: color (and lock the color of) the song
-        //Step 3: wait for the input from the participant
+        //Step 3: wait for the input from the participantp
+        //Step 3.5: calculate distance between input 
         //Step 4: record the answer 
 
     }
