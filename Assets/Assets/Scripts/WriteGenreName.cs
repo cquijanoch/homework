@@ -11,8 +11,10 @@ public class WriteGenreName : MonoBehaviour {
 
     DataPlotter dpScript;
     public GameObject myPlotter;
-
+    public bool isChecked = true;
+    
     void Start () {
+        
         dpScript = myPlotter.GetComponent<DataPlotter>();
         foreach (string genreN in dpScript.dataGenres.Keys )
         {
@@ -20,7 +22,7 @@ public class WriteGenreName : MonoBehaviour {
             genreName.GetComponentInChildren<Text>().text = genreN;
             genreName.transform.GetChild(1).GetComponent<Image>().color = dpScript.dataGenres[genreN];
             genreName.GetComponent<GenreObj>().nameGenre = genreN;
-            genreName.GetComponent<GenreObj>().selected = true;
+            genreName.GetComponent<GenreObj>().selected = isChecked;
             genreName.GetComponent<Image>().color = ConvertColor(255, 255, 255, 200);
             genreName.GetComponent<Button>().onClick.AddListener(
                 delegate
@@ -28,6 +30,8 @@ public class WriteGenreName : MonoBehaviour {
                     clickFunction(genreName);
                 }
             );
+           
+
         } 
             //artistName.transform.SetParent(artistName_t); 
         
@@ -47,4 +51,5 @@ public class WriteGenreName : MonoBehaviour {
     {
         return new Color(r / 255.0f, g / 255.0f, b / 255.0f, a / 255.0f);
     }
+    
 }
