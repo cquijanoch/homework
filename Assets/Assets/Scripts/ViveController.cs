@@ -9,7 +9,7 @@ using HTC.UnityPlugin.Utility;
 public class ViveController : MonoBehaviour
 {
 
-    private HashSet<ColliderButtonEventData> presses = new HashSet<ColliderButtonEventData>();
+   // private HashSet<ColliderButtonEventData> presses = new HashSet<ColliderButtonEventData>();
 
     public GameObject selectedObject = null;
     public RaycastHit selectedCoordinate; //Stores the PCA coordinate

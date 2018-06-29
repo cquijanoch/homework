@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour {
-    private int zoom = 20;
-    private int normal = 60;
-    private float smooth = 5;
+    //private int zoom = 20;
+    //private int normal = 60;
+ //   private float smooth = 5;
 	// Use this for initialization
 	void Start () {
 		
