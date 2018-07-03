@@ -10,7 +10,9 @@ public class WriteSelectedName : MonoBehaviour {
     [SerializeField] Transform selectedName_t;
 
     MouseController dpScript;
+    ViveEventsController dpvScript;
     public GameObject mouseController;
+
     //public bool isChecked = true;
     [SerializeField] public Text musicCurrentText;
     [SerializeField] public Text artistCurrentText;
@@ -18,9 +20,19 @@ public class WriteSelectedName : MonoBehaviour {
     [SerializeField] public Text durationCurrentText;
 
     void OnEnable() {
+        List<MusicObj> selecteds = new List<MusicObj>();
+        if(mouseController.GetComponent<MouseController>())
+        {
+            dpScript = mouseController.GetComponent<MouseController>();
+            selecteds = dpScript.selectedObjects;
+        } else if (mouseController.GetComponent<ViveEventsController>())
+        {
+            dpvScript = mouseController.GetComponent<ViveEventsController>();
+            selecteds = dpScript.selectedObjects;
+        }
         
-        dpScript = mouseController.GetComponent<MouseController>();
-        foreach (MusicObj musicN in dpScript.selectedObjects)
+
+        foreach (MusicObj musicN in selecteds)
         {
             GameObject selectedName = Instantiate(selectedPrefab, selectedName_t) as GameObject;
             selectedName.GetComponentInChildren<Text>().text = musicN.ColumnTitle;
