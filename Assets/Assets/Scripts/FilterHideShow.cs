@@ -4,13 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FilterHideShow : MonoBehaviour {
-    public bool isLocked;
+    public bool isLockedFilter;
+    public bool isLockedSelected;
     CanvasGroup filterCanvas;
+    public GameObject filterObj;
+    public GameObject selectedObj;
     void Start ()
     {
-        GameObject filterObj = GameObject.FindGameObjectWithTag("FilterCanvas");
         filterCanvas = filterObj.GetComponent<CanvasGroup>();
-        Hide();
+        
+        if (isLockedFilter)
+            Hide(filterCanvas);
+        if (isLockedSelected)
+            Shutdown(selectedObj);
 
     }
 
@@ -18,20 +24,36 @@ public class FilterHideShow : MonoBehaviour {
     {
         if(Input.GetKeyUp(KeyCode.F) || (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Menu)))
         {
-            if (isLocked) Show(); else Hide();
-            isLocked = !isLocked;
+            if (isLockedFilter) Show(filterCanvas); else Hide(filterCanvas);
+            isLockedFilter = !isLockedFilter;
+        }
+        else if (Input.GetKeyUp(KeyCode.E) || (ViveInput.GetPressDown(HandRole.LeftHand, ControllerButton.Menu)))
+        {
+            if (isLockedSelected) PowerUp(selectedObj); else Shutdown(selectedObj);
+            isLockedSelected = !isLockedSelected;
         }
     }
 
-    void Hide()
+    void Hide(CanvasGroup canvas)
     {
-        filterCanvas.alpha = 0f; //this makes everything transparent
-        filterCanvas.blocksRaycasts = false; //this prevents the UI element to receive input events
+        canvas.alpha = 0f;
+        canvas.blocksRaycasts = false;
     }
 
-    void Show()
+    void PowerUp(GameObject canvas)
     {
-        filterCanvas.alpha = 1f;
-        filterCanvas.blocksRaycasts = true;
+        canvas.SetActive(true);
+    }
+
+
+    void Shutdown(GameObject canvas)
+    {
+        canvas.SetActive(false);
+    }
+
+    void Show(CanvasGroup canvas)
+    {
+        canvas.alpha = 1f;
+        canvas.blocksRaycasts = true;
     }
 }

@@ -111,7 +111,7 @@ public class MouseController : MonoBehaviour
         //familiarityCurrentText.text = musicObj.ColumnFamiliarity.ToString(specifier);
         //artistHotnessCurrentText.text = musicObj.ColumnArtistHotness.ToString(specifier);
         //tempoCurrentText.text = musicObj.ColumnTempo.ToString(specifier);
-        durationCurrentText.text = musicObj.ColumnDuration.ToString(specifier);
+        durationCurrentText.text = musicObj.ColumnDuration + "";
     }
 
     void SelectMultipleObjects(GameObject obj, RaycastHit point)
@@ -161,6 +161,7 @@ public class MouseController : MonoBehaviour
         //artistHotnessCurrentText.text = "";
         //tempoCurrentText.text = "";
         durationCurrentText.text = "";
+        selectedObjects.Clear();
     }
 
 

@@ -20,7 +20,7 @@ public class DataPlotter : MonoBehaviour
     //private int columnArtistHotness = 0;
     //private int columnTempo = 1;
     //private int columnFamiliarity = 2;
-    //private int columnDuration = 3;
+    private int columnDuration = 16;
     //private int columnLoudness = 4;
     private int columnTerms = 9;
     //private int columnMode = 6;                 
@@ -43,7 +43,7 @@ public class DataPlotter : MonoBehaviour
     //private string artistHotnessName;
     //private string tempoName;
     //private string familiarityName;
-    //private string durationName;
+    private string durationName;
     //private string loudnessName;
     private string termsName;
     //private string modeName;
@@ -79,7 +79,7 @@ public class DataPlotter : MonoBehaviour
         //artistHotnessName = columnList[columnArtistHotness];
         //tempoName = columnList[columnTempo];
         //familiarityName = columnList[columnFamiliarity];
-        //durationName = columnList[columnDuration];
+        durationName = columnList[columnDuration];
         //loudnessName = columnList[columnLoudness];
         termsName = columnList[columnTerms];
         //modeName = columnList[columnMode];
@@ -128,7 +128,7 @@ public class DataPlotter : MonoBehaviour
             }
             
             //musicObj.ColumnArtistHotness = System.Convert.ToDecimal(pointList[i][artistHotnessName]);
-            //musicObj.ColumnDuration = System.Convert.ToDecimal(pointList[i][durationName]);
+            musicObj.ColumnDuration = System.Convert.ToDecimal(pointList[i][durationName]);
             //musicObj.ColumnFamiliarity = System.Convert.ToDecimal(pointList[i][familiarityName]);
             //musicObj.ColumnKey = System.Convert.ToDouble(pointList[i][keyName]);
             //musicObj.ColumnLocation = System.Convert.ToString(pointList[i][locationName]);

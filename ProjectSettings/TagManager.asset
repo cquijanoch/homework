@@ -10,6 +10,7 @@ TagManager:
   - PanelArtist
   - ArtistButton
   - GenreButton
+  - FilterSelected
   layers:
   - Default
   - TransparentFX
