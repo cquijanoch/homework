@@ -13,10 +13,6 @@ public class ViveEventsController : MonoBehaviour {
     [SerializeField] public Text musicCurrentText;
     [SerializeField] public Text artistCurrentText;
     [SerializeField] public Text genreCurrentText;
-    [SerializeField] public Text locationCurrentText;
-    [SerializeField] public Text familiarityCurrentText;
-    [SerializeField] public Text artistHotnessCurrentText;
-    [SerializeField] public Text tempoCurrentText;
     [SerializeField] public Text durationCurrentText;
 
     string specifier = "G";
@@ -43,6 +39,7 @@ public class ViveEventsController : MonoBehaviour {
         if (objectTarget.transform.name != "Plane")
         {
             SelectMultipleObjects(objectTarget);
+
             firstOfMultipleSelection = false;
         }
         
@@ -69,12 +66,8 @@ public class ViveEventsController : MonoBehaviour {
         musicObj.GetComponent<Renderer>().material.color = Color.green;
         musicCurrentText.text = musicObj.ColumnTitle;
         artistCurrentText.text = musicObj.ColumnArtistName;
-        locationCurrentText.text = musicObj.ColumnLocation;
         genreCurrentText.text = musicObj.ColumnTerms;
-        familiarityCurrentText.text = musicObj.ColumnFamiliarity.ToString(specifier);
-        artistHotnessCurrentText.text = musicObj.ColumnArtistHotness.ToString(specifier);
-        tempoCurrentText.text = musicObj.ColumnTempo.ToString(specifier);
-        durationCurrentText.text = musicObj.ColumnDuration.ToString(specifier);
+        durationCurrentText.text = musicObj.ColumnDuration + "";
     }
 
     void ClearSelection()
@@ -85,11 +78,7 @@ public class ViveEventsController : MonoBehaviour {
         selectedObject = null;
         musicCurrentText.text = "";
         artistCurrentText.text = "";
-        locationCurrentText.text = "";
         genreCurrentText.text = "";
-        familiarityCurrentText.text = "";
-        artistHotnessCurrentText.text = "";
-        tempoCurrentText.text = "";
         durationCurrentText.text = "";
     }
 
