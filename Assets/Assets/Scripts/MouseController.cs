@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class MouseController : MonoBehaviour
 {
     public GameObject selectedObject = null;
+    public GameObject myTaskManager;
+    TaskGuide myTaskGuideScript;
     public RaycastHit selectedCoordinate; //Stores the PCA coordinate 
     public List<MusicObj> selectedObjects = null;
     private bool firstOfMultipleSelection = true;
@@ -20,6 +22,8 @@ public class MouseController : MonoBehaviour
     [SerializeField] public Text durationCurrentText;
     string specifier = "G";
     private int fingerID = -1;
+
+
     //private LineRenderer lr;
 
     private void Awake()
@@ -33,6 +37,7 @@ public class MouseController : MonoBehaviour
     void Start()
     {
         // lr = GetComponent<LineRenderer>();
+        myTaskGuideScript = myTaskManager.GetComponent<TaskGuide>();
        
     }
 
@@ -58,6 +63,7 @@ public class MouseController : MonoBehaviour
                     if (hitInfo.transform.name != "Plane")
                     {
                         SelectMultipleObjects(hitObject, hitInfo);
+                        myTaskGuideScript.CountMultipleSelection();
                         firstOfMultipleSelection = false;
                     }
                 }
@@ -73,6 +79,7 @@ public class MouseController : MonoBehaviour
                 GameObject hitObject = hitInfo.transform.root.gameObject;
                 if (hitInfo.transform.name != "Plane")
                 {
+                    myTaskGuideScript.CountSingleSelection();
                     SelectSingleObject(hitObject, hitInfo);
                     firstOfMultipleSelection = true;
                 }
