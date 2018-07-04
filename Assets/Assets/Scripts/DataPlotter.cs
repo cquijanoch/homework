@@ -102,6 +102,10 @@ public class DataPlotter : MonoBehaviour
         float xMin = FindMinValue(xName);
         float yMin = FindMinValue(yName);
         float zMin = FindMinValue(zName);
+
+
+        PointHolder.transform.position = new Vector3((xMax - xMin) / 2, (yMax - yMin) / 2, (zMax - zMin) / 2);
+
         int Ccolor = 0;
 
         for (var i = 0; i < pointList.Count; i++)

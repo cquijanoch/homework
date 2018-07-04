@@ -6,6 +6,8 @@ public class TaskGuide : MonoBehaviour {
 
     // Use this for initialization
     public GameObject myDataPlotter;
+    public GameObject myMouseController;
+    public GameObject myViveController;
     DataPloter DataPlotterScript;
     public int taskID;
     public int userID;
@@ -105,6 +107,8 @@ public class TaskGuide : MonoBehaviour {
         //Step 4: record the answer 
 
         timer.Stop();
+        //comparar as respostas
+        //escrever csv
     }
 
     public void StartTaskTwo()

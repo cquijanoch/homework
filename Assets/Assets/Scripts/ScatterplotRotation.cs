@@ -11,8 +11,8 @@ public class ScatterplotRotation : MonoBehaviour {
     
     float rotationSpeed = 20;
     public GameObject obj;
-
-
+    float rotationX;
+    float rotationY;
 
     private void Start()
     {
@@ -27,12 +27,20 @@ public class ScatterplotRotation : MonoBehaviour {
         if(Input.GetMouseButtonUp(0))
             myFPSControllerScript.useMouseLook = true;
 
+     /*   if (Input.GetMouseButton(2))
+        {
+            rotationX = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Deg2Rad;
+            rotationY = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Deg2Rad;
 
+            obj.transform.RotateAround(Vector3.down, rotationX);
+            obj.transform.RotateAround(Vector3.right, rotationY);
+            Debug.Log("Button 2 down");
+        }*/
     }
 
     void OnMouseDrag()
     {
-        myPivot = GameObject.Find("PointHolderPivot"); //might be slow
+       // myPivot = GameObject.Find("PointHolderPivot"); //might be slow
         myFPSControllerScript.useMouseLook = false;
         //myPivot = 
          float rotationX = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Deg2Rad;

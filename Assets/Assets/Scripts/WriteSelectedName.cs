@@ -28,7 +28,7 @@ public class WriteSelectedName : MonoBehaviour {
         } else if (mouseController.GetComponent<ViveEventsController>())
         {
             dpvScript = mouseController.GetComponent<ViveEventsController>();
-            selecteds = dpScript.selectedObjects;
+            selecteds = dpvScript.selectedObjects;
         }
         
 
