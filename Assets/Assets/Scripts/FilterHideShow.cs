@@ -9,6 +9,7 @@ public class FilterHideShow : MonoBehaviour {
     CanvasGroup filterCanvas;
     public GameObject filterObj;
     public GameObject selectedObj;
+    public GameObject rightCollider;
     void Start ()
     {
         filterCanvas = filterObj.GetComponent<CanvasGroup>();
@@ -36,8 +37,11 @@ public class FilterHideShow : MonoBehaviour {
 
     void Hide(CanvasGroup canvas)
     {
+         
         canvas.alpha = 0f;
         canvas.blocksRaycasts = false;
+        if (rightCollider)
+            rightCollider.SetActive(true);
     }
 
     void PowerUp(GameObject canvas)
@@ -53,6 +57,8 @@ public class FilterHideShow : MonoBehaviour {
 
     void Show(CanvasGroup canvas)
     {
+        if(rightCollider)
+            rightCollider.SetActive(false);
         canvas.alpha = 1f;
         canvas.blocksRaycasts = true;
     }

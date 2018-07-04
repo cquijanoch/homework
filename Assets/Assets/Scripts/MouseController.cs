@@ -55,7 +55,7 @@ public class MouseController : MonoBehaviour
 
         if (Input.GetMouseButton(1)) // secondary (right)
        {
-            if(Input.GetMouseButton(0)) //primary (left)
+            if(Input.GetMouseButtonUp(0)) //primary (left)
             {
                 if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
                 {
@@ -71,7 +71,7 @@ public class MouseController : MonoBehaviour
         }
       
 
-        else if (Input.GetMouseButton(0))
+        else if (Input.GetMouseButtonUp(0))
         {
             ClearAllSelections();
             if (Physics.Raycast(ray, out hitInfo , Mathf.Infinity))
