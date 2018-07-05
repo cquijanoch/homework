@@ -1206,11 +1206,11 @@ MonoBehaviour:
   xName: 
   yName: 
   zName: 
-  plotScale: 30
+  plotScale: 20
   PointPrefab: {fileID: 1623637907018002, guid: da980d8a443c0da4db92946af0057522,
     type: 2}
   PointHolder: {fileID: 485933970}
-  myTaskGuide: {fileID: 0}
+  myTaskGuide: {fileID: 876046201}
   myTaskGuideScript: {fileID: 0}
   dataPointList: []
 --- !u!1001 &548997045
@@ -1963,9 +1963,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f38361ec77a0be4ea2096d9288ce42b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myDataPlotter: {fileID: 0}
+  myDataPlotter: {fileID: 529365399}
   myMouseController: {fileID: 0}
-  myViveController: {fileID: 0}
+  myViveController: {fileID: 1935629734}
   taskID: 0
   userID: 0
   datasetID: 0
@@ -1973,7 +1973,7 @@ MonoBehaviour:
   multipleSelectionCounter: 0
   itemSelectedT1: 17000000110000002b0000002f000000
   itemSelectedT2: 6500000033010000bb01000047000000
-  VR: 0
+  VR: 1
 --- !u!4 &876046203
 Transform:
   m_ObjectHideFlags: 0
@@ -2565,6 +2565,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: VR
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_WalkSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
