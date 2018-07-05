@@ -17,6 +17,7 @@ public class TaskGuide : MonoBehaviour {
     public int singleSelectionCounter;
     public int multipleSelectionCounter;
     Stopwatch timer = new Stopwatch();
+    Distance MatrixDistance;
 
 
     List<GameObject> taskPoints;
@@ -52,7 +53,32 @@ public class TaskGuide : MonoBehaviour {
         //Start Experiment
      
         DataPlotterScript = myDataPlotter.GetComponent<DataPlotter>();
-        
+        MatrixDistance = new Distance(DataPlotterScript.dataPointList.Count, DataPlotterScript.dataPointList.Count);
+        PointD[] ListPoint = new PointD[DataPlotterScript.dataPointList.Count];
+        int p = 0;
+        foreach (GameObject point in DataPlotterScript.dataPointList)
+        {
+            PointD point_ = new PointD((double)point.GetComponent<MusicObj>().ColumnX, (double)point.GetComponent<MusicObj>().ColumnY, (double)point.GetComponent<MusicObj>().ColumnZ, point.transform.name);
+            ListPoint[p] = point_;
+            p++;
+        }
+        MatrixDistance.InputMatrix(ListPoint, ListPoint);
+        UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(139));
+
+        //MatrixDistance = new Distance(5, 5);
+        //PointD[] ListPoint = new PointD[5];
+        //int p = 0;
+        //foreach (GameObject point in DataPlotterScript.dataPointList)
+        //{
+        //    PointD point_ = new PointD((double)point.GetComponent<MusicObj>().ColumnX, (double)point.GetComponent<MusicObj>().ColumnY, (double)point.GetComponent<MusicObj>().ColumnZ, point.transform.name);
+        //    ListPoint[p] = point_;
+        //    p++;
+        //    if (p == 5) break;
+        //}
+        //MatrixDistance.InputMatrix(ListPoint, ListPoint);
+        //UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(3));
+
+
 
         timer.Start();
         switch (taskID)

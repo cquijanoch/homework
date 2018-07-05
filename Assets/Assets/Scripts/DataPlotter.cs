@@ -143,16 +143,20 @@ public class DataPlotter : MonoBehaviour
             //musicObj.ColumnTempo = System.Convert.ToDouble(pointList[i][tempoName]);
             musicObj.ColumnTerms = System.Convert.ToString(pointList[i][termsName]);
             musicObj.ColumnTitle = System.Convert.ToString(pointList[i][titleName]);
-            musicObj.ColumnX = System.Convert.ToDecimal(pointList[i][xName]);
-            musicObj.ColumnY = System.Convert.ToDecimal(pointList[i][yName]);
-            musicObj.ColumnZ = System.Convert.ToDecimal(pointList[i][zName]);
+            //musicObj.ColumnX = System.Convert.ToDecimal(pointList[i][xName]);
+            //musicObj.ColumnY = System.Convert.ToDecimal(pointList[i][yName]);
+            //musicObj.ColumnZ = System.Convert.ToDecimal(pointList[i][zName]);
+            musicObj.ColumnX = System.Convert.ToDecimal(x);
+            musicObj.ColumnY = System.Convert.ToDecimal(y);
+            musicObj.ColumnZ = System.Convert.ToDecimal(z);
+
 
             //dataPoint.GetComponent<Renderer>().material.color = Color.black;
             //musicObj.ColumnYear = System.Convert.ToInt32(pointList[i][yearName]);
 
             //Debug.Log(System.Convert.ToString(pointList[i][cColor]));
 
-            if(!dataGenres.ContainsKey(musicObj.ColumnTerms))
+            if (!dataGenres.ContainsKey(musicObj.ColumnTerms))
             {
                 switch (Ccolor)
                 {
@@ -215,6 +219,7 @@ public class DataPlotter : MonoBehaviour
             musicObj.CurrentColor = musicObj.Color;
             dataPointList.Add(dataPoint);
         }
+
     }
 
     private float FindMaxValue(string columnName)
