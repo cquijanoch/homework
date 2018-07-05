@@ -144,6 +144,7 @@ MonoBehaviour:
   isLockedSelected: 1
   filterObj: {fileID: 1823340173}
   selectedObj: {fileID: 2124032126}
+  rightCollider: {fileID: 0}
 --- !u!4 &53714367
 Transform:
   m_ObjectHideFlags: 0
@@ -660,6 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4df587bd3abc94297adedb2c1f732d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filterDialog: {fileID: 53714365}
 --- !u!1 &485933970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1378,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1681372116}
   m_HandleRect: {fileID: 1681372115}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4131,11 +4133,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myDataPlotter: {fileID: 529365399}
+  myMouseController: {fileID: 957972568}
+  myViveController: {fileID: 0}
   taskID: 0
   userID: 0
   datasetID: 0
   singleSelectionCounter: 0
   multipleSelectionCounter: 0
+  itemSelectedT1: 17000000110000002b0000002f000000
+  itemSelectedT2: 17000000110000002b0000002f000000
   VR: 0
 --- !u!4 &1856124256
 Transform:

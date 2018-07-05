@@ -156,7 +156,7 @@ public class MouseController : MonoBehaviour
         {
             if (selectedCoordinate.transform.name == r.name)
             {
-                r.material.color = musicObj.Color;
+                r.material.color = musicObj.CurrentColor;
             }
         }
         selectedObject = null;
@@ -176,7 +176,7 @@ public class MouseController : MonoBehaviour
     {
         foreach (MusicObj obj in selectedObjects)
         {
-            obj.GetComponent<Renderer>().material.color = obj.Color;
+            obj.GetComponent<Renderer>().material.color = obj.CurrentColor;
 
         }
         ClearSelection();

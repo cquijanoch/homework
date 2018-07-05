@@ -2,19 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Diagnostics;
+using UnityEngine.XR;
+
 public class TaskGuide : MonoBehaviour {
 
     // Use this for initialization
     public GameObject myDataPlotter;
     public GameObject myMouseController;
     public GameObject myViveController;
-    DataPloter DataPlotterScript;
+    DataPlotter DataPlotterScript;
     public int taskID;
     public int userID;
     public int datasetID;
     public int singleSelectionCounter;
     public int multipleSelectionCounter;
     Stopwatch timer = new Stopwatch();
+
+
+    List<GameObject> taskPoints;
+
+    public int[] itemSelectedT1 = { 23, 17, 43, 47 };
+    public int[] itemSelectedT2 = { 101, 307, 443, 71 };
+
+
     //lista com os as musicas selecionadas
 
     //escala
@@ -32,20 +42,33 @@ public class TaskGuide : MonoBehaviour {
     /// resultado
     /// </summary>
 
+    private void Awake()
+    {
+        XRSettings.enabled = VR;
+    }
 
     void Start() {
 
         //Start Experiment
-        singleSelectionCounter = 0;
-        multipleSelectionCounter = 0;
-        DataPlotterScript = myDataPlotter.GetComponent<DataPloter>();
+     
+        DataPlotterScript = myDataPlotter.GetComponent<DataPlotter>();
+        
+
         timer.Start();
         switch (taskID)
         {
             case 1:
+                foreach (int i in itemSelectedT1)
+                {
+                    taskPoints.Add(DataPlotterScript.dataPointList[i]);
+                }
                 StartTaskOne();
                 break;
             case 2:
+                foreach (int i in itemSelectedT2)
+                {
+                    taskPoints.Add(DataPlotterScript.dataPointList[i]);
+                }
                 StartTaskTwo();
                 break;
             case 3:
@@ -57,6 +80,8 @@ public class TaskGuide : MonoBehaviour {
                 
         }
 
+
+        
     }
 
     private void Update()
@@ -78,7 +103,7 @@ public class TaskGuide : MonoBehaviour {
 
         //Step 1: choose the song id according with the participant ID
         /*
-         switch ((userID%4))
+         switch ()
         {
           case 0:
             //song 0
@@ -153,4 +178,8 @@ public class TaskGuide : MonoBehaviour {
     {
         multipleSelectionCounter++;
     }
+
+
+
+
 }
