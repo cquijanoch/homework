@@ -956,6 +956,8 @@ MonoBehaviour:
   PointPrefab: {fileID: 1623637907018002, guid: da980d8a443c0da4db92946af0057522,
     type: 2}
   PointHolder: {fileID: 485933970}
+  myTaskGuide: {fileID: 1856124254}
+  myTaskGuideScript: {fileID: 0}
   dataPointList: []
 --- !u!1 &695171007
 GameObject:
@@ -1378,7 +1380,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1681372116}
   m_HandleRect: {fileID: 1681372115}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4136,7 +4138,7 @@ MonoBehaviour:
   myMouseController: {fileID: 957972568}
   myViveController: {fileID: 0}
   taskID: 0
-  userID: 0
+  userID: 1
   datasetID: 0
   singleSelectionCounter: 0
   multipleSelectionCounter: 0

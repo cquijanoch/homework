@@ -1210,6 +1210,8 @@ MonoBehaviour:
   PointPrefab: {fileID: 1623637907018002, guid: da980d8a443c0da4db92946af0057522,
     type: 2}
   PointHolder: {fileID: 485933970}
+  myTaskGuide: {fileID: 0}
+  myTaskGuideScript: {fileID: 0}
   dataPointList: []
 --- !u!1001 &548997045
 Prefab:
@@ -1489,6 +1491,10 @@ Prefab:
     - target: {fileID: 11450602, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
       propertyPath: onIsValidChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 175660, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
@@ -1930,6 +1936,57 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 866641394}
+--- !u!1 &876046201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 876046203}
+  - component: {fileID: 876046202}
+  m_Layer: 0
+  m_Name: TaskGuide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &876046202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 876046201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f38361ec77a0be4ea2096d9288ce42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myDataPlotter: {fileID: 0}
+  myMouseController: {fileID: 0}
+  myViveController: {fileID: 0}
+  taskID: 0
+  userID: 0
+  datasetID: 0
+  singleSelectionCounter: 0
+  multipleSelectionCounter: 0
+  itemSelectedT1: 17000000110000002b0000002f000000
+  itemSelectedT2: 6500000033010000bb01000047000000
+  VR: 0
+--- !u!4 &876046203
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 876046201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.0419087, y: 14.64227, z: 3.15308}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &939783662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,6 +2557,14 @@ Prefab:
     - target: {fileID: 8100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: VR
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}

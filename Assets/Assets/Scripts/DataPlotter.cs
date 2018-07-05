@@ -9,7 +9,7 @@ public class DataPlotter : MonoBehaviour
 {
 
     public string inputfile;
-
+    private int changeOrientation;
     private List<Dictionary<string, object>> pointList;
 
     // Indices for columns to be assigned
@@ -60,13 +60,15 @@ public class DataPlotter : MonoBehaviour
     public GameObject PointPrefab;
     
     public GameObject PointHolder;
-
+    public GameObject myTaskGuide;
+    public TaskGuide myTaskGuideScript;
     public List<GameObject> dataPointList;
     public SortedDictionary<string,Color> dataGenres;
     public SortedDictionary<string,string> dataArtist;
 
     void Awake()
     {
+        myTaskGuideScript = myTaskGuide.GetComponent<TaskGuide>(); 
         pointList = CSVReader.Read(inputfile);
         dataGenres = new SortedDictionary<string,Color>();
         dataArtist = new SortedDictionary<string,string>();
@@ -102,9 +104,15 @@ public class DataPlotter : MonoBehaviour
         float xMin = FindMinValue(xName);
         float yMin = FindMinValue(yName);
         float zMin = FindMinValue(zName);
+        changeOrientation = 1;
 
+        if (myTaskGuideScript.VR == true && myTaskGuideScript.userID % 2 != 0)
+            changeOrientation = -1;
+        else if (myTaskGuideScript.VR == false && myTaskGuideScript.userID % 2 == 0)
+            changeOrientation = -1;
 
-        PointHolder.transform.position = new Vector3((xMax - xMin) / 2, (yMax - yMin) / 2, (zMax - zMin) / 2);
+        Debug.Log("Orientation: "+changeOrientation);
+        PointHolder.transform.position = new Vector3((xMax - xMin) / 2, (yMax - yMin) / 2, ((zMax - zMin) / 2));
 
         int Ccolor = 0;
 
@@ -215,6 +223,8 @@ public class DataPlotter : MonoBehaviour
             musicObj.CurrentColor = musicObj.Color;
             dataPointList.Add(dataPoint);
         }
+        PointHolder.transform.position = new Vector3(0, 0, changeOrientation);
+
     }
 
     private float FindMaxValue(string columnName)

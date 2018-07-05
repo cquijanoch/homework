@@ -42,12 +42,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        public bool VR = false;
+
 
         // Use this for initialization
         private void Start()
         {
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
+            
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
@@ -99,8 +102,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
-
+            Vector3 desiredMove;
+            if (VR)
+                desiredMove = m_Camera.transform.forward * m_Input.y + m_Camera.transform.right * m_Input.x;
+            else
+                desiredMove = transform.forward * m_Input.y + transform.right * m_Input.x;
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
             Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,

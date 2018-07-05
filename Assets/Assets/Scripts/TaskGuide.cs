@@ -19,8 +19,9 @@ public class TaskGuide : MonoBehaviour {
     Stopwatch timer = new Stopwatch();
 
 
-    List<GameObject> taskPoints;
-
+  //  List<GameObject> taskPoints;
+    private GameObject []taskPoints = new GameObject[4];
+    //private int []myvector = new int[2];
     public int[] itemSelectedT1 = { 23, 17, 43, 47 };
     public int[] itemSelectedT2 = { 101, 307, 443, 71 };
 
@@ -60,14 +61,16 @@ public class TaskGuide : MonoBehaviour {
             case 1:
                 foreach (int i in itemSelectedT1)
                 {
-                    taskPoints.Add(DataPlotterScript.dataPointList[i]);
+                    //taskPoints.Add(DataPlotterScript.dataPointList[i]);
+                    taskPoints[userID % 4] = DataPlotterScript.dataPointList[itemSelectedT1[i]];
                 }
                 StartTaskOne();
                 break;
             case 2:
                 foreach (int i in itemSelectedT2)
                 {
-                    taskPoints.Add(DataPlotterScript.dataPointList[i]);
+                   // taskPoints.Add(DataPlotterScript.dataPointList[itemSelectedT1[i]]);
+                    taskPoints[userID % 4] = DataPlotterScript.dataPointList[itemSelectedT2[i]];
                 }
                 StartTaskTwo();
                 break;
