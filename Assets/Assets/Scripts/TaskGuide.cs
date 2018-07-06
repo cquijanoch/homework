@@ -5,12 +5,15 @@ using System.Diagnostics;
 using UnityEngine.XR;
 using UnityEngine.EventSystems;
 
-public class TaskGuide : MonoBehaviour {
+public class TaskGuide : MonoBehaviour, IPointerClickHandler {
 
     // Use this for initialization
     public GameObject myDataPlotter;
     public GameObject myMouseController;
     public GameObject myViveController;
+    public GameObject answerPoint;
+    public GameObject taskPoint;
+    public static Animator anim;
     DataPlotter DataPlotterScript;
     public int taskID;
     public int userID;
@@ -27,6 +30,7 @@ public class TaskGuide : MonoBehaviour {
     //private int []myvector = new int[2];
     public int[] itemSelectedT1 = { 23, 17, 43, 47 };
     public int[] itemSelectedT2 = { 101, 307, 443, 71 };
+    public int[] genreSelected = { 0, 0, 0, 0, 0, 0, 0 }; /**/
 
 
     //lista com os as musicas selecionadas
@@ -87,6 +91,7 @@ public class TaskGuide : MonoBehaviour {
         switch (taskID)
         {
             case 1:
+                /*Select the nearest song to the selected song*/
                 foreach (int i in itemSelectedT1)
                 {
                     //taskPoints.Add(DataPlotterScript.dataPointList[i]);
@@ -94,25 +99,33 @@ public class TaskGuide : MonoBehaviour {
                 }
                 StartTaskOne();
                 break;
+
             case 2:
+                /*Select the nearest song*/
+
                 foreach (int i in itemSelectedT2)
                 {
-                   // taskPoints.Add(DataPlotterScript.dataPointList[itemSelectedT1[i]]);
+                    // taskPoints.Add(DataPlotterScript.dataPointList[itemSelectedT1[i]]);
                     taskPoints[userID % 4] = DataPlotterScript.dataPointList[itemSelectedT2[i]];
                 }
                 StartTaskTwo();
                 break;
             case 3:
+                /*Select the furthest song*/
                 StartTaskThree();
+                break;
+
+            case 4:
+                /*Select the genre that has more songs*/
+                StartTaskFour();
                 break;
             default:
                 //Debug.Log("Defina uma tarefa");
                 break;
-                
         }
 
-
-        
+        //Teste
+        StartTaskOne();
     }
 
     private void Update()
@@ -125,14 +138,14 @@ public class TaskGuide : MonoBehaviour {
         //pointer = new PointerEventData(EventSystem.current);
       //  OnPointerClick(pointer);
     }
-/*    public virtual void OnPointerClick(PointerEventData eventData)
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.clickCount == 2)
         {
             UnityEngine.Debug.Log("double click");
         }
     }
-    */
+    
 
     public void StartTaskOne()
     {
@@ -141,24 +154,17 @@ public class TaskGuide : MonoBehaviour {
         /*In this task a song A will be selected (colored) and the user has to find the nearest song to A of another artist */
 
         //Step 1: choose the song id according with the participant ID
-        /*
-         switch ()
-        {
-          case 0:
-            //song 0
-            //pintar DataPlotterScript.pointList(musica)
-          case 1:
-            //song 1
-              break;
-          case 2:
-              //song2
-              break;
-          case 3:
-              //song3
-         }
+        /*ANIMATION PART*/
+            UnityEngine.Debug.Log(DataPlotterScript.dataPointList[0].transform.name);
+            DataPlotterScript.dataPointList[0].AddComponent<Animator>();
+            anim = DataPlotterScript.dataPointList[0].GetComponent<Animator>();
+            //anim.runtimeAnimatorController.
+            //anim.Play("sphereAnimation");
 
-         */
-        //Step 2: color the song
+            //taskPoint.AddComponent<Animator>();
+
+
+
     }
 
     public void EndTaskOne()
@@ -204,6 +210,12 @@ public class TaskGuide : MonoBehaviour {
     }
 
     public void EndTaskThree()
+    {
+        
+        timer.Stop();
+    }
+
+    public void StartTaskFour()
     {
         timer.Stop();
     }
