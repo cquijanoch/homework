@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Diagnostics;
 using UnityEngine.XR;
+using UnityEngine.EventSystems;
 
 public class TaskGuide : MonoBehaviour {
 
@@ -18,6 +19,7 @@ public class TaskGuide : MonoBehaviour {
     public int multipleSelectionCounter;
     Stopwatch timer = new Stopwatch();
     Distance MatrixDistance;
+    //PointerEventData pointer;
 
 
   //  List<GameObject> taskPoints;
@@ -64,7 +66,7 @@ public class TaskGuide : MonoBehaviour {
             p++;
         }
         MatrixDistance.InputMatrix(ListPoint, ListPoint);
-        UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(139));
+    //    UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(139));
 
         //MatrixDistance = new Distance(5, 5);
         //PointD[] ListPoint = new PointD[5];
@@ -120,9 +122,17 @@ public class TaskGuide : MonoBehaviour {
         //if (VR)
         //{ }
         //else
-
+        //pointer = new PointerEventData(EventSystem.current);
+      //  OnPointerClick(pointer);
     }
-
+/*    public virtual void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.clickCount == 2)
+        {
+            UnityEngine.Debug.Log("double click");
+        }
+    }
+    */
 
     public void StartTaskOne()
     {
