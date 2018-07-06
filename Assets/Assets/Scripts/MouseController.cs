@@ -8,7 +8,9 @@ public class MouseController : MonoBehaviour
 {
     public GameObject selectedObject = null;
     public GameObject myTaskManager;
+    public GameObject hitObject;
     TaskGuide myTaskGuideScript;
+    public bool isSelected;
     public RaycastHit selectedCoordinate; //Stores the PCA coordinate 
     public List<MusicObj> selectedObjects = null;
     private bool firstOfMultipleSelection = true;
@@ -38,7 +40,7 @@ public class MouseController : MonoBehaviour
     {
         // lr = GetComponent<LineRenderer>();
         myTaskGuideScript = myTaskManager.GetComponent<TaskGuide>();
-       
+        isSelected = false;
     }
 
     // Update is called once per frame
@@ -52,16 +54,18 @@ public class MouseController : MonoBehaviour
             // GUI Action
             return;
         }
-
+        /*Selecting multiple points*/
         if (Input.GetMouseButton(1)) // secondary (right)
        {
             if(Input.GetMouseButtonUp(0)) //primary (left)
             {
                 if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
                 {
-                    GameObject hitObject = hitInfo.transform.root.gameObject;
+                    
+                    hitObject = hitInfo.transform.root.gameObject;
                     if (hitInfo.transform.name != "Plane")
                     {
+
                         SelectMultipleObjects(hitObject, hitInfo);
                         myTaskGuideScript.CountMultipleSelection();
                         firstOfMultipleSelection = false;
@@ -69,14 +73,15 @@ public class MouseController : MonoBehaviour
                 }
             }
         }
-      
+
+        /*Selecting one point*/
 
         else if (Input.GetMouseButtonUp(0))
         {
             ClearAllSelections();
             if (Physics.Raycast(ray, out hitInfo , Mathf.Infinity))
             {
-                GameObject hitObject = hitInfo.transform.root.gameObject;
+                hitObject = hitInfo.transform.root.gameObject;
                 if (hitInfo.transform.name != "Plane")
                 {
                     myTaskGuideScript.CountSingleSelection();
@@ -89,13 +94,15 @@ public class MouseController : MonoBehaviour
                 ClearSelection();
             }
         }
+
+        /*Double clicking on the point*/
     }
 
     void SelectSingleObject(GameObject obj, RaycastHit point)
     {
         if (selectedObject != null)
         {
-
+            isSelected = true;
             if (point.transform.name == selectedCoordinate.transform.name)
             {
               
@@ -128,6 +135,7 @@ public class MouseController : MonoBehaviour
 
         if (selectedObject != null)
         {
+            isSelected = true;
 
             if (point.transform.name == selectedCoordinate.transform.name)
             {
@@ -146,6 +154,8 @@ public class MouseController : MonoBehaviour
 
     void ClearSelection()
     {
+        isSelected = false;
+
         if (selectedObject == null)
             return;
         Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer>();
@@ -174,6 +184,8 @@ public class MouseController : MonoBehaviour
 
     public void ClearAllSelections()
     {
+        isSelected = false;
+
         foreach (MusicObj obj in selectedObjects)
         {
             obj.GetComponent<Renderer>().material.color = obj.CurrentColor;
