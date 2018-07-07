@@ -15,6 +15,7 @@ public class Record : MonoBehaviour {
         //fTaskResults = File.CreateText(Application.persistentDataPath+"/Experiments/UserIDTaskIDDataSetIDVR.csv");
         fTaskResults = File.CreateText(Application.persistentDataPath + "/Experiments/"+filename+".csv");
         header = "UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, AnswerAccuracy";
+        Debug.Log(Application.persistentDataPath);
         Debug.Log(header);
         Debug.Log(result);
 

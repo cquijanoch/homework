@@ -74,7 +74,7 @@ public class TaskGuide : MonoBehaviour {
         MatrixDistance.InputMatrix(ListPoint, ListPoint);
 
         //write the CSV entry
-        CSVResults = userID + "," + taskID;
+        CSVResults = userID + "," + taskID + "," + datasetID + "," + boolToInt();
         //    UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(139));
 
         //MatrixDistance = new Distance(5, 5);
@@ -127,6 +127,7 @@ public class TaskGuide : MonoBehaviour {
             default:
                 UnityEngine.Debug.Log("Defina uma tarefa");
                 taskPoint = DataPlotterScript.dataPointList[0];
+                answerPoint = DataPlotterScript.dataPointList[1];
                 StartTaskOne();
                 EndTaskOne();
 
@@ -152,8 +153,9 @@ public class TaskGuide : MonoBehaviour {
 
         /*In this task a song A will be selected (colored) and the user has to find the nearest song to it */
 
-        /*ANIMATION PART*/
+        /*Step 1: animate the sphere*/
         startSphereAnimation();
+        /*Step 2: color the sphere*/
         
 
     }
@@ -167,10 +169,9 @@ public class TaskGuide : MonoBehaviour {
 
         //Step 4: record the answer 
             
-        CSVResults += "," + cronometro;
-        
-
+        CSVResults += "," + cronometro + "," + answerPoint.name + "," ; //falta armazenar qual seria a resposta correta e fazer o cálculo da distância
         logHandler.Log(CSVResults, CSVFilename);
+
         //comparar as respostas
         //escrever csv
     }
@@ -183,8 +184,7 @@ public class TaskGuide : MonoBehaviour {
 
         startSphereAnimation();
 
-        //Step 3: wait for the input from the participant
-
+        /*Step 2: color the sphere*/
     }
 
     public void EndTaskTwo()
