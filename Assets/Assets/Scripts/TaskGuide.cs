@@ -5,9 +5,13 @@ using System.Diagnostics;
 using UnityEngine.XR;
 using UnityEngine.EventSystems;
 
+using HTC.UnityPlugin.Pointer3D;
+using HTC.UnityPlugin.Vive;
+
 public class TaskGuide : MonoBehaviour {
 
     // Use this for initialization
+
     public GameObject myDataPlotter;
     public GameObject myMouseController;
     public GameObject myViveController;
@@ -26,6 +30,7 @@ public class TaskGuide : MonoBehaviour {
     Distance MatrixDistance;
     public float cronometro;
     public float cronometro2=0f;
+    public int interactionCounter;
 
 
     private GameObject []taskPoints = new GameObject[4];
@@ -60,7 +65,7 @@ public class TaskGuide : MonoBehaviour {
     void Start() {
         //Start Experiment
         logHandler = new Record();
-
+        interactionCounter = 0;
         DataPlotterScript = myDataPlotter.GetComponent<DataPlotter>();
         MatrixDistance = new Distance(DataPlotterScript.dataPointList.Count, DataPlotterScript.dataPointList.Count);
         PointD[] ListPoint = new PointD[DataPlotterScript.dataPointList.Count];
@@ -135,8 +140,6 @@ public class TaskGuide : MonoBehaviour {
                 break;
         }
 
-        
-       
     }
 
 
@@ -144,6 +147,23 @@ public class TaskGuide : MonoBehaviour {
     {
         cronometro += Time.deltaTime;
         //fazer a contagem dos clicks/trigger
+        if (VR)
+        {
+            if ((ViveInput.GetPressUp(HandRole.LeftHand, ControllerButton.Trigger)))
+                interactionCounter++;
+            if ((ViveInput.GetPressUp(HandRole.RightHand, ControllerButton.Trigger)))
+                interactionCounter++;
+        }
+        else
+        {
+            if(Input.GetMouseButtonUp(0))
+            {
+                interactionCounter++;
+            }
+        }
+
+        
+        
 
     }
     public void StartTaskOne()
@@ -169,7 +189,7 @@ public class TaskGuide : MonoBehaviour {
 
         //Step 4: record the answer 
             
-        CSVResults += "," + cronometro + "," + answerPoint.name + "," ; //falta armazenar qual seria a resposta correta e fazer o cálculo da distância
+        CSVResults += "," + cronometro + "," + interactionCounter + "," +answerPoint.name + "," ; //falta armazenar qual seria a resposta correta e fazer o cálculo da distância
         logHandler.Log(CSVResults, CSVFilename);
 
         //comparar as respostas
@@ -216,12 +236,6 @@ public class TaskGuide : MonoBehaviour {
         cronometro = 0;
 
     }
-
-    public void CountClicks()
-    {
-        
-    }
-
 
 
     public void startSphereAnimation()
