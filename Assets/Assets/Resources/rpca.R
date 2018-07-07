@@ -39,7 +39,7 @@ fviz_pca_ind(data1.pca,
 			 
 			 
 		
- data1.subdataset1 <- read.csv("msd-subdataset1.csv",header=T)
+ data1.subdataset2 <- read.csv("msd-subdataset2.csv",header=T)
 
 write.csv(data1.subdataset1, file = "msd-subdataset1.csv")
  
@@ -50,11 +50,11 @@ j = 1
 for (i in 1:59600){
 	
 	if(data1.origin[i,4] %in% "pop" ) {
-		data1.subdataset1[ nrow(data1.subdataset1) + 1,] = data1.origin[i,]
+		data1.subdataset5[ nrow(data1.subdataset5) + 1,] = data1.origin[i,]
 		j = j + 1
 	}
 	
-	if(j == 51)
+	if(j == 501)
 		break
 	
 }
@@ -63,11 +63,11 @@ j = 1
 for (i in 1:59600){
 	
 	if(data1.origin[i,4] %in% "soul and reggae" ) {
-		data1.subdataset1[ nrow(data1.subdataset1) + 1,] = data1.origin[i,]
+		data1.subdataset5[ nrow(data1.subdataset5) + 1,] = data1.origin[i,]
 		j = j + 1
 	}
 	
-	if(j == 51)
+	if(j == 501)
 		break
 	
 }
@@ -76,11 +76,11 @@ j = 1
 for (i in 1:59600){
 	
 	if(data1.origin[i,4] %in% "folk" ) {
-		data1.subdataset1[ nrow(data1.subdataset1) + 1,] = data1.origin[i,]
+		data1.subdataset5[ nrow(data1.subdataset5) + 1,] = data1.origin[i,]
 		j = j + 1
 	}
 	
-	if(j == 51)
+	if(j == 501)
 		break
 	
 }
@@ -89,11 +89,11 @@ j = 1
 for (i in 1:59600){
 	
 	if(data1.origin[i,4] %in% "hip-hop" ) {
-		data1.subdataset1[ nrow(data1.subdataset1) + 1,] = data1.origin[i,]
+		data1.subdataset5[ nrow(data1.subdataset5) + 1,] = data1.origin[i,]
 		j = j + 1
 	}
 	
-	if(j == 51)
+	if(j == 501)
 		break
 	
 }
@@ -102,11 +102,11 @@ j = 1
 for (i in 1:59600){
 	
 	if(data1.origin[i,4] %in% "punk" ) {
-		data1.subdataset1[ nrow(data1.subdataset1) + 1,] = data1.origin[i,]
+		data1.subdataset5[ nrow(data1.subdataset5) + 1,] = data1.origin[i,]
 		j = j + 1
 	}
 	
-	if(j == 51)
+	if(j == 501)
 		break
 	
 }
@@ -115,11 +115,11 @@ j = 1
 for (i in 1:59600){
 	
 	if(data1.origin[i,4] %in% "dance and electronica" ) {
-		data1.subdataset1[ nrow(data1.subdataset1) + 1,] = data1.origin[i,]
+		data1.subdataset5[ nrow(data1.subdataset5) + 1,] = data1.origin[i,]
 		j = j + 1
 	}
 	
-	if(j == 51)
+	if(j == 501)
 		break
 	
 }
@@ -128,11 +128,11 @@ j = 1
 for (i in 1:59600){
 	
 	if(data1.origin[i,4] %in% "classic pop and rock" ) {
-		data1.subdataset1[ nrow(data1.subdataset1) + 1,] = data1.origin[i,]
+		data1.subdataset5[ nrow(data1.subdataset5) + 1,] = data1.origin[i,]
 		j = j + 1
 	}
 	
-	if(j == 51)
+	if(j == 501)
 		break
 	
 }
@@ -141,11 +141,11 @@ j = 1
 for (i in 1:59600){
 	
 	if(data1.origin[i,4] %in% "jazz and blues" ) {
-		data1.subdataset1[ nrow(data1.subdataset1) + 1,] = data1.origin[i,]
+		data1.subdataset5[ nrow(data1.subdataset5) + 1,] = data1.origin[i,]
 		j = j + 1
 	}
 	
-	if(j == 51)
+	if(j == 501)
 		break
 	
 }
@@ -154,11 +154,11 @@ j = 1
 for (i in 1:59600){
 	
 	if(data1.origin[i,4] %in% "classical" ) {
-		data1.subdataset1[ nrow(data1.subdataset1) + 1,] = data1.origin[i,]
+		data1.subdataset5[ nrow(data1.subdataset5) + 1,] = data1.origin[i,]
 		j = j + 1
 	}
 	
-	if(j == 51)
+	if(j == 501)
 		break
 	
 }
@@ -167,11 +167,11 @@ j = 1
 for (i in 1:59600){
 	
 	if(data1.origin[i,4] %in% "metal" ) {
-		data1.subdataset1[ nrow(data1.subdataset1) + 1,] = data1.origin[i,]
+		data1.subdataset5[ nrow(data1.subdataset5) + 1,] = data1.origin[i,]
 		j = j + 1
 	}
 	
-	if(j == 51)
+	if(j == 501)
 		break
 	
 }
