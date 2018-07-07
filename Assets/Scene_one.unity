@@ -4181,14 +4181,16 @@ MonoBehaviour:
   myViveController: {fileID: 0}
   answerPoint: {fileID: 0}
   taskPoint: {fileID: 0}
+  logHandler: {fileID: 0}
+  CSVResults: 
+  CSVFilename: 
   taskID: 0
   userID: 2
-  datasetID: 0
+  datasetID: 1
   singleSelectionCounter: 0
   multipleSelectionCounter: 0
   itemSelectedT1: 17000000110000002b0000002f000000
   itemSelectedT2: 17000000110000002b0000002f000000
-  genreSelected: 00000000000000000000000000000000000000000000000000000000
   VR: 0
 --- !u!4 &1856124256
 Transform:

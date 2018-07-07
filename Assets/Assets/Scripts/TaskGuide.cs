@@ -13,6 +13,9 @@ public class TaskGuide : MonoBehaviour {
     public GameObject myViveController;
     public GameObject answerPoint;
     public GameObject taskPoint;
+    public Record logHandler;
+    public string CSVResults;
+    public string CSVFilename;
     public static Animator anim;
     DataPlotter DataPlotterScript;
     public int taskID;
@@ -20,13 +23,15 @@ public class TaskGuide : MonoBehaviour {
     public int datasetID;
     public int singleSelectionCounter;
     public int multipleSelectionCounter;
-    Stopwatch timer = new Stopwatch();
     Distance MatrixDistance;
+    public float cronometro;
+    public float cronometro2=0f;
 
 
     private GameObject []taskPoints = new GameObject[4];
     //private int []myvector = new int[2];
     public int[] itemSelectedT1 = { 23, 17, 43, 47 };
+
     public int[] itemSelectedT2 = { 101, 307, 443, 71 };
 
 
@@ -53,9 +58,9 @@ public class TaskGuide : MonoBehaviour {
     }
 
     void Start() {
-
         //Start Experiment
-     
+        logHandler = new Record();
+
         DataPlotterScript = myDataPlotter.GetComponent<DataPlotter>();
         MatrixDistance = new Distance(DataPlotterScript.dataPointList.Count, DataPlotterScript.dataPointList.Count);
         PointD[] ListPoint = new PointD[DataPlotterScript.dataPointList.Count];
@@ -67,7 +72,10 @@ public class TaskGuide : MonoBehaviour {
             p++;
         }
         MatrixDistance.InputMatrix(ListPoint, ListPoint);
-    //    UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(139));
+
+        //write the CSV entry
+        CSVResults = userID + "," + taskID;
+        //    UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(139));
 
         //MatrixDistance = new Distance(5, 5);
         //PointD[] ListPoint = new PointD[5];
@@ -82,7 +90,7 @@ public class TaskGuide : MonoBehaviour {
         //MatrixDistance.InputMatrix(ListPoint, ListPoint);
         //UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(3));
 
-        
+        CSVFilename = userID + "-" + taskID + "-" + datasetID + "-" + boolToInt();
 
         /*Decide here which song or genre will be assigned for the task*/
         switch (taskID)
@@ -120,35 +128,33 @@ public class TaskGuide : MonoBehaviour {
                 UnityEngine.Debug.Log("Defina uma tarefa");
                 taskPoint = DataPlotterScript.dataPointList[0];
                 StartTaskOne();
+                EndTaskOne();
+
+
                 break;
         }
 
-
+        
        
     }
 
-    private void Update()
+
+    void Update()
     {
-        /*Collect data from the user input (mouse or controller)*/
-        //time
-        //if (VR)
-        //{ }
-        //else
-        //pointer = new PointerEventData(EventSystem.current);
-        //  OnPointerClick(pointer);
-        answerPoint = DataPlotterScript.dataPointList[100]; //trocar para o retorno do botão
+        cronometro += Time.deltaTime;
+        //fazer a contagem dos clicks/trigger
 
     }
-       
-
     public void StartTaskOne()
     {
+        cronometro = 0;
+
 
         /*In this task a song A will be selected (colored) and the user has to find the nearest song to it */
 
         /*ANIMATION PART*/
         startSphereAnimation();
-        timer.Start();
+        
 
     }
 
@@ -160,18 +166,22 @@ public class TaskGuide : MonoBehaviour {
         //comparar DataPlotterScript.dataPointList que tem a lista dos pontos com input do usuário
 
         //Step 4: record the answer 
+            
+        CSVResults += "," + cronometro;
+        
 
-        timer.Stop();
+        logHandler.Log(CSVResults, CSVFilename);
         //comparar as respostas
         //escrever csv
     }
 
     public void StartTaskTwo()
     {
+        cronometro = 0;
+
         /*In this task a genre A will be selected (colored) and the user has to find the nearest song to it that is from a given artist*/
 
         startSphereAnimation();
-        timer.Start();
 
         //Step 3: wait for the input from the participant
 
@@ -180,7 +190,6 @@ public class TaskGuide : MonoBehaviour {
     public void EndTaskTwo()
     {
 
-        timer.Stop();
         //record the answer
     }
 
@@ -189,26 +198,28 @@ public class TaskGuide : MonoBehaviour {
         /*In this task a genre A and a song will be selected (colored) and the user has to find the furthest song of the same genre to the song A */
 
         //Step 2: color (and lock the color of the) the genre and the song
+        cronometro = 0;
+
         startSphereAnimation();
-        timer.Start();
 
     }
 
     public void EndTaskThree()
     {
         
-        timer.Stop();
+        
     }
 
     public void StartTaskFour()
     {
         /*In this task, given two artists from different genres, the participant has to select which artist has more songs*/
-        timer.Stop();
+        cronometro = 0;
+
     }
 
     public void CountClicks()
     {
-        singleSelectionCounter++;
+        
     }
 
 
@@ -220,13 +231,12 @@ public class TaskGuide : MonoBehaviour {
         anim.runtimeAnimatorController = Resources.Load("sphereController") as RuntimeAnimatorController;
         anim.Play("sphereAnimation");
     }
-
-    public void writeTaskLog()
+    
+    public int boolToInt()
     {
-
+        if (VR)
+            return 1;
+        return 0;
     }
-
-
-
 
 }
