@@ -5,7 +5,7 @@ using System.Diagnostics;
 using UnityEngine.XR;
 using UnityEngine.EventSystems;
 
-public class TaskGuide : MonoBehaviour, IPointerClickHandler {
+public class TaskGuide : MonoBehaviour {
 
     // Use this for initialization
     public GameObject myDataPlotter;
@@ -22,15 +22,12 @@ public class TaskGuide : MonoBehaviour, IPointerClickHandler {
     public int multipleSelectionCounter;
     Stopwatch timer = new Stopwatch();
     Distance MatrixDistance;
-    //PointerEventData pointer;
 
 
-  //  List<GameObject> taskPoints;
     private GameObject []taskPoints = new GameObject[4];
     //private int []myvector = new int[2];
     public int[] itemSelectedT1 = { 23, 17, 43, 47 };
     public int[] itemSelectedT2 = { 101, 307, 443, 71 };
-    public int[] genreSelected = { 0, 0, 0, 0, 0, 0, 0 }; /**/
 
 
     //lista com os as musicas selecionadas
@@ -85,9 +82,9 @@ public class TaskGuide : MonoBehaviour, IPointerClickHandler {
         //MatrixDistance.InputMatrix(ListPoint, ListPoint);
         //UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(3));
 
+        
 
-
-        timer.Start();
+        /*Decide here which song or genre will be assigned for the task*/
         switch (taskID)
         {
             case 1:
@@ -101,7 +98,7 @@ public class TaskGuide : MonoBehaviour, IPointerClickHandler {
                 break;
 
             case 2:
-                /*Select the nearest song*/
+                /*Select the nearest song to the selected song from a given artist*/
 
                 foreach (int i in itemSelectedT2)
                 {
@@ -111,21 +108,23 @@ public class TaskGuide : MonoBehaviour, IPointerClickHandler {
                 StartTaskTwo();
                 break;
             case 3:
-                /*Select the furthest song*/
+                /*Select the furthest song within the same genre*/
                 StartTaskThree();
                 break;
 
             case 4:
-                /*Select the genre that has more songs*/
+                /*Select the artist that has more songs*/
                 StartTaskFour();
                 break;
             default:
-                //Debug.Log("Defina uma tarefa");
+                UnityEngine.Debug.Log("Defina uma tarefa");
+                taskPoint = DataPlotterScript.dataPointList[0];
+                StartTaskOne();
                 break;
         }
 
-        //Teste
-        StartTaskOne();
+
+       
     }
 
     private void Update()
@@ -136,34 +135,20 @@ public class TaskGuide : MonoBehaviour, IPointerClickHandler {
         //{ }
         //else
         //pointer = new PointerEventData(EventSystem.current);
-      //  OnPointerClick(pointer);
+        //  OnPointerClick(pointer);
+        answerPoint = DataPlotterScript.dataPointList[100]; //trocar para o retorno do botão
+
     }
-    public virtual void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.clickCount == 2)
-        {
-            UnityEngine.Debug.Log("double click");
-        }
-    }
-    
+       
 
     public void StartTaskOne()
     {
 
-        //DataPlotterScript
-        /*In this task a song A will be selected (colored) and the user has to find the nearest song to A of another artist */
+        /*In this task a song A will be selected (colored) and the user has to find the nearest song to it */
 
-        //Step 1: choose the song id according with the participant ID
         /*ANIMATION PART*/
-            UnityEngine.Debug.Log(DataPlotterScript.dataPointList[0].transform.name);
-            DataPlotterScript.dataPointList[0].AddComponent<Animator>();
-            anim = DataPlotterScript.dataPointList[0].GetComponent<Animator>();
-            //anim.runtimeAnimatorController.
-            //anim.Play("sphereAnimation");
-
-            //taskPoint.AddComponent<Animator>();
-
-
+        startSphereAnimation();
+        timer.Start();
 
     }
 
@@ -171,7 +156,7 @@ public class TaskGuide : MonoBehaviour, IPointerClickHandler {
     {
 
         //Step 3.5: calculate distance between input and answer
-
+        
         //comparar DataPlotterScript.dataPointList que tem a lista dos pontos com input do usuário
 
         //Step 4: record the answer 
@@ -183,29 +168,29 @@ public class TaskGuide : MonoBehaviour, IPointerClickHandler {
 
     public void StartTaskTwo()
     {
-        /*In this task a genre A will be selected (colored) and the user has to find the 3 most similar songs of this genre */
-        //Step 1: set the task ID
+        /*In this task a genre A will be selected (colored) and the user has to find the nearest song to it that is from a given artist*/
 
-        //Step 2: color (and lock the color of the) the genre
+        startSphereAnimation();
+        timer.Start();
+
         //Step 3: wait for the input from the participant
-        //Step 4: record the answer 
 
     }
 
     public void EndTaskTwo()
     {
+
         timer.Stop();
+        //record the answer
     }
 
     public void StartTaskThree()
     {
         /*In this task a genre A and a song will be selected (colored) and the user has to find the furthest song of the same genre to the song A */
-        //Step 1: set the task ID
-        
-        //Step 2: color (and lock the color of the) the genre and the song
 
-        //Step 3: wait for the input from the participant
-        //Step 4: record the answer 
+        //Step 2: color (and lock the color of the) the genre and the song
+        startSphereAnimation();
+        timer.Start();
 
     }
 
@@ -217,17 +202,28 @@ public class TaskGuide : MonoBehaviour, IPointerClickHandler {
 
     public void StartTaskFour()
     {
+        /*In this task, given two artists from different genres, the participant has to select which artist has more songs*/
         timer.Stop();
     }
 
-    public void CountSingleSelection()
+    public void CountClicks()
     {
         singleSelectionCounter++;
     }
 
-    public void CountMultipleSelection()
+
+
+    public void startSphereAnimation()
     {
-        multipleSelectionCounter++;
+        taskPoint.AddComponent<Animator>();
+        anim = taskPoint.GetComponent<Animator>();
+        anim.runtimeAnimatorController = Resources.Load("sphereController") as RuntimeAnimatorController;
+        anim.Play("sphereAnimation");
+    }
+
+    public void writeTaskLog()
+    {
+
     }
 
 

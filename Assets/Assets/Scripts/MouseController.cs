@@ -61,7 +61,7 @@ public class MouseController : MonoBehaviour
                     {
 
                         SelectMultipleObjects(hitObject, hitInfo);
-                        myTaskGuideScript.CountMultipleSelection();
+                       // myTaskGuideScript.CountMultipleSelection();
                         firstOfMultipleSelection = false;
                     }
                 }
@@ -78,7 +78,7 @@ public class MouseController : MonoBehaviour
                 hitObject = hitInfo.transform.root.gameObject;
                 if (hitInfo.transform.name != "Plane")
                 {
-                    myTaskGuideScript.CountSingleSelection();
+                    //myTaskGuideScript.CountSingleSelection();
                     SelectSingleObject(hitObject, hitInfo);
                     firstOfMultipleSelection = true;
                 }

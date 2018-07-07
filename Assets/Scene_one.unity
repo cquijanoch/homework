@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1681372116}
   m_HandleRect: {fileID: 1681372115}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4179,6 +4179,8 @@ MonoBehaviour:
   myDataPlotter: {fileID: 529365399}
   myMouseController: {fileID: 957972568}
   myViveController: {fileID: 0}
+  answerPoint: {fileID: 0}
+  taskPoint: {fileID: 0}
   taskID: 0
   userID: 2
   datasetID: 0
@@ -4186,6 +4188,7 @@ MonoBehaviour:
   multipleSelectionCounter: 0
   itemSelectedT1: 17000000110000002b0000002f000000
   itemSelectedT2: 17000000110000002b0000002f000000
+  genreSelected: 00000000000000000000000000000000000000000000000000000000
   VR: 0
 --- !u!4 &1856124256
 Transform:
