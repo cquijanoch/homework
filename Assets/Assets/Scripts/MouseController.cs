@@ -17,10 +17,6 @@ public class MouseController : MonoBehaviour
     [SerializeField] public Text musicCurrentText;
     [SerializeField] public Text artistCurrentText;
     [SerializeField] public Text genreCurrentText;
-    //[SerializeField] public Text locationCurrentText;
-    //[SerializeField] public Text familiarityCurrentText;
-    //[SerializeField] public Text artistHotnessCurrentText;
-    //[SerializeField] public Text tempoCurrentText;
     [SerializeField] public Text durationCurrentText;
     string specifier = "G";
     private int fingerID = -1;
@@ -34,11 +30,9 @@ public class MouseController : MonoBehaviour
              fingerID = 0; 
         #endif
     }
-
-    // Use this for initialization
+    
     void Start()
     {
-        // lr = GetComponent<LineRenderer>();
         myTaskGuideScript = myTaskManager.GetComponent<TaskGuide>();
         isSelected = false;
     }
@@ -94,8 +88,7 @@ public class MouseController : MonoBehaviour
                 ClearSelection();
             }
         }
-
-        /*Double clicking on the point*/
+        
     }
 
     void SelectSingleObject(GameObject obj, RaycastHit point)
@@ -115,16 +108,11 @@ public class MouseController : MonoBehaviour
         selectedObject = obj;
         selectedCoordinate = point;
         GameObject r = point.transform.gameObject;
-        //GameObject r = GameObject.Find(point.transform.name); //this might me slower than the foreach method
         MusicObj musicObj = r.GetComponent<MusicObj>();
         musicObj.GetComponent<Renderer>().material.color = Color.green;
         musicCurrentText.text = musicObj.ColumnTitle;
         artistCurrentText.text = musicObj.ColumnArtistName;
-        //locationCurrentText.text = musicObj.ColumnLocation;
         genreCurrentText.text = musicObj.ColumnTerms;
-        //familiarityCurrentText.text = musicObj.ColumnFamiliarity.ToString(specifier);
-        //artistHotnessCurrentText.text = musicObj.ColumnArtistHotness.ToString(specifier);
-        //tempoCurrentText.text = musicObj.ColumnTempo.ToString(specifier);
         durationCurrentText.text = musicObj.ColumnDuration + "";
     }
 
@@ -145,7 +133,6 @@ public class MouseController : MonoBehaviour
         selectedObject = obj;
         selectedCoordinate = point;
         GameObject r = point.transform.gameObject;
-        //GameObject r = GameObject.Find(point.transform.name); //this might me slower than the foreach method
         MusicObj musicObj = r.GetComponent<MusicObj>();
         musicObj.GetComponent<Renderer>().material.color = Color.green;
         selectedObjects.Add(musicObj);
@@ -159,7 +146,6 @@ public class MouseController : MonoBehaviour
         if (selectedObject == null)
             return;
         Renderer[] rs = selectedObject.GetComponentsInChildren<Renderer>();
-        //selectedObject.GetComponent<Renderer>().material.color = Color.clear;
         GameObject rh = selectedCoordinate.transform.gameObject;
         MusicObj musicObj = rh.GetComponent<MusicObj>();
         foreach (Renderer r in rs)
@@ -172,11 +158,7 @@ public class MouseController : MonoBehaviour
         selectedObject = null;
         musicCurrentText.text = "";
         artistCurrentText.text = "";
-        //locationCurrentText.text = "";
-        genreCurrentText.text = "";
-        //familiarityCurrentText.text = "";
-        //artistHotnessCurrentText.text = "";
-        //tempoCurrentText.text = "";
+        genreCurrentText.text = "";;
         durationCurrentText.text = "";
         selectedObjects.Clear();
     }
