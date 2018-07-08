@@ -105,9 +105,10 @@ public class MouseController : MonoBehaviour
             ClearSelection();
 
         }
-        selectedObject = obj;
+        
         selectedCoordinate = point;
         GameObject r = point.transform.gameObject;
+        selectedObject = r;
         MusicObj musicObj = r.GetComponent<MusicObj>();
         musicObj.GetComponent<Renderer>().material.color = Color.green;
         musicCurrentText.text = musicObj.ColumnTitle;
@@ -130,9 +131,10 @@ public class MouseController : MonoBehaviour
                 return;
             }
         }
-        selectedObject = obj;
+        
         selectedCoordinate = point;
         GameObject r = point.transform.gameObject;
+        selectedObject = r;
         MusicObj musicObj = r.GetComponent<MusicObj>();
         musicObj.GetComponent<Renderer>().material.color = Color.green;
         selectedObjects.Add(musicObj);
