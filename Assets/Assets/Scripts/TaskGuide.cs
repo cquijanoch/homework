@@ -95,7 +95,7 @@ public class TaskGuide : MonoBehaviour {
         //MatrixDistance.InputMatrix(ListPoint, ListPoint);
         //UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(3));
 
-        CSVFilename = userID + "-" + taskID + "-" + datasetID + "-" + boolToInt();
+        CSVFilename = "User - "+userID + "-" + "Task - " + taskID + "-" + "Dataset - " + datasetID + "-" + "VR - "+boolToInt();
 
         /*Decide here which song or genre will be assigned for the task*/
         switch (taskID)
@@ -162,8 +162,12 @@ public class TaskGuide : MonoBehaviour {
             }
         }
 
-        
-        
+
+        if (cronometro > 30)
+            EndTaskOne();
+            
+
+
 
     }
     public void StartTaskOne()
@@ -188,10 +192,10 @@ public class TaskGuide : MonoBehaviour {
         //comparar DataPlotterScript.dataPointList que tem a lista dos pontos com input do usuário
 
         //Step 4: record the answer 
-            
+            UnityEditor.EditorApplication.isPlaying = false;
         CSVResults += "," + cronometro + "," + interactionCounter + "," +answerPoint.name + "," ; //falta armazenar qual seria a resposta correta e fazer o cálculo da distância
         logHandler.Log(CSVResults, CSVFilename);
-
+        UnityEditor.EditorApplication.isPlaying = false;
         //comparar as respostas
         //escrever csv
     }
