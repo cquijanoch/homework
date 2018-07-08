@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Diagnostics;
 using UnityEngine.XR;
 using UnityEngine.EventSystems;
+using System;
+using UnityEngine.UI;
 
 public class TaskGuide : MonoBehaviour {
 
@@ -12,7 +14,6 @@ public class TaskGuide : MonoBehaviour {
     public GameObject myMouseController;
     public GameObject myViveController;
     public GameObject answerPoint;
-    public GameObject taskPoint;
     public static Animator anim;
     DataPlotter DataPlotterScript;
     public int taskID;
@@ -22,12 +23,46 @@ public class TaskGuide : MonoBehaviour {
     public int multipleSelectionCounter;
     Stopwatch timer = new Stopwatch();
     Distance MatrixDistance;
-
+    [SerializeField] public Text taskText;
+    [SerializeField] public Text task2Text;
 
     private GameObject []taskPoints = new GameObject[4];
     //private int []myvector = new int[2];
     public int[] itemSelectedT1 = { 23, 17, 43, 47 };
-    public int[] itemSelectedT2 = { 101, 307, 443, 71 };
+    //public int[] itemSelectedT2 = { 36, 17, 43, 47 }; //Luis miguel y Culture
+
+    //Tarefa 2 
+        //msd-subdataset4
+        //================
+        // 36   LuisMiguel      412     Culture
+        // 29    LuisMiguel      411    Culture
+        // 86     Rocio Durcal     2776       Lee Greenwood
+        //msd-subdataset1
+        //================
+        // 201   Close COmbat               251    Funkstoerung
+
+        //msd-subdataset2
+        //================
+        // 211  Akil               782   Culture
+        // 208   Culture            1194  Akil        
+        // 51   ke$ha                    254     Donell Jones
+
+    //Tarefa 3
+
+        //msd-subdataset4
+        //================
+        //metal  3778           3752
+
+        //msd-subdataset1
+        //================
+        //pop   38          32
+
+        //msd-subdataset2
+        //================
+        //jazz  581             1570            
+
+
+    // public int[] itemSelectedT2 = { 101, 307, 443, 71 };
 
 
     //lista com os as musicas selecionadas
@@ -67,49 +102,57 @@ public class TaskGuide : MonoBehaviour {
             p++;
         }
         MatrixDistance.InputMatrix(ListPoint, ListPoint);
-    //    UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(139));
-
-        //MatrixDistance = new Distance(5, 5);
-        //PointD[] ListPoint = new PointD[5];
-        //int p = 0;
-        //foreach (GameObject point in DataPlotterScript.dataPointList)
-        //{
-        //    PointD point_ = new PointD((double)point.GetComponent<MusicObj>().ColumnX, (double)point.GetComponent<MusicObj>().ColumnY, (double)point.GetComponent<MusicObj>().ColumnZ, point.transform.name);
-        //    ListPoint[p] = point_;
-        //    p++;
-        //    if (p == 5) break;
-        //}
-        //MatrixDistance.InputMatrix(ListPoint, ListPoint);
-        //UnityEngine.Debug.Log("" + MatrixDistance.GetMinByIndex(3));
-
-        
 
         /*Decide here which song or genre will be assigned for the task*/
         switch (taskID)
         {
             case 1:
-                /*Select the nearest song to the selected song*/
-                foreach (int i in itemSelectedT1)
+                /*SDada uma música, encontrar a música mais próxima a ela (sem nenhuma restrição de artista ou gênero)*/
+
+                if (DataPlotterScript.inputfile.Equals("msd-subdataset1"))
                 {
-                    //taskPoints.Add(DataPlotterScript.dataPointList[i]);
-                    taskPoints[userID % 4] = DataPlotterScript.dataPointList[itemSelectedT1[i]];
+                    StartTaskOne(DataPlotterScript.dataPointList[itemSelectedT1[0]]);
                 }
-                StartTaskOne();
+                else if (DataPlotterScript.inputfile.Equals("msd-subdataset2"))
+                {
+                    StartTaskOne(DataPlotterScript.dataPointList[itemSelectedT1[1]]);
+                }
+                else if (DataPlotterScript.inputfile.Equals("msd-subdataset4"))
+                {
+                    StartTaskOne(DataPlotterScript.dataPointList[itemSelectedT1[2]]);
+                }
                 break;
 
             case 2:
-                /*Select the nearest song to the selected song from a given artist*/
+                /*Dada uma música de um artista, encontrar a música mais próxima a ela que seja de um outro artista especificado*/
 
-                foreach (int i in itemSelectedT2)
+                if (DataPlotterScript.inputfile.Equals("msd-subdataset1"))
                 {
-                    // taskPoints.Add(DataPlotterScript.dataPointList[itemSelectedT1[i]]);
-                    taskPoints[userID % 4] = DataPlotterScript.dataPointList[itemSelectedT2[i]];
+                    StartTaskTwo(DataPlotterScript.dataPointList[201], "Funkstoerung");
                 }
-                StartTaskTwo();
+                else if (DataPlotterScript.inputfile.Equals("msd-subdataset2"))
+                {
+                    StartTaskTwo(DataPlotterScript.dataPointList[208], "Akil");
+                }
+                else if (DataPlotterScript.inputfile.Equals("msd-subdataset4"))
+                {
+                    StartTaskTwo(DataPlotterScript.dataPointList[36], "Culture");
+                }
                 break;
             case 3:
-                /*Select the furthest song within the same genre*/
-                StartTaskThree();
+                /*Dada uma música, encontrar a música mais distante a ela que pertença ao mesmo gênero*/
+                if (DataPlotterScript.inputfile.Equals("msd-subdataset1"))
+                {
+                    StartTaskThree(DataPlotterScript.dataPointList[38]);
+                }
+                else if (DataPlotterScript.inputfile.Equals("msd-subdataset2"))
+                {
+                    StartTaskThree(DataPlotterScript.dataPointList[581]);
+                }
+                else if (DataPlotterScript.inputfile.Equals("msd-subdataset4"))
+                {
+                    StartTaskThree(DataPlotterScript.dataPointList[3778]);
+                }
                 break;
 
             case 4:
@@ -118,12 +161,10 @@ public class TaskGuide : MonoBehaviour {
                 break;
             default:
                 UnityEngine.Debug.Log("Defina uma tarefa");
-                taskPoint = DataPlotterScript.dataPointList[0];
-                StartTaskOne();
+                
+                //StartTaskOne();
                 break;
         }
-
-
        
     }
 
@@ -136,60 +177,86 @@ public class TaskGuide : MonoBehaviour {
         //else
         //pointer = new PointerEventData(EventSystem.current);
         //  OnPointerClick(pointer);
-        answerPoint = DataPlotterScript.dataPointList[100]; //trocar para o retorno do botão
+        //answerPoint = DataPlotterScript.dataPointList[100]; //trocar para o retorno do botão
 
     }
        
 
-    public void StartTaskOne()
+    public void StartTaskOne(GameObject taskPoint)
     {
-
-        /*In this task a song A will be selected (colored) and the user has to find the nearest song to it */
-
         /*ANIMATION PART*/
-        startSphereAnimation();
+        startSphereAnimation(taskPoint);
         timer.Start();
-
     }
 
     public void EndTaskOne()
     {
-
         //Step 3.5: calculate distance between input and answer
-        
         //comparar DataPlotterScript.dataPointList que tem a lista dos pontos com input do usuário
-
-        //Step 4: record the answer 
-
         timer.Stop();
-        //comparar as respostas
-        //escrever csv
+        GameObject pointSelected;
+        if ( VR )
+            pointSelected = myViveController.GetComponent<ViveEventsController>().selectedObject;
+        else
+            pointSelected = myMouseController.GetComponent<MouseController>().selectedObject;
+     
+
+        if(pointSelected)
+        {
+            MusicObj music_p = pointSelected.GetComponent<MusicObj>(); //selected
+            MusicObj music_c = DataPlotterScript.dataPointList[MatrixDistance.GetMinByIndex(itemSelectedT1[0])].GetComponent<MusicObj>(); //closest
+            MusicObj music_r = DataPlotterScript.dataPointList[itemSelectedT1[0]].GetComponent<MusicObj>(); // real
+            double distCorrect = MatrixDistance.CalculateDistance((double)music_r.ColumnX, (double)music_r.ColumnY, (double)music_r.ColumnZ, (double)music_c.ColumnX, (double)music_c.ColumnY, (double)music_c.ColumnZ);
+            double distAprox = MatrixDistance.CalculateDistance((double)music_p.ColumnX, (double)music_p.ColumnY, (double)music_p.ColumnZ, (double)music_c.ColumnX, (double)music_c.ColumnY, (double)music_c.ColumnZ);
+            double error = (Math.Abs(distCorrect - distAprox) / distCorrect) * 100;
+            UnityEngine.Debug.Log("point correct: " + MatrixDistance.GetMinByIndex(itemSelectedT1[0]));
+            UnityEngine.Debug.Log("Error: " + error);
+        }
     }
 
-    public void StartTaskTwo()
+    public void StartTaskTwo(GameObject taskPoint, String artistSpecific)
     {
-        /*In this task a genre A will be selected (colored) and the user has to find the nearest song to it that is from a given artist*/
-
-        startSphereAnimation();
+        taskText.text = artistSpecific;
+        startSphereAnimation(taskPoint);
         timer.Start();
-
-        //Step 3: wait for the input from the participant
-
     }
 
     public void EndTaskTwo()
     {
-
         timer.Stop();
-        //record the answer
+        GameObject pointSelected;
+        if (VR)
+            pointSelected = myViveController.GetComponent<ViveEventsController>().selectedObject;
+        else
+            pointSelected = myMouseController.GetComponent<MouseController>().selectedObject;
+
+
+        if (pointSelected)
+        {
+            MusicObj music_p = pointSelected.GetComponent<MusicObj>(); //selected
+            MusicObj music_c;
+            MusicObj music_r;
+            if (DataPlotterScript.inputfile.Equals("msd-subdataset1"))
+            {
+                music_c = DataPlotterScript.dataPointList[251].GetComponent<MusicObj>(); //closest
+                music_r = DataPlotterScript.dataPointList[201].GetComponent<MusicObj>(); //real
+            }
+            else if (DataPlotterScript.inputfile.Equals("msd-subdataset2"))
+            {
+                music_c = DataPlotterScript.dataPointList[1194].GetComponent<MusicObj>(); //closest
+                music_r = DataPlotterScript.dataPointList[208].GetComponent<MusicObj>(); //real
+            }
+            else if (DataPlotterScript.inputfile.Equals("msd-subdataset4"))
+            {
+                music_c = DataPlotterScript.dataPointList[412].GetComponent<MusicObj>(); //closest
+                music_r = DataPlotterScript.dataPointList[36].GetComponent<MusicObj>(); //real
+            }
+        }
     }
 
-    public void StartTaskThree()
+    public void StartTaskThree(GameObject taskPoint)
     {
-        /*In this task a genre A and a song will be selected (colored) and the user has to find the furthest song of the same genre to the song A */
-
-        //Step 2: color (and lock the color of the) the genre and the song
-        startSphereAnimation();
+        startSphereAnimation(taskPoint);
         timer.Start();
 
     }
@@ -198,11 +265,44 @@ public class TaskGuide : MonoBehaviour {
     {
         
         timer.Stop();
+        GameObject pointSelected;
+        if (VR)
+            pointSelected = myViveController.GetComponent<ViveEventsController>().selectedObject;
+        else
+            pointSelected = myMouseController.GetComponent<MouseController>().selectedObject;
+
+
+        if (pointSelected)
+        {
+            MusicObj music_p = pointSelected.GetComponent<MusicObj>(); //selected
+            MusicObj music_c;
+            MusicObj music_r;
+            if (DataPlotterScript.inputfile.Equals("msd-subdataset1"))
+            {
+                music_c = DataPlotterScript.dataPointList[32].GetComponent<MusicObj>(); //closest
+                music_r = DataPlotterScript.dataPointList[38].GetComponent<MusicObj>(); //real
+            }
+            else if (DataPlotterScript.inputfile.Equals("msd-subdataset2"))
+            {
+                music_c = DataPlotterScript.dataPointList[1570].GetComponent<MusicObj>(); //closest
+                music_r = DataPlotterScript.dataPointList[581].GetComponent<MusicObj>(); //real
+            }
+            else if (DataPlotterScript.inputfile.Equals("msd-subdataset4"))
+            {
+                music_c = DataPlotterScript.dataPointList[3752].GetComponent<MusicObj>(); //closest
+                music_r = DataPlotterScript.dataPointList[3778].GetComponent<MusicObj>(); //real
+            }
+        }
     }
 
     public void StartTaskFour()
     {
         /*In this task, given two artists from different genres, the participant has to select which artist has more songs*/
+        timer.Start();
+    }
+
+    public void EndTaskFour()
+    {
         timer.Stop();
     }
 
@@ -213,17 +313,40 @@ public class TaskGuide : MonoBehaviour {
 
 
 
-    public void startSphereAnimation()
+    public void startSphereAnimation(GameObject taskPoint)
     {
         taskPoint.AddComponent<Animator>();
         anim = taskPoint.GetComponent<Animator>();
         anim.runtimeAnimatorController = Resources.Load("sphereController") as RuntimeAnimatorController;
+        taskPoint.GetComponent<Renderer>().material.color = taskPoint.GetComponent<MusicObj>().Color;
         anim.Play("sphereAnimation");
     }
 
     public void writeTaskLog()
     {
 
+    }
+
+    public void FinishTask()
+    {
+        switch (taskID)
+        {
+            case 1:
+                EndTaskOne();
+                break;
+            case 2:
+                EndTaskTwo();
+                break;
+            case 3:
+                EndTaskThree();
+                break;
+            case 4:
+                EndTaskFour();
+                break;
+            default:
+                UnityEngine.Debug.Log("Defina uma tarefa");
+                break;
+        }
     }
 
 

@@ -80,7 +80,7 @@ class Distance
         }
     }
 
-    private Double CalculateDistance(Double x1, Double y1, Double z1, Double x2, Double y2, Double z2)
+    public Double CalculateDistance(Double x1, Double y1, Double z1, Double x2, Double y2, Double z2)
     {
         return Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2) + Math.Pow(z1 - z2, 2));
     }
