@@ -3594,9 +3594,9 @@ RectTransform:
   m_Father: {fileID: 1971064139}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 429, y: 367}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -83, y: -17}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1543308919
@@ -4526,17 +4526,20 @@ MonoBehaviour:
   myMouseController: {fileID: 957972568}
   myViveController: {fileID: 0}
   answerPoint: {fileID: 0}
-  taskID: 1
   taskPoint: {fileID: 0}
   logHandler: {fileID: 0}
   CSVResults: 
   CSVFilename: 
+  taskID: 1
   userID: 2
   datasetID: 1
   singleSelectionCounter: 0
   multipleSelectionCounter: 0
   taskText: {fileID: 1697511149}
   task2Text: {fileID: 238468494}
+  cronometro: 0
+  cronometro2: 0
+  interactionCounter: 0
   itemSelectedT1: 17000000110000002b0000002f000000
   VR: 0
 --- !u!4 &1856124256
