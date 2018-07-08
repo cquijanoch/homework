@@ -14,7 +14,7 @@ public class WriteArtistName : MonoBehaviour {
     DataPlotter dpScript;
     public GameObject myPlotter;
 
-    public bool isChecked = true;
+    private bool isChecked;
 
     void Start () {
         dpScript = myPlotter.GetComponent<DataPlotter>();
@@ -25,7 +25,9 @@ public class WriteArtistName : MonoBehaviour {
             artistName.GetComponentInChildren<Text>().text = artist;
             artistName.GetComponent<ArtistObj>().nameArtist = artist;
             artistName.GetComponent<ArtistObj>().selected = isChecked;
-            artistName.GetComponent<Image>().color = ConvertColor(255, 255, 255, 200);
+            if (isChecked) artistName.GetComponent<Image>().color = ConvertColor(255, 255, 255, 200);
+            else artistName.GetComponent<Image>().color = ConvertColor(255, 255, 255, 65);
+            
             artistName.GetComponent<Button>().onClick.AddListener(
                 delegate
                 {

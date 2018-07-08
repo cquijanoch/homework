@@ -35,7 +35,6 @@ public class TaskGuide : MonoBehaviour {
     public float cronometro;
     public float cronometro2=0f;
     public int interactionCounter;
-    Stopwatch timer = new Stopwatch();
 
     private GameObject []taskPoints = new GameObject[4];
     //private int []myvector = new int[2];
@@ -133,7 +132,7 @@ public class TaskGuide : MonoBehaviour {
         //write the CSV entry
         CSVResults = userID + "," + taskID + "," + datasetID + "," + boolToInt();
         CSVFilename = "User - "+userID + "-" + "Task - " + taskID + "-" + "Dataset - " + datasetID + "-" + "VR - "+boolToInt();
-        CSVFilename = userID + "-" + taskID + "-" + datasetID + "-" + boolToInt();
+        //CSVFilename = userID + "-" + taskID + "-" + datasetID + "-" + boolToInt();
 
         /*Decide here which song or genre will be assigned for the task*/
         switch (taskID)
@@ -141,18 +140,8 @@ public class TaskGuide : MonoBehaviour {
             case 1:
                 /*SDada uma música, encontrar a música mais próxima a ela (sem nenhuma restrição de artista ou gênero)*/
 
-                if (DataPlotterScript.inputfile.Equals("msd-subdataset1"))
-                {
-                    StartTaskOne(DataPlotterScript.dataPointList[itemSelectedT1[0]]);
-                }
-                else if (DataPlotterScript.inputfile.Equals("msd-subdataset2"))
-                {
-                    StartTaskOne(DataPlotterScript.dataPointList[itemSelectedT1[1]]);
-                }
-                else if (DataPlotterScript.inputfile.Equals("msd-subdataset4"))
-                {
-                    StartTaskOne(DataPlotterScript.dataPointList[itemSelectedT1[2]]);
-                }
+                
+                StartTaskOne(DataPlotterScript.dataPointList[itemSelectedT1[datasetID-1]]);
                 break;
 
             case 2:
@@ -220,9 +209,9 @@ public class TaskGuide : MonoBehaviour {
         }
 
 
-        if (cronometro > 30)
+      /*if (cronometro > 30)
             EndTaskOne();
-            
+            */  
     }
 
 
@@ -231,14 +220,12 @@ public class TaskGuide : MonoBehaviour {
         /*ANIMATION PART*/
         startSphereAnimation(taskPoint);
         cronometro = 0;
-        timer.Start();
     }
 
     public void EndTaskOne()
     {
         //Step 3.5: calculate distance between input and answer
         //comparar DataPlotterScript.dataPointList que tem a lista dos pontos com input do usuário
-        timer.Stop();
         GameObject pointSelected;
         if ( VR )
             pointSelected = myViveController.GetComponent<ViveEventsController>().selectedObject;
@@ -248,18 +235,21 @@ public class TaskGuide : MonoBehaviour {
         if (pointSelected)
         {
             MusicObj music_p = pointSelected.GetComponent<MusicObj>(); //selected
-            MusicObj music_c = DataPlotterScript.dataPointList[MatrixDistance.GetMinByIndex(itemSelectedT1[0])].GetComponent<MusicObj>(); //closest
-            MusicObj music_r = DataPlotterScript.dataPointList[itemSelectedT1[0]].GetComponent<MusicObj>(); // real
+            MusicObj music_c = DataPlotterScript.dataPointList[MatrixDistance.GetMinByIndex(itemSelectedT1[datasetID-1])].GetComponent<MusicObj>(); //closest
+            MusicObj music_r = DataPlotterScript.dataPointList[itemSelectedT1[datasetID-1]].GetComponent<MusicObj>(); // real
             double distCorrect = MatrixDistance.CalculateDistance((double)music_r.ColumnX, (double)music_r.ColumnY, (double)music_r.ColumnZ, (double)music_c.ColumnX, (double)music_c.ColumnY, (double)music_c.ColumnZ);
             double distAprox = MatrixDistance.CalculateDistance((double)music_p.ColumnX, (double)music_p.ColumnY, (double)music_p.ColumnZ, (double)music_c.ColumnX, (double)music_c.ColumnY, (double)music_c.ColumnZ);
             double error = (Math.Abs(distCorrect - distAprox) / distCorrect) * 100;
-            UnityEngine.Debug.Log("point correct: " + MatrixDistance.GetMinByIndex(itemSelectedT1[0]));
+            UnityEngine.Debug.Log("point correct: " + MatrixDistance.GetMinByIndex(itemSelectedT1[datasetID-1]));
             UnityEngine.Debug.Log("Error: " + error);
 
 
             //Step 4: record the answer 
             UnityEditor.EditorApplication.isPlaying = false;
-            CSVResults += "," + cronometro + "," + interactionCounter + "," + pointSelected.name + "," + music_r.name; //falta armazenar qual seria a resposta correta e fazer o cálculo da distância
+            string isCorrect_ = music_p.name == music_c.name ? "1" : "0";
+            //Time(sec)         , Clicks                 , UserAnswerID             , CorrectAnswerID      , StartPoint         , Genre                         , CorrectArtist               , AswerArtist                            , isCorrect"
+            CSVResults += "," + cronometro + "," + interactionCounter + "," + music_p.name + "," + music_c.name + "," + music_r.name + "," + music_r.ColumnTerms + "," + music_c.ColumnArtistName + "," + music_p.ColumnArtistName   +   "," + isCorrect_;
+            UnityEngine.Debug.Log(CSVResults);
             logHandler.Log(CSVResults, CSVFilename);
             UnityEditor.EditorApplication.isPlaying = false;
             //comparar as respostas
@@ -272,24 +262,21 @@ public class TaskGuide : MonoBehaviour {
         taskText.text = artistSpecific;
         startSphereAnimation(taskPoint);
         cronometro = 0;
-        timer.Start();
     }
 
     public void EndTaskTwo()
     {
-        timer.Stop();
         GameObject pointSelected;
         if (VR)
             pointSelected = myViveController.GetComponent<ViveEventsController>().selectedObject;
         else
             pointSelected = myMouseController.GetComponent<MouseController>().selectedObject;
 
-
         if (pointSelected)
         {
             MusicObj music_p = pointSelected.GetComponent<MusicObj>(); //selected
-            MusicObj music_c;
-            MusicObj music_r;
+            MusicObj music_c = null;
+            MusicObj music_r = null;
             if (DataPlotterScript.inputfile.Equals("msd-subdataset1"))
             {
                 music_c = DataPlotterScript.dataPointList[251].GetComponent<MusicObj>(); //closest
@@ -305,6 +292,11 @@ public class TaskGuide : MonoBehaviour {
                 music_c = DataPlotterScript.dataPointList[412].GetComponent<MusicObj>(); //closest
                 music_r = DataPlotterScript.dataPointList[36].GetComponent<MusicObj>(); //real
             }
+            //Time(sec)         , Clicks                 , UserAnswerID             , CorrectAnswerID      , StartPoint         , Genre                         , CorrectArtist               , AswerArtist                            , isCorrect"
+            string isCorrect_ = music_p.name == music_c.name ? "1" : "0";
+            CSVResults += "," + cronometro + "," + interactionCounter + "," + music_p.name + "," + music_c.name + "," + music_r.name + "," + music_r.ColumnTerms + "," + music_c.ColumnArtistName + "," + music_p.ColumnArtistName + "," + isCorrect_;
+            logHandler.Log(CSVResults, CSVFilename);
+            UnityEditor.EditorApplication.isPlaying = false;
         }
     }
 
@@ -312,12 +304,10 @@ public class TaskGuide : MonoBehaviour {
     {
         startSphereAnimation(taskPoint);
         cronometro = 0;
-        timer.Start();
     }
 
     public void EndTaskThree()
     {
-        timer.Stop();
         GameObject pointSelected;
         if (VR)
             pointSelected = myViveController.GetComponent<ViveEventsController>().selectedObject;
@@ -328,8 +318,8 @@ public class TaskGuide : MonoBehaviour {
         if (pointSelected)
         {
             MusicObj music_p = pointSelected.GetComponent<MusicObj>(); //selected
-            MusicObj music_c;
-            MusicObj music_r;
+            MusicObj music_c = null;
+            MusicObj music_r = null;
             if (DataPlotterScript.inputfile.Equals("msd-subdataset1"))
             {
                 music_c = DataPlotterScript.dataPointList[32].GetComponent<MusicObj>(); //closest
@@ -345,38 +335,72 @@ public class TaskGuide : MonoBehaviour {
                 music_c = DataPlotterScript.dataPointList[3752].GetComponent<MusicObj>(); //closest
                 music_r = DataPlotterScript.dataPointList[3778].GetComponent<MusicObj>(); //real
             }
+            //Time(sec)         , Clicks                 , UserAnswerID             , CorrectAnswerID      , StartPoint         , Genre                         , CorrectArtist               , AswerArtist                            , isCorrect"
+            string isCorrect_ = music_p.name == music_c.name ? "1" : "0";
+            CSVResults += "," + cronometro + "," + interactionCounter + "," + music_p.name + "," + music_c.name + "," + music_r.name + "," + music_r.ColumnTerms + "," + music_c.ColumnArtistName + "," + music_p.ColumnArtistName + "," + isCorrect_;
+            logHandler.Log(CSVResults, CSVFilename);
+            UnityEditor.EditorApplication.isPlaying = false;
         }
     }
 
     public void StartTaskFour()
     {
         cronometro = 0;
-        timer.Start();
+        if (datasetID == 1)
+        {
+            //Blue Oyster Cult  49
+            //DJ Yoda       40
+            //John Stevens  30
+            //MNEMIC    50
+            //Shawn Colvin  50
+            taskText.text = "Blue Oyster Cult";
+            task2Text.text = "DJ Yoda";
+        }
+        else if (datasetID == 2)
+        {
+            //Aborted       69
+            //American Hi-Fi    47
+            //Azymuth   49
+            //Dub Pistols       57
+            //Donell Jones          38
+            //London Symphony Orchestra 70
+            taskText.text = "American Hi-Fi";
+            task2Text.text = "Dub Pistols";
+           
+        }
+        else if (datasetID == 3)
+        {
+            //Emiliana Torrini   52
+            //Chris Clark       72
+            //Rocio Durcal      81
+            taskText.text = "Chris Clark";
+            task2Text.text = "Rocio Durcal";
+        }
     }
 
     public void EndTaskFour()
     {
-        timer.Stop();
         GameObject pointSelected;
         if (VR)
             pointSelected = myViveController.GetComponent<ViveEventsController>().selectedObject;
         else
             pointSelected = myMouseController.GetComponent<MouseController>().selectedObject;
-
-
         if (pointSelected)
         {
             MusicObj music_p = pointSelected.GetComponent<MusicObj>(); //selected
-           
-            if (DataPlotterScript.inputfile.Equals("msd-subdataset1"))
+            string isCorrect_ = "";
+            string correctArtist = "";
+            if (datasetID == 1)
             {
                 //Blue Oyster Cult  49
                 //DJ Yoda       40
                 //John Stevens  30
                 //MNEMIC    50
                 //Shawn Colvin  50
+                correctArtist = "Blue Oyster Cult";
+                isCorrect_ = music_p.ColumnArtistName == "Blue Oyster Cult" ? "1" : "0";
             }
-            else if (DataPlotterScript.inputfile.Equals("msd-subdataset2"))
+            else if (datasetID == 2)
             {
                 //Aborted       69
                 //American Hi-Fi    47
@@ -384,13 +408,21 @@ public class TaskGuide : MonoBehaviour {
                 //Dub Pistols       57
                 //Donell Jones          38
                 //London Symphony Orchestra 70
+                correctArtist = "Dub Pistols";
+                isCorrect_ = music_p.ColumnArtistName == "Dub Pistols" ? "1" : "0";
             }
-            else if (DataPlotterScript.inputfile.Equals("msd-subdataset4"))
+            else if (datasetID == 3)
             {
                 //Emiliana Torrini   52
                 //Chris Clark       72
                 //Rocio Durcal      81
+                correctArtist = "Rocio Durcal";
+                isCorrect_ = music_p.ColumnArtistName == "Rocio Durcal" ? "1" : "0";
             }
+            //Time(sec)         , Clicks         , UserAnswerID             , CorrectAnswerID      , StartPoint         , Genre                         , CorrectArtist               , AswerArtist                            , isCorrect"
+            CSVResults += "," + cronometro + "," + interactionCounter + "," + music_p.name + "," + " "           +       "," + " " +         ","         + "" + "," + correctArtist + "," + music_p.ColumnArtistName + "," + isCorrect_;
+            logHandler.Log(CSVResults, CSVFilename);
+            UnityEditor.EditorApplication.isPlaying = false;
         }
     }
 
@@ -400,6 +432,8 @@ public class TaskGuide : MonoBehaviour {
         anim = taskPoint.GetComponent<Animator>();
         anim.runtimeAnimatorController = Resources.Load("sphereController") as RuntimeAnimatorController;
         taskPoint.GetComponent<Renderer>().material.color = taskPoint.GetComponent<MusicObj>().Color;
+        taskPoint.GetComponent<MusicObj>().CurrentColor = taskPoint.GetComponent<MusicObj>().Color; 
+        taskPoint.GetComponent<MusicObj>().TheOne = true;
         anim.Play("sphereAnimation");
     }
     

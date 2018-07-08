@@ -13,8 +13,8 @@ public class FilterSearch : MonoBehaviour {
     List<string> artistFiltered;
     GameObject[] buttonsGenreList;
     List<string> genreFiltered;
-    public bool isCheckedGenres = true;
-    public bool isCheckedArtist = true;
+    private bool isCheckedGenres = false;
+    private bool isCheckedArtist = false;
 
     void Start () {
         artistFiltered = new List<string>();
@@ -56,7 +56,7 @@ public class FilterSearch : MonoBehaviour {
         foreach (GameObject point in dpScript.dataPointList)
         {
             MusicObj music = point.GetComponent<MusicObj>();
-            music.GetComponent<Renderer>().material.color = Color.clear;
+            if(!music.TheOne)   music.GetComponent<Renderer>().material.color = Color.clear;
             foreach (string artist in artistFiltered)
             {
                 if (artist.Equals(music.ColumnArtistName))

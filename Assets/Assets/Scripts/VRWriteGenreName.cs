@@ -11,7 +11,7 @@ public class VRWriteGenreName : MonoBehaviour {
 
     DataPlotter dpScript;
     public GameObject myPlotter;
-    public bool isChecked = true;
+    private bool isChecked = false;
     
     void Start () {
         
@@ -23,7 +23,8 @@ public class VRWriteGenreName : MonoBehaviour {
             genreName.transform.GetChild(1).GetComponent<Image>().color = dpScript.dataGenres[genreN];
             genreName.GetComponent<GenreObj>().nameGenre = genreN;
             genreName.GetComponent<GenreObj>().selected = isChecked;
-            genreName.GetComponent<Image>().color = ConvertColor(255, 255, 255, 200);
+            if (isChecked) genreName.GetComponent<Image>().color = ConvertColor(255, 255, 255, 200);
+            else genreName.GetComponent<Image>().color = ConvertColor(255, 255, 255, 65);
             genreName.GetComponent<Button>().onClick.AddListener(
                 delegate
                 {

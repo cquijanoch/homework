@@ -172,7 +172,8 @@ public class MouseController : MonoBehaviour
 
         foreach (MusicObj obj in selectedObjects)
         {
-            obj.GetComponent<Renderer>().material.color = obj.CurrentColor;
+            if(!obj.TheOne)
+                obj.GetComponent<Renderer>().material.color = obj.CurrentColor;
 
         }
         ClearSelection();

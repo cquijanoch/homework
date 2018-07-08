@@ -22,6 +22,7 @@ public class MusicObj : MonoBehaviour {
     private string columnArtistName;
     private string columnReleaseName;
     private decimal columnSongHotness;
+    private bool theOne;
 
     private Color color;
 
@@ -47,6 +48,6 @@ public class MusicObj : MonoBehaviour {
 
     public Color Color { get; set; }
     public Color CurrentColor { get; set; }
-
+    public bool TheOne { get; set; }
 
 }
