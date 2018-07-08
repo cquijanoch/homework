@@ -4526,15 +4526,11 @@ MonoBehaviour:
   myMouseController: {fileID: 957972568}
   myViveController: {fileID: 0}
   answerPoint: {fileID: 0}
-<<<<<<< HEAD
   taskID: 1
-=======
   taskPoint: {fileID: 0}
   logHandler: {fileID: 0}
   CSVResults: 
   CSVFilename: 
-  taskID: 0
->>>>>>> efdb69c21ff7ea0a4574bfa4fbe329841adc0031
   userID: 2
   datasetID: 1
   singleSelectionCounter: 0
@@ -4542,10 +4538,6 @@ MonoBehaviour:
   taskText: {fileID: 1697511149}
   task2Text: {fileID: 238468494}
   itemSelectedT1: 17000000110000002b0000002f000000
-<<<<<<< HEAD
-=======
-  itemSelectedT2: 17000000110000002b0000002f000000
->>>>>>> efdb69c21ff7ea0a4574bfa4fbe329841adc0031
   VR: 0
 --- !u!4 &1856124256
 Transform:

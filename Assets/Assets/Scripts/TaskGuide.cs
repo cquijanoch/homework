@@ -35,7 +35,7 @@ public class TaskGuide : MonoBehaviour {
     public float cronometro;
     public float cronometro2=0f;
     public int interactionCounter;
-
+    Stopwatch timer = new Stopwatch();
 
     private GameObject []taskPoints = new GameObject[4];
     //private int []myvector = new int[2];
