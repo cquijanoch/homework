@@ -43,34 +43,50 @@ public class TaskGuide : MonoBehaviour {
     //public int[] itemSelectedT2 = { 36, 17, 43, 47 }; //Luis miguel y Culture
 
     //Tarefa 2 
-        //msd-subdataset4
-        //================
-        // 36   LuisMiguel      412     Culture
-        // 29    LuisMiguel      411    Culture
-        // 86     Rocio Durcal     2776       Lee Greenwood
-        //msd-subdataset1
-        //================
-        // 201   Close COmbat               251    Funkstoerung
+    //msd-subdataset4
+    //================
+    // 36   LuisMiguel      412     Culture
+    // 29    LuisMiguel      411    Culture
+    // 86     Rocio Durcal     2776       Lee Greenwood
+    //msd-subdataset1
+    //================
+    // 201   Close COmbat               251    Funkstoerung
 
-        //msd-subdataset2
-        //================
-        // 211  Akil               782   Culture
-        // 208   Culture            1194  Akil        
-        // 51   ke$ha                    254     Donell Jones
+    //msd-subdataset2
+    //================
+    // 211  Akil               782   Culture
+    // 208   Culture            1194  Akil        
+    // 51   ke$ha                    254     Donell Jones
 
     //Tarefa 3
 
-        //msd-subdataset4
-        //================
-        //metal  3778           3752
+    //msd-subdataset4
+    //================
+    //metal  3778           3752
 
-        //msd-subdataset1
-        //================
-        //pop   38          32
+    //msd-subdataset1
+    //================
+    //pop   38          32
 
-        //msd-subdataset2
-        //================
-        //jazz  581             1570            
+    //msd-subdataset2
+    //================
+    //jazz  581             1570            
+
+
+    //Tarefa 3
+
+    //msd-subdataset4
+    //================
+    //metal  3778           3752
+
+    //msd-subdataset1
+    //================
+    //pop   38          32
+
+    //msd-subdataset2
+    //================
+    //jazz  581             1570          
+
 
 
     // public int[] itemSelectedT2 = { 101, 307, 443, 71 };
@@ -334,16 +350,49 @@ public class TaskGuide : MonoBehaviour {
 
     public void StartTaskFour()
     {
+        cronometro = 0;
         timer.Start();
     }
 
     public void EndTaskFour()
     {
         timer.Stop();
+        GameObject pointSelected;
+        if (VR)
+            pointSelected = myViveController.GetComponent<ViveEventsController>().selectedObject;
+        else
+            pointSelected = myMouseController.GetComponent<MouseController>().selectedObject;
+
+
+        if (pointSelected)
+        {
+            MusicObj music_p = pointSelected.GetComponent<MusicObj>(); //selected
+           
+            if (DataPlotterScript.inputfile.Equals("msd-subdataset1"))
+            {
+                //Blue Oyster Cult  49
+                //DJ Yoda       40
+                //John Stevens  30
+                //MNEMIC    50
+                //Shawn Colvin  50
+            }
+            else if (DataPlotterScript.inputfile.Equals("msd-subdataset2"))
+            {
+                //Aborted       69
+                //American Hi-Fi    47
+                //Azymuth   49
+                //Dub Pistols       57
+                //Donell Jones          38
+                //London Symphony Orchestra 70
+            }
+            else if (DataPlotterScript.inputfile.Equals("msd-subdataset4"))
+            {
+                //Emiliana Torrini   52
+                //Chris Clark       72
+                //Rocio Durcal      81
+            }
+        }
     }
-       
-
-
 
     public void startSphereAnimation(GameObject taskPoint)
     {
