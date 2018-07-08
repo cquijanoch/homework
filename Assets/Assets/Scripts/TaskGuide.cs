@@ -133,8 +133,8 @@ public class TaskGuide : MonoBehaviour {
                 UnityEngine.Debug.Log("Defina uma tarefa");
                 taskPoint = DataPlotterScript.dataPointList[0];
                 answerPoint = DataPlotterScript.dataPointList[1];
-                StartTaskOne();
-                EndTaskOne();
+               // StartTaskOne();
+               // EndTaskOne();
 
 
                 break;

@@ -227,7 +227,7 @@ public class DataPlotter : MonoBehaviour
             musicObj.CurrentColor = musicObj.Color;
             dataPointList.Add(dataPoint);
         }
-        PointHolder.transform.position = new Vector3(0, 7, changeOrientation);
+        PointHolder.transform.position = new Vector3(0, 0, changeOrientation);
 
     }
 
