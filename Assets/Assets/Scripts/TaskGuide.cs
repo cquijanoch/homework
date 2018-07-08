@@ -132,6 +132,7 @@ public class TaskGuide : MonoBehaviour {
 
         //write the CSV entry
         CSVResults = userID + "," + taskID + "," + datasetID + "," + boolToInt();
+        CSVFilename = "User - "+userID + "-" + "Task - " + taskID + "-" + "Dataset - " + datasetID + "-" + "VR - "+boolToInt();
         CSVFilename = userID + "-" + taskID + "-" + datasetID + "-" + boolToInt();
 
         /*Decide here which song or genre will be assigned for the task*/
@@ -217,9 +218,13 @@ public class TaskGuide : MonoBehaviour {
                 interactionCounter++;
             }
         }
+
+
+        if (cronometro > 30)
+            EndTaskOne();
+            
     }
-        
-        
+
 
     public void StartTaskOne(GameObject taskPoint)
     {
@@ -253,10 +258,10 @@ public class TaskGuide : MonoBehaviour {
         }
 
         //Step 4: record the answer 
-            
+            UnityEditor.EditorApplication.isPlaying = false;
         CSVResults += "," + cronometro + "," + interactionCounter + "," +answerPoint.name + "," ; //falta armazenar qual seria a resposta correta e fazer o cálculo da distância
         logHandler.Log(CSVResults, CSVFilename);
-
+        UnityEditor.EditorApplication.isPlaying = false;
         //comparar as respostas
         //escrever csv
     }

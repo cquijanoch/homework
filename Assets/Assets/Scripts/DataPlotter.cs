@@ -70,6 +70,24 @@ public class DataPlotter : MonoBehaviour
     {
         myTaskGuideScript = myTaskGuide.GetComponent<TaskGuide>(); 
         pointList = CSVReader.Read(inputfile);
+
+        /*Correct dataset scale*/
+        if(inputfile == "msd-subdataset1")
+        {
+            plotScale = 10;
+        }
+        else if(inputfile == "msd-subdataset2")
+        {
+            plotScale = 20;
+        }
+        else if (inputfile == "msd-subdataset3")
+        {
+            plotScale = 30;
+        }
+
+
+
+
         dataGenres = new SortedDictionary<string,Color>();
         dataArtist = new SortedDictionary<string,string>();
         List<string> columnList = new List<string>(pointList[1].Keys);
@@ -227,7 +245,7 @@ public class DataPlotter : MonoBehaviour
             musicObj.CurrentColor = musicObj.Color;
             dataPointList.Add(dataPoint);
         }
-        PointHolder.transform.position = new Vector3(0, 0, changeOrientation);
+        PointHolder.transform.position = new Vector3(0, 5, changeOrientation);
 
     }
 

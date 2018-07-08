@@ -1197,14 +1197,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d47a8ceb31cb834bba3e3524212c324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputfile: msd-subdataset4
+  inputfile: msd-subdataset3
   columnX: 0
   columnY: 1
   columnZ: 2
   xName: 
   yName: 
   zName: 
-  plotScale: 15
+  plotScale: 0
   PointPrefab: {fileID: 1623637907018002, guid: da980d8a443c0da4db92946af0057522,
     type: 2}
   PointHolder: {fileID: 485933970}
@@ -4535,6 +4535,9 @@ MonoBehaviour:
   datasetID: 1
   singleSelectionCounter: 0
   multipleSelectionCounter: 0
+  cronometro: 0
+  cronometro2: 0
+  interactionCounter: 0
   taskText: {fileID: 1697511149}
   task2Text: {fileID: 238468494}
   cronometro: 0
