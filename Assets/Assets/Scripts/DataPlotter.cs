@@ -72,17 +72,21 @@ public class DataPlotter : MonoBehaviour
         pointList = CSVReader.Read(inputfile);
 
         /*Correct dataset scale*/
-        if(inputfile == "msd-subdataset1")
+        if (myTaskGuideScript.datasetID ==1)
         {
+            inputfile = "msd-subdataset1";
             plotScale = 10;
         }
-        else if(inputfile == "msd-subdataset2")
+     
+        else if(myTaskGuideScript.datasetID == 2)
         {
             plotScale = 20;
+            inputfile = "msd-subdataset2";
         }
-        else if (inputfile == "msd-subdataset3")
+        else if (myTaskGuideScript.datasetID == 3)
         {
             plotScale = 30;
+            inputfile = "msd-subdataset4";
         }
 
 

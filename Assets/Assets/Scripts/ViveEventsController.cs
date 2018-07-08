@@ -13,7 +13,7 @@ public class ViveEventsController : MonoBehaviour {
     [SerializeField] public Text musicCurrentText;
     [SerializeField] public Text artistCurrentText;
     [SerializeField] public Text genreCurrentText;
-    [SerializeField] public Text durationCurrentText;
+    //[SerializeField] public Text durationCurrentText;
 
     string specifier = "G";
 
@@ -67,7 +67,7 @@ public class ViveEventsController : MonoBehaviour {
         musicCurrentText.text = musicObj.ColumnTitle;
         artistCurrentText.text = musicObj.ColumnArtistName;
         genreCurrentText.text = musicObj.ColumnTerms;
-        durationCurrentText.text = musicObj.ColumnDuration + "";
+        //durationCurrentText.text = musicObj.ColumnDuration + "";
     }
 
     void ClearSelection()
@@ -79,7 +79,7 @@ public class ViveEventsController : MonoBehaviour {
         musicCurrentText.text = "";
         artistCurrentText.text = "";
         genreCurrentText.text = "";
-        durationCurrentText.text = "";
+        //durationCurrentText.text = "";
     }
 
     public void ClearAllSelections ()

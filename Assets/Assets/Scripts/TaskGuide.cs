@@ -18,7 +18,7 @@ public class TaskGuide : MonoBehaviour {
     public GameObject myMouseController;
     public GameObject myViveController;
     public GameObject answerPoint;
-    public GameObject taskPoint;
+   // public GameObject taskPoint;
     public Record logHandler;
     public string CSVResults;
     public string CSVFilename;
@@ -229,7 +229,7 @@ public class TaskGuide : MonoBehaviour {
         else
             pointSelected = myMouseController.GetComponent<MouseController>().selectedObject;
 
-        if(pointSelected)
+        if (pointSelected)
         {
             MusicObj music_p = pointSelected.GetComponent<MusicObj>(); //selected
             MusicObj music_c = DataPlotterScript.dataPointList[MatrixDistance.GetMinByIndex(itemSelectedT1[0])].GetComponent<MusicObj>(); //closest
@@ -239,15 +239,16 @@ public class TaskGuide : MonoBehaviour {
             double error = (Math.Abs(distCorrect - distAprox) / distCorrect) * 100;
             UnityEngine.Debug.Log("point correct: " + MatrixDistance.GetMinByIndex(itemSelectedT1[0]));
             UnityEngine.Debug.Log("Error: " + error);
-        }
 
-        //Step 4: record the answer 
+
+            //Step 4: record the answer 
             UnityEditor.EditorApplication.isPlaying = false;
-        CSVResults += "," + cronometro + "," + interactionCounter + "," +answerPoint.name + "," ; //falta armazenar qual seria a resposta correta e fazer o cálculo da distância
-        logHandler.Log(CSVResults, CSVFilename);
-        UnityEditor.EditorApplication.isPlaying = false;
-        //comparar as respostas
-        //escrever csv
+            CSVResults += "," + cronometro + "," + interactionCounter + "," + pointSelected.name + "," + music_r.name; //falta armazenar qual seria a resposta correta e fazer o cálculo da distância
+            logHandler.Log(CSVResults, CSVFilename);
+            UnityEditor.EditorApplication.isPlaying = false;
+            //comparar as respostas
+            //escrever csv
+        }
     }
 
     public void StartTaskTwo(GameObject taskPoint, String artistSpecific)
