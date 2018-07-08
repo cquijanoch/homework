@@ -7,13 +7,21 @@ using UnityEngine.EventSystems;
 using System;
 using UnityEngine.UI;
 
+using HTC.UnityPlugin.Pointer3D;
+using HTC.UnityPlugin.Vive;
+
 public class TaskGuide : MonoBehaviour {
 
     // Use this for initialization
+
     public GameObject myDataPlotter;
     public GameObject myMouseController;
     public GameObject myViveController;
     public GameObject answerPoint;
+    public GameObject taskPoint;
+    public Record logHandler;
+    public string CSVResults;
+    public string CSVFilename;
     public static Animator anim;
     DataPlotter DataPlotterScript;
     public int taskID;
@@ -21,10 +29,13 @@ public class TaskGuide : MonoBehaviour {
     public int datasetID;
     public int singleSelectionCounter;
     public int multipleSelectionCounter;
-    Stopwatch timer = new Stopwatch();
     Distance MatrixDistance;
     [SerializeField] public Text taskText;
     [SerializeField] public Text task2Text;
+    public float cronometro;
+    public float cronometro2=0f;
+    public int interactionCounter;
+
 
     private GameObject []taskPoints = new GameObject[4];
     //private int []myvector = new int[2];
@@ -88,9 +99,9 @@ public class TaskGuide : MonoBehaviour {
     }
 
     void Start() {
-
         //Start Experiment
-     
+        logHandler = new Record();
+        interactionCounter = 0;
         DataPlotterScript = myDataPlotter.GetComponent<DataPlotter>();
         MatrixDistance = new Distance(DataPlotterScript.dataPointList.Count, DataPlotterScript.dataPointList.Count);
         PointD[] ListPoint = new PointD[DataPlotterScript.dataPointList.Count];
@@ -102,6 +113,10 @@ public class TaskGuide : MonoBehaviour {
             p++;
         }
         MatrixDistance.InputMatrix(ListPoint, ListPoint);
+
+        //write the CSV entry
+        CSVResults = userID + "," + taskID + "," + datasetID + "," + boolToInt();
+        CSVFilename = userID + "-" + taskID + "-" + datasetID + "-" + boolToInt();
 
         /*Decide here which song or genre will be assigned for the task*/
         switch (taskID)
@@ -168,24 +183,33 @@ public class TaskGuide : MonoBehaviour {
        
     }
 
-    private void Update()
-    {
-        /*Collect data from the user input (mouse or controller)*/
-        //time
-        //if (VR)
-        //{ }
-        //else
-        //pointer = new PointerEventData(EventSystem.current);
-        //  OnPointerClick(pointer);
-        //answerPoint = DataPlotterScript.dataPointList[100]; //trocar para o retorno do botão
 
+    void Update()
+    {
+        cronometro += Time.deltaTime;
+        if (VR)
+        {
+            if ((ViveInput.GetPressUp(HandRole.LeftHand, ControllerButton.Trigger)))
+                interactionCounter++;
+            if ((ViveInput.GetPressUp(HandRole.RightHand, ControllerButton.Trigger)))
+                interactionCounter++;
+        }
+        else
+        {
+            if(Input.GetMouseButtonUp(0))
+            {
+                interactionCounter++;
+            }
+        }
     }
-       
+        
+        
 
     public void StartTaskOne(GameObject taskPoint)
     {
         /*ANIMATION PART*/
         startSphereAnimation(taskPoint);
+        cronometro = 0;
         timer.Start();
     }
 
@@ -199,7 +223,6 @@ public class TaskGuide : MonoBehaviour {
             pointSelected = myViveController.GetComponent<ViveEventsController>().selectedObject;
         else
             pointSelected = myMouseController.GetComponent<MouseController>().selectedObject;
-     
 
         if(pointSelected)
         {
@@ -212,12 +235,21 @@ public class TaskGuide : MonoBehaviour {
             UnityEngine.Debug.Log("point correct: " + MatrixDistance.GetMinByIndex(itemSelectedT1[0]));
             UnityEngine.Debug.Log("Error: " + error);
         }
+
+        //Step 4: record the answer 
+            
+        CSVResults += "," + cronometro + "," + interactionCounter + "," +answerPoint.name + "," ; //falta armazenar qual seria a resposta correta e fazer o cálculo da distância
+        logHandler.Log(CSVResults, CSVFilename);
+
+        //comparar as respostas
+        //escrever csv
     }
 
     public void StartTaskTwo(GameObject taskPoint, String artistSpecific)
     {
         taskText.text = artistSpecific;
         startSphereAnimation(taskPoint);
+        cronometro = 0;
         timer.Start();
     }
 
@@ -257,13 +289,12 @@ public class TaskGuide : MonoBehaviour {
     public void StartTaskThree(GameObject taskPoint)
     {
         startSphereAnimation(taskPoint);
+        cronometro = 0;
         timer.Start();
-
     }
 
     public void EndTaskThree()
     {
-        
         timer.Stop();
         GameObject pointSelected;
         if (VR)
@@ -297,7 +328,6 @@ public class TaskGuide : MonoBehaviour {
 
     public void StartTaskFour()
     {
-        /*In this task, given two artists from different genres, the participant has to select which artist has more songs*/
         timer.Start();
     }
 
@@ -305,11 +335,7 @@ public class TaskGuide : MonoBehaviour {
     {
         timer.Stop();
     }
-
-    public void CountClicks()
-    {
-        singleSelectionCounter++;
-    }
+       
 
 
 
@@ -321,10 +347,12 @@ public class TaskGuide : MonoBehaviour {
         taskPoint.GetComponent<Renderer>().material.color = taskPoint.GetComponent<MusicObj>().Color;
         anim.Play("sphereAnimation");
     }
-
-    public void writeTaskLog()
+    
+    public int boolToInt()
     {
-
+        if (VR)
+            return 1;
+        return 0;
     }
 
     public void FinishTask()
@@ -348,8 +376,4 @@ public class TaskGuide : MonoBehaviour {
                 break;
         }
     }
-
-
-
-
 }
