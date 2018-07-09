@@ -4389,7 +4389,6 @@ MonoBehaviour:
     type: 2}
   genreName_t: {fileID: 516473237}
   myPlotter: {fileID: 529365399}
-  isChecked: 0
 --- !u!114 &1823340180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4405,7 +4404,6 @@ MonoBehaviour:
     type: 2}
   artistName_t: {fileID: 313942037}
   myPlotter: {fileID: 529365399}
-  isChecked: 0
 --- !u!114 &1823340181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4785,7 +4783,6 @@ MonoBehaviour:
   musicCurrentText: {fileID: 695171009}
   artistCurrentText: {fileID: 1368413956}
   genreCurrentText: {fileID: 1000790171}
-  durationCurrentText: {fileID: 0}
 --- !u!225 &2124032130
 CanvasGroup:
   m_ObjectHideFlags: 0
