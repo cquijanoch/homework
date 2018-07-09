@@ -96,7 +96,7 @@ public class ReticlePoser : MonoBehaviour
                 }
                 else
                 {
-                    if (!isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                    if (hitTarget.layer != 5 && !isPressingLeft && ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
                     {
                         viveEventsController.GetComponent<ViveEventsController>();
                         viveEventsController.ClearAllSelections();

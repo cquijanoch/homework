@@ -69,25 +69,25 @@ public class DataPlotter : MonoBehaviour
     void Awake()
     {
         myTaskGuideScript = myTaskGuide.GetComponent<TaskGuide>(); 
-        pointList = CSVReader.Read(inputfile);
-
         /*Correct dataset scale*/
-        if(inputfile == "msd-subdataset1")
+        if (myTaskGuideScript.datasetID ==1)
         {
+            inputfile = "msd-subdataset1";
             plotScale = 10;
         }
-        else if(inputfile == "msd-subdataset2")
+     
+        else if(myTaskGuideScript.datasetID == 2)
         {
             plotScale = 20;
+            inputfile = "msd-subdataset2";
         }
-        else if (inputfile == "msd-subdataset3")
+        else if (myTaskGuideScript.datasetID == 3)
         {
             plotScale = 30;
+            inputfile = "msd-subdataset4";
         }
 
-
-
-
+        pointList = CSVReader.Read(inputfile);
         dataGenres = new SortedDictionary<string,Color>();
         dataArtist = new SortedDictionary<string,string>();
         List<string> columnList = new List<string>(pointList[1].Keys);
@@ -175,6 +175,7 @@ public class DataPlotter : MonoBehaviour
             musicObj.ColumnX = System.Convert.ToDecimal(x);
             musicObj.ColumnY = System.Convert.ToDecimal(y);
             musicObj.ColumnZ = System.Convert.ToDecimal(z);
+            musicObj.TheOne = false;
 
 
             //dataPoint.GetComponent<Renderer>().material.color = Color.black;
@@ -187,62 +188,65 @@ public class DataPlotter : MonoBehaviour
                 switch (Ccolor)
                 {
                     case 0:
-                        dataPoint.GetComponent<Renderer>().material.color = ConvertColor(218, 72, 59);
+                        //dataPoint.GetComponent<Renderer>().material.color = ConvertColor(218, 72, 59);
                         musicObj.Color = ConvertColor(218, 72, 59);
                         break;
                     case 1:
-                        dataPoint.GetComponent<Renderer>().material.color = ConvertColor(255, 158, 15);
+                        //dataPoint.GetComponent<Renderer>().material.color = ConvertColor(255, 158, 15);
                         musicObj.Color = ConvertColor(255, 158, 15);
                         break;
                     case 2:
-                        dataPoint.GetComponent<Renderer>().material.color = ConvertColor(68, 134, 244);
+                        //dataPoint.GetComponent<Renderer>().material.color = ConvertColor(68, 134, 244);
                         musicObj.Color = ConvertColor(68, 134, 244);
                         break;
                     case 3:
-                        dataPoint.GetComponent<Renderer>().material.color = ConvertColor(255, 199, 24);
+                        //dataPoint.GetComponent<Renderer>().material.color = ConvertColor(255, 199, 24);
                         musicObj.Color = ConvertColor(255, 199, 24);
                         break;
                     case 4:
-                        dataPoint.GetComponent<Renderer>().material.color = ConvertColor(28, 164, 92);
+                        //dataPoint.GetComponent<Renderer>().material.color = ConvertColor(28, 164, 92);
                         musicObj.Color = ConvertColor(28, 164, 92);
                         break;
                     case 5:
-                        dataPoint.GetComponent<Renderer>().material.color = ConvertColor(141, 196, 79);
+                        //dataPoint.GetComponent<Renderer>().material.color = ConvertColor(141, 196, 79);
                         musicObj.Color = ConvertColor(141, 196, 79);
                         break;
                     case 6:
-                        dataPoint.GetComponent<Renderer>().material.color = ConvertColor(90, 237, 213);
+                        //dataPoint.GetComponent<Renderer>().material.color = ConvertColor(90, 237, 213);
                         musicObj.Color = ConvertColor(90, 237, 213);
                         break;
                     case 7:
-                        dataPoint.GetComponent<Renderer>().material.color = ConvertColor(48, 137, 172);
+                        //dataPoint.GetComponent<Renderer>().material.color = ConvertColor(48, 137, 172);
                         musicObj.Color = ConvertColor(48, 137, 172);
                         break;
                     case 8:
-                        dataPoint.GetComponent<Renderer>().material.color = ConvertColor(157, 231, 173);
+                        //dataPoint.GetComponent<Renderer>().material.color = ConvertColor(157, 231, 173);
                         musicObj.Color = ConvertColor(157, 231, 173);
                         break;
                     case 9:
-                        dataPoint.GetComponent<Renderer>().material.color = ConvertColor(254, 196, 118);
+                        //dataPoint.GetComponent<Renderer>().material.color = ConvertColor(254, 196, 118);
                         musicObj.Color = ConvertColor(254, 196, 118);
                         break;
                     case 10:
-                        dataPoint.GetComponent<Renderer>().material.color = ConvertColor(209, 64, 109);
+                        //dataPoint.GetComponent<Renderer>().material.color = ConvertColor(209, 64, 109);
                         musicObj.Color = ConvertColor(209, 64, 109);
                         break;
                     default:
                         Debug.Log("Error");
                         break;
                 }
+                dataPoint.GetComponent<Renderer>().material.color = Color.clear;
                 dataGenres.Add(musicObj.ColumnTerms, musicObj.Color);
                 Ccolor++;
+
             }
             else
             {
-                dataPoint.GetComponent<Renderer>().material.color = dataGenres[musicObj.ColumnTerms];
+                //dataPoint.GetComponent<Renderer>().material.color = dataGenres[musicObj.ColumnTerms];
+                dataPoint.GetComponent<Renderer>().material.color = Color.clear;
                 musicObj.Color = dataGenres[musicObj.ColumnTerms];
             }
-            musicObj.CurrentColor = musicObj.Color;
+            musicObj.CurrentColor = Color.clear;
             dataPointList.Add(dataPoint);
         }
         PointHolder.transform.position = new Vector3(0, 5, changeOrientation);

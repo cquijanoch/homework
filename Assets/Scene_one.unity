@@ -1856,7 +1856,6 @@ MonoBehaviour:
   musicCurrentText: {fileID: 695171009}
   artistCurrentText: {fileID: 1368413956}
   genreCurrentText: {fileID: 1000790171}
-  durationCurrentText: {fileID: 0}
 --- !u!4 &957972570
 Transform:
   m_ObjectHideFlags: 0
@@ -2387,7 +2386,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1211644959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,7 +2719,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1327874098
 GameObject:
   m_ObjectHideFlags: 0
@@ -4096,8 +4095,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myPlotter: {fileID: 529365399}
   gGenreNameContainer: {fileID: 0}
-  isCheckedGenres: 1
-  isCheckedArtist: 1
 --- !u!4 &1781224539
 Transform:
   m_ObjectHideFlags: 0
@@ -4392,7 +4389,6 @@ MonoBehaviour:
     type: 2}
   genreName_t: {fileID: 516473237}
   myPlotter: {fileID: 529365399}
-  isChecked: 1
 --- !u!114 &1823340180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4408,7 +4404,6 @@ MonoBehaviour:
     type: 2}
   artistName_t: {fileID: 313942037}
   myPlotter: {fileID: 529365399}
-  isChecked: 1
 --- !u!114 &1823340181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4422,8 +4417,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myPlotter: {fileID: 529365399}
   gGenreNameContainer: {fileID: 0}
-  isCheckedGenres: 1
-  isCheckedArtist: 1
 --- !u!1 &1834539428
 GameObject:
   m_ObjectHideFlags: 0
@@ -4526,18 +4519,14 @@ MonoBehaviour:
   myMouseController: {fileID: 957972568}
   myViveController: {fileID: 0}
   answerPoint: {fileID: 0}
-  taskPoint: {fileID: 0}
   logHandler: {fileID: 0}
   CSVResults: 
   CSVFilename: 
-  taskID: 1
-  userID: 2
-  datasetID: 1
+  taskID: 4
+  userID: 1
+  datasetID: 3
   singleSelectionCounter: 0
   multipleSelectionCounter: 0
-  cronometro: 0
-  cronometro2: 0
-  interactionCounter: 0
   taskText: {fileID: 1697511149}
   task2Text: {fileID: 238468494}
   cronometro: 0
@@ -4794,7 +4783,6 @@ MonoBehaviour:
   musicCurrentText: {fileID: 695171009}
   artistCurrentText: {fileID: 1368413956}
   genreCurrentText: {fileID: 1000790171}
-  durationCurrentText: {fileID: 0}
 --- !u!225 &2124032130
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class MouseController : MonoBehaviour
     [SerializeField] public Text musicCurrentText;
     [SerializeField] public Text artistCurrentText;
     [SerializeField] public Text genreCurrentText;
-    [SerializeField] public Text durationCurrentText;
+    //[SerializeField] public Text durationCurrentText;
     string specifier = "G";
     private int fingerID = -1;
 
@@ -114,7 +114,7 @@ public class MouseController : MonoBehaviour
         musicCurrentText.text = musicObj.ColumnTitle;
         artistCurrentText.text = musicObj.ColumnArtistName;
         genreCurrentText.text = musicObj.ColumnTerms;
-        durationCurrentText.text = musicObj.ColumnDuration + "";
+        //durationCurrentText.text = musicObj.ColumnDuration + "";
     }
 
     void SelectMultipleObjects(GameObject obj, RaycastHit point)
@@ -161,7 +161,7 @@ public class MouseController : MonoBehaviour
         musicCurrentText.text = "";
         artistCurrentText.text = "";
         genreCurrentText.text = "";;
-        durationCurrentText.text = "";
+        //durationCurrentText.text = "";
         selectedObjects.Clear();
     }
 
@@ -172,7 +172,8 @@ public class MouseController : MonoBehaviour
 
         foreach (MusicObj obj in selectedObjects)
         {
-            obj.GetComponent<Renderer>().material.color = obj.CurrentColor;
+            if(!obj.TheOne)
+                obj.GetComponent<Renderer>().material.color = obj.CurrentColor;
 
         }
         ClearSelection();

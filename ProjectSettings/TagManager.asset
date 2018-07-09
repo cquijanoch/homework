@@ -11,6 +11,8 @@ TagManager:
   - ArtistButton
   - GenreButton
   - FilterSelected
+  - FinishButton
+  - FinishCanvas
   layers:
   - Default
   - TransparentFX

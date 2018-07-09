@@ -17,7 +17,6 @@ public class WriteSelectedName : MonoBehaviour {
     [SerializeField] public Text musicCurrentText;
     [SerializeField] public Text artistCurrentText;
     [SerializeField] public Text genreCurrentText;
-    [SerializeField] public Text durationCurrentText;
 
     void OnEnable() {
         List<MusicObj> selecteds = new List<MusicObj>();
@@ -64,7 +63,6 @@ public class WriteSelectedName : MonoBehaviour {
         Debug.Log(selectedName.GetComponent<MusicObj>().ColumnTitle);
         musicCurrentText.text = selectedName.GetComponent<MusicObj>().ColumnTitle;
         artistCurrentText.text = selectedName.GetComponent<MusicObj>().ColumnArtistName;
-        durationCurrentText.text = selectedName.GetComponent<MusicObj>().ColumnDuration + "";
         //locationCurrentText.text = musicObj.ColumnLocation;
         genreCurrentText.text = selectedName.GetComponent<MusicObj>().ColumnTerms;
     }

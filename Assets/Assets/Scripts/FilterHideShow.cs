@@ -13,7 +13,6 @@ public class FilterHideShow : MonoBehaviour {
     void Start ()
     {
         filterCanvas = filterObj.GetComponent<CanvasGroup>();
-        
         if (isLockedFilter)
             Hide(filterCanvas);
         if (isLockedSelected)
@@ -25,19 +24,45 @@ public class FilterHideShow : MonoBehaviour {
     {
         if(Input.GetKeyUp(KeyCode.F) || (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Menu)))
         {
-            if (isLockedFilter) Show(filterCanvas); else Hide(filterCanvas);
+            if (isLockedFilter)
+            {
+                if (!isLockedSelected)
+                {
+                    Shutdown(selectedObj);
+                    isLockedSelected = !isLockedSelected;
+                }
+                Show(filterCanvas);
+            }
+            else {
+                Hide(filterCanvas);
+            }
+            
             isLockedFilter = !isLockedFilter;
         }
         else if (Input.GetKeyUp(KeyCode.E) || (ViveInput.GetPressDown(HandRole.LeftHand, ControllerButton.Menu)))
         {
-            if (isLockedSelected) PowerUp(selectedObj); else Shutdown(selectedObj);
+            if (isLockedSelected)
+            {
+                if (!isLockedFilter)
+                {
+                    Hide(filterCanvas);
+                    isLockedFilter = !isLockedFilter;
+                }
+                PowerUp(selectedObj);
+            }
+            else
+            {
+                //Show(filterCanvas);
+                Shutdown(selectedObj);
+            }
+            
             isLockedSelected = !isLockedSelected;
         }
     }
 
     void Hide(CanvasGroup canvas)
     {
-         
+        //isLockedFilter = false;
         canvas.alpha = 0f;
         canvas.blocksRaycasts = false;
         if (rightCollider)
@@ -46,18 +71,25 @@ public class FilterHideShow : MonoBehaviour {
 
     void PowerUp(GameObject canvas)
     {
+        //isLockedSelected = true;
         canvas.SetActive(true);
+        canvas.GetComponent<CanvasGroup>().alpha = 1f;
+        canvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 
 
     void Shutdown(GameObject canvas)
     {
+        //isLockedSelected = false;
         canvas.SetActive(false);
+        canvas.GetComponent<CanvasGroup>().alpha = 0f;
+        canvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
     void Show(CanvasGroup canvas)
     {
-        if(rightCollider)
+        //isLockedFilter = true;
+        if (rightCollider)
             rightCollider.SetActive(false);
         canvas.alpha = 1f;
         canvas.blocksRaycasts = true;
