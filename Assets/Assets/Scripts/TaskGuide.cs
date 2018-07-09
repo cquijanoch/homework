@@ -137,6 +137,9 @@ public class TaskGuide : MonoBehaviour {
         /*Decide here which song or genre will be assigned for the task*/
         switch (taskID)
         {
+            case 0:
+                StartTaskZero(DataPlotterScript.dataPointList[0]);
+                break;
             case 1:
                 /*SDada uma música, encontrar a música mais próxima a ela (sem nenhuma restrição de artista ou gênero)*/
 
@@ -213,6 +216,34 @@ public class TaskGuide : MonoBehaviour {
             EndTaskOne();
             */  
     }
+
+    public void StartTaskZero(GameObject taskPoint)
+    {
+        /*ANIMATION PART*/
+        startSphereAnimation(taskPoint);
+        cronometro = 0;
+    }
+
+
+    public void EndTaskZero()
+    {
+       
+        GameObject pointSelected;
+        if ( VR )
+            pointSelected = myViveController.GetComponent<ViveEventsController>().selectedObject;
+        else
+            pointSelected = myMouseController.GetComponent<MouseController>().selectedObject;
+        UnityEditor.EditorApplication.isPlaying = false;
+        if (pointSelected)
+        {
+
+            UnityEditor.EditorApplication.isPlaying = false;
+            //comparar as respostas
+            //escrever csv
+        }
+    }
+
+
 
 
     public void StartTaskOne(GameObject taskPoint)
@@ -448,6 +479,9 @@ public class TaskGuide : MonoBehaviour {
     {
         switch (taskID)
         {
+            case 0:
+                EndTaskZero();
+                break;
             case 1:
                 EndTaskOne();
                 break;

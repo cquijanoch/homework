@@ -86,6 +86,11 @@ public class DataPlotter : MonoBehaviour
             plotScale = 30;
             inputfile = "msd-subdataset4";
         }
+        else if(myTaskGuideScript.datasetID == 0)
+        {
+            inputfile = "msd-subdataset0";
+            plotScale = 5;
+        }
 
         pointList = CSVReader.Read(inputfile);
         dataGenres = new SortedDictionary<string,Color>();

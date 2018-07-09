@@ -56,26 +56,28 @@ public class FilterSearch : MonoBehaviour {
         foreach (GameObject point in dpScript.dataPointList)
         {
             MusicObj music = point.GetComponent<MusicObj>();
-            if(!music.TheOne)   music.GetComponent<Renderer>().material.color = Color.clear;
-            foreach (string artist in artistFiltered)
+            if(!music.TheOne)
             {
-                if (artist.Equals(music.ColumnArtistName))
+                music.GetComponent<Renderer>().material.color = Color.clear;
+                foreach (string artist in artistFiltered)
                 {
-                    Color c = music.Color;
-                    //c.a = 100 / 255.0f;
-                    music.GetComponent<Renderer>().material.color = c;
+                    if (artist.Equals(music.ColumnArtistName))
+                    {
+                        Color c = music.Color;
+                        //c.a = 100 / 255.0f;
+                        music.GetComponent<Renderer>().material.color = c;
+                    }
                 }
-            }
-            foreach (string genre in genreFiltered)
-            {
-                if (genre.Equals(music.ColumnTerms))
+                foreach (string genre in genreFiltered)
                 {
-                    music.GetComponent<Renderer>().material.color = music.Color;
+                    if (genre.Equals(music.ColumnTerms))
+                    {
+                        music.GetComponent<Renderer>().material.color = music.Color;
+                    }
                 }
+                music.CurrentColor = music.GetComponent<Renderer>().material.color;
             }
-            music.CurrentColor = music.GetComponent<Renderer>().material.color;
         }
-      
     }
 
     public void selectAllGenres()
