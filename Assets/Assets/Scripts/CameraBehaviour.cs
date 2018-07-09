@@ -26,7 +26,7 @@ public class CameraBehaviour : MonoBehaviour {
                 GetComponent<Camera>().fieldOfView--;
             }
 
-            if (Input.GetAxis("Mouse ScrollWheel") < 0 && GetComponent<Camera>().fieldOfView < 60)
+            if (Input.GetAxis("Mouse ScrollWheel") < 0 && GetComponent<Camera>().fieldOfView < 90)
             {
                 // GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoom, Time.deltaTime * smooth);
                 GetComponent<Camera>().fieldOfView++;

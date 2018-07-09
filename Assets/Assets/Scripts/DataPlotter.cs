@@ -129,11 +129,11 @@ public class DataPlotter : MonoBehaviour
         float zMin = FindMinValue(zName);
         changeOrientation = 1;
 
-        if (myTaskGuideScript.VR == true && myTaskGuideScript.userID % 2 != 0)
+      /*  if (myTaskGuideScript.VR == true && myTaskGuideScript.userID % 2 != 0)
             changeOrientation = -1;
         else if (myTaskGuideScript.VR == false && myTaskGuideScript.userID % 2 == 0)
             changeOrientation = -1;
-
+            */
         Debug.Log("Orientation: "+changeOrientation);
         PointHolder.transform.position = new Vector3((xMax - xMin) / 2, (yMax - yMin) / 2, ((zMax - zMin) / 2));
 
@@ -254,8 +254,10 @@ public class DataPlotter : MonoBehaviour
             musicObj.CurrentColor = Color.clear;
             dataPointList.Add(dataPoint);
         }
-        PointHolder.transform.position = new Vector3(0, 5, changeOrientation);
-
+        if(myTaskGuideScript.datasetID != 3)
+            PointHolder.transform.position = new Vector3(0, 5, changeOrientation);
+        else
+            PointHolder.transform.position = new Vector3(0, -5, -5);
     }
 
     private float FindMaxValue(string columnName)
