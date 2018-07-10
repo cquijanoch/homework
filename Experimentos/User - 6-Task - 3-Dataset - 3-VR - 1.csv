@@ -1,0 +1,2 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+6,3,3,1,88.94298,17,3907,3752,3778,metal,The Subtle Way,Thierry Noritop & Daniel Finot,0
