@@ -1,0 +1,2 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+3,1,1,0,52.7021,2,98,463,23,pop,MNEMIC,Donell Jones,0

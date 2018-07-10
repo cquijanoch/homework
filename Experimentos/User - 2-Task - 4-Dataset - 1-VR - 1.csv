@@ -1,0 +1,2 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+2,4,1,1,62.94076,4,181, , ,,Blue Oyster Cult,DJ Yoda,0

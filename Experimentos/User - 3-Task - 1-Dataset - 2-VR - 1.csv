@@ -1,0 +1,2 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+3,1,2,1,57.40539,6,368,996,17,pop,K.U.K.L,Boyz II Men,0

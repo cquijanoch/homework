@@ -1,0 +1,2 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+4,3,3,0,29.5422,6,3707,3752,3778,metal,The Subtle Way,Aborted,0

@@ -307,7 +307,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 791803432}
   m_HandleRect: {fileID: 791803431}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4523,7 +4523,7 @@ MonoBehaviour:
   CSVResults: 
   CSVFilename: 
   taskID: 4
-  userID: 1
+  userID: 5
   datasetID: 3
   singleSelectionCounter: 0
   multipleSelectionCounter: 0
