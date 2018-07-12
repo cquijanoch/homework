@@ -1,0 +1,2 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+9,2,1,0,65.88911,6,251,251,201,punk,Funkstoerung,Funkstoerung,1

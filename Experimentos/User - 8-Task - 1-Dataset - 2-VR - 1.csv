@@ -1,0 +1,2 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+8,1,2,1,47.61541,18,996,996,17,pop,K.U.K.L,K.U.K.L,1

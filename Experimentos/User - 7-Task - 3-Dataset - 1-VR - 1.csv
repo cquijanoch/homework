@@ -1,0 +1,2 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+7,3,1,1,71.8456,10,7,32,38,pop,Luis Miguel,Luis Miguel,0

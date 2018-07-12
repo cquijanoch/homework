@@ -1,0 +1,2 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+14,2,2,1,42.85822,16,776,1194,208,soul and reggae,Alex Smoke,Akil,0

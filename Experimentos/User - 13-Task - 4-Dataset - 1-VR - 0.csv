@@ -1,0 +1,2 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+13,4,1,0,40.9824,8,309, , ,,Blue Oyster Cult,Blue Oyster Cult,1

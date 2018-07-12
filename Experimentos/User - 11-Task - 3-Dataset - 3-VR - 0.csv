@@ -1,0 +1,2 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+11,3,3,0,29.81546,5,3738,3752,3778,metal,The Subtle Way,Carnivore,0
