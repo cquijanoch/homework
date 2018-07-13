@@ -1,0 +1,337 @@
+UserID, TaskID, DatasetID, VR, Time(sec), Clicks, UserAnswerID, CorrectAnswerID, StartPoint, Genre, CorrectArtist, AnswerArtist, isCorrect
+1,1,1,0,139.8242,4,22,463,23,pop,MNEMIC,Luis Miguel,0
+1,1,1,1,75.54829,11,463,463,23,pop,MNEMIC,MNEMIC,1
+1,1,2,0,55.78107,7,996,996,17,pop,K.U.K.L,K.U.K.L,1
+1,1,2,1,21.96766,8,996,996,17,pop,K.U.K.L,K.U.K.L,1
+1,1,3,0,34.88272,4,3986,3986,43,pop,Nevermore,Nevermore,1
+1,1,3,1,29.14933,17,3986,3986,43,pop,Nevermore,Nevermore,1
+1,2,1,0,103.4896,9,251,251,201,punk,Funkstoerung,Funkstoerung,1
+1,2,1,1,54.14515,14,251,251,201,punk,Funkstoerung,Funkstoerung,1
+1,2,2,0,34.9417,8,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+1,2,2,1,27.95201,5,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+1,2,3,0,68.04735,12,412,412,36,pop,Culture,Culture,1
+1,2,3,1,44.16222,17,412,412,36,pop,Culture,Culture,1
+1,3,1,0,88.52944,9,32,32,38,pop,Luis Miguel,Luis Miguel,1
+1,3,1,1,57.24242,17,2,32,38,pop,Luis Miguel,Luis Miguel,0
+1,3,2,0,52.32279,7,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+1,3,2,1,94.1236,58,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+1,3,3,0,38.28962,6,3907,3752,3778,metal,The Subtle Way,Thierry Noritop & Daniel Finot,0
+1,3,3,1,95.0337,19,3752,3752,3778,metal,The Subtle Way,The Subtle Way,1
+1,4,1,0,84.45749,10,312, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+1,4,1,1,49.24498,8,311, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+1,4,2,0,35.47733,7,1137, , ,,Dub Pistols,Dub Pistols,1
+1,4,2,1,71.33879,10,1158, , ,,Dub Pistols,Dub Pistols,1
+1,4,3,0,97.49093,11,103, , ,,Rocio Durcal,Rocio Durcal,1
+1,4,3,1,119.0488,19,478, , ,,Rocio Durcal,Chris Clark,0
+2,1,1,0,72.58267,4,22,463,23,pop,MNEMIC,Luis Miguel,0
+2,1,1,1,51.4384,16,22,463,23,pop,MNEMIC,Luis Miguel,0
+2,1,2,0,67.04945,10,368,996,17,pop,K.U.K.L,Boyz II Men,0
+2,1,2,1,14.8586,7,368,996,17,pop,K.U.K.L,Boyz II Men,0
+2,1,3,0,33.40285,8,3986,3986,43,pop,Nevermore,Nevermore,1
+2,1,3,1,20.64499,7,3986,3986,43,pop,Nevermore,Nevermore,1
+2,2,1,0,35.69704,6,251,251,201,punk,Funkstoerung,Funkstoerung,1
+2,2,1,1,130.5735,25,251,251,201,punk,Funkstoerung,Funkstoerung,1
+2,2,2,0,16.95137,4,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+2,2,2,1,26.34901,3,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+2,2,3,0,34.50926,9,412,412,36,pop,Culture,Culture,1
+2,2,3,1,41.12634,14,412,412,36,pop,Culture,Culture,1
+2,3,1,0,77.2006,11,2,32,38,pop,Luis Miguel,Luis Miguel,0
+2,3,1,1,66.43527,16,32,32,38,pop,Luis Miguel,Luis Miguel,1
+2,3,2,0,91.21265,16,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+2,3,2,1,55.78649,11,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+2,3,3,0,93.50139,31,3752,3752,3778,metal,The Subtle Way,The Subtle Way,1
+2,3,3,1,75.82191,16,1035,3752,3778,metal,The Subtle Way,Asylum Street Spankers,0
+2,4,1,0,48.34216,5,348, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+2,4,1,1,62.94076,4,181, , ,,Blue Oyster Cult,DJ Yoda,0
+2,4,2,0,33.15598,9,1151, , ,,Dub Pistols,Dub Pistols,1
+2,4,2,1,62.98689,6,1177, , ,,Dub Pistols,Dub Pistols,1
+2,4,3,0,49.76032,9,103, , ,,Rocio Durcal,Rocio Durcal,1
+2,4,3,1,69.68001,15,82, , ,,Rocio Durcal,Rocio Durcal,1
+3,1,1,0,52.7021,2,98,463,23,pop,MNEMIC,Donell Jones,0
+3,1,1,1,100.5008,7,22,463,23,pop,MNEMIC,Luis Miguel,0
+3,1,2,0,115.0218,18,1460,996,17,pop,K.U.K.L,Azymuth,0
+3,1,2,1,57.40539,6,368,996,17,pop,K.U.K.L,Boyz II Men,0
+3,1,3,0,155.2464,27,909,3986,43,pop,Nevermore,New Grass Revival,0
+3,1,3,1,98.02602,19,3986,3986,43,pop,Nevermore,Nevermore,1
+3,2,1,0,140.7699,4,263,251,201,punk,Funkstoerung,Funkstoerung,0
+3,2,1,1,113.0535,9,251,251,201,punk,Funkstoerung,Funkstoerung,1
+3,2,2,0,82.82894,5,721,1194,208,soul and reggae,Alex Smoke,Organized Konfusion,0
+3,2,2,1,53.29094,8,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+3,2,3,0,89.17146,8,412,412,36,pop,Culture,Culture,1
+3,2,3,1,83.92867,12,412,412,36,pop,Culture,Culture,1
+3,3,1,0,127.8382,8,13,32,38,pop,Luis Miguel,Luis Miguel,0
+3,3,1,1,98.70178,8,32,32,38,pop,Luis Miguel,Luis Miguel,1
+3,3,2,0,116.5616,17,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+3,3,2,1,192.0506,24,1356,1570,581,folk,Arve Henriksen & Elling Vanberg,American Hi-Fi,0
+3,3,3,0,94.37251,10,3738,3752,3778,metal,The Subtle Way,Carnivore,0
+3,3,3,1,106.487,15,3907,3752,3778,metal,The Subtle Way,Thierry Noritop & Daniel Finot,0
+3,4,1,0,129.9672,8,50, , ,,Blue Oyster Cult,Culture,0
+3,4,1,1,80.65733,9,181, , ,,Blue Oyster Cult,DJ Yoda,0
+3,4,2,0,63.40349,6,1161, , ,,Dub Pistols,Dub Pistols,1
+3,4,2,1,74.42336,12,1163, , ,,Dub Pistols,Dub Pistols,1
+3,4,3,0,78.29677,10,509, , ,,Rocio Durcal,Chris Clark,0
+3,4,3,1,138.0025,25,741, , ,,Rocio Durcal,Lionel Richie,0
+4,1,1,0,47.48014,8,36,463,23,pop,MNEMIC,Luis Miguel,0
+4,1,1,1,94.69024,14,157,463,23,pop,MNEMIC,DJ Yoda,0
+4,1,2,0,32.27604,3,368,996,17,pop,K.U.K.L,Boyz II Men,0
+4,1,2,1,26.71421,3,368,996,17,pop,K.U.K.L,Boyz II Men,0
+4,1,3,0,27.13875,8,3986,3986,43,pop,Nevermore,Nevermore,1
+4,1,3,1,72.59241,22,620,3986,43,pop,Nevermore,Boyz II Men,0
+4,2,1,0,42.69389,6,251,251,201,punk,Funkstoerung,Funkstoerung,1
+4,2,1,1,70.30588,11,263,251,201,punk,Funkstoerung,Funkstoerung,0
+4,2,2,0,19.91651,7,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+4,2,2,1,30.70426,4,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+4,2,3,0,48.90345,11,412,412,36,pop,Culture,Culture,1
+4,2,3,1,76.18694,12,412,412,36,pop,Culture,Culture,1
+4,3,1,0,30.05346,4,32,32,38,pop,Luis Miguel,Luis Miguel,1
+4,3,1,1,44.73537,10,2,32,38,pop,Luis Miguel,Luis Miguel,0
+4,3,2,0,29.86404,6,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+4,3,2,1,37.82238,5,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+4,3,3,0,29.5422,6,3707,3752,3778,metal,The Subtle Way,Aborted,0
+4,3,3,1,58.15675,9,3647,3752,3778,metal,The Subtle Way,MNEMIC,0
+4,4,1,0,23.37901,6,316, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+4,4,1,1,76.16835,14,319, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+4,4,2,0,34.15135,7,1376, , ,,Dub Pistols,American Hi-Fi,0
+4,4,2,1,49.06079,7,1373, , ,,Dub Pistols,American Hi-Fi,0
+4,4,3,0,55.13436,8,112, , ,,Rocio Durcal,Rocio Durcal,1
+4,4,3,1,89.28436,19,473, , ,,Rocio Durcal,Chris Clark,0
+5,1,1,0,91.62806,15,22,463,23,pop,MNEMIC,Luis Miguel,0
+5,1,1,1,91.5977,12,8,463,23,pop,MNEMIC,Luis Miguel,0
+5,1,2,0,59.61028,15,368,996,17,pop,K.U.K.L,Boyz II Men,0
+5,1,2,1,52.99871,10,996,996,17,pop,K.U.K.L,K.U.K.L,1
+5,1,3,0,59.01733,15,3986,3986,43,pop,Nevermore,Nevermore,1
+5,1,3,1,72.16087,13,3983,3986,43,pop,Nevermore,Nevermore,0
+5,2,1,0,47.67752,4,263,251,201,punk,Funkstoerung,Funkstoerung,0
+5,2,1,1,43.37083,9,251,251,201,punk,Funkstoerung,Funkstoerung,1
+5,2,2,0,16.07102,3,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+5,2,2,1,33.27012,5,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+5,2,3,0,74.6656,22,412,412,36,pop,Culture,Culture,1
+5,2,3,1,82.62846,14,412,412,36,pop,Culture,Culture,1
+5,3,1,0,60.13131,5,7,32,38,pop,Luis Miguel,Luis Miguel,0
+5,3,1,1,86.50951,12,32,32,38,pop,Luis Miguel,Luis Miguel,1
+5,3,2,0,34.84174,10,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+5,3,2,1,78.42722,13,571,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+5,3,3,0,64.67109,9,3738,3752,3778,metal,The Subtle Way,Carnivore,0
+5,3,3,1,84.62895,13,3752,3752,3778,metal,The Subtle Way,The Subtle Way,1
+5,4,1,0,79.95204,4,316, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+5,4,1,1,39.43691,5,347, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+5,4,2,0,37.91249,5,1377, , ,,Dub Pistols,American Hi-Fi,0
+5,4,2,1,56.29224,5,1170, , ,,Dub Pistols,Dub Pistols,1
+5,4,3,0,49.53885,6,103, , ,,Rocio Durcal,Rocio Durcal,1
+5,4,3,1,65.59247,9,505, , ,,Rocio Durcal,Chris Clark,0
+6,1,1,0,56.34658,10,461,463,23,pop,MNEMIC,MNEMIC,0
+6,1,1,1,95.78355,15,463,463,23,pop,MNEMIC,MNEMIC,1
+6,1,2,0,77.72297,19,996,996,17,pop,K.U.K.L,K.U.K.L,1
+6,1,2,1,27.13995,9,996,996,17,pop,K.U.K.L,K.U.K.L,1
+6,1,3,0,43.53512,13,3986,3986,43,pop,Nevermore,Nevermore,1
+6,1,3,1,30.12097,8,3983,3986,43,pop,Nevermore,Nevermore,0
+6,2,1,0,47.13071,8,251,251,201,punk,Funkstoerung,Funkstoerung,1
+6,2,1,1,111.6171,15,251,251,201,punk,Funkstoerung,Funkstoerung,1
+6,2,2,0,18.17751,4,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+6,2,2,1,40.12425,10,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+6,2,3,0,33.45866,6,412,412,36,pop,Culture,Culture,1
+6,2,3,1,90.79922,23,412,412,36,pop,Culture,Culture,1
+6,3,1,0,64.64635,15,32,32,38,pop,Luis Miguel,Luis Miguel,1
+6,3,1,1,73.27041,15,2,32,38,pop,Luis Miguel,Luis Miguel,0
+6,3,2,0,39.51825,12,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+6,3,2,1,47.00946,4,572,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+6,3,3,0,47.98737,12,3752,3752,3778,metal,The Subtle Way,The Subtle Way,1
+6,3,3,1,88.94298,17,3907,3752,3778,metal,The Subtle Way,Thierry Noritop & Daniel Finot,0
+6,4,1,0,54.25983,8,347, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+6,4,1,1,103.3243,9,311, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+6,4,2,0,35.70859,9,1158, , ,,Dub Pistols,Dub Pistols,1
+6,4,2,1,67.66013,12,1185, , ,,Dub Pistols,Dub Pistols,1
+6,4,3,0,61.00501,13,103, , ,,Rocio Durcal,Rocio Durcal,1
+6,4,3,1,101.278,22,103, , ,,Rocio Durcal,Rocio Durcal,1
+7,1,1,0,39.51868,2,132,463,23,pop,MNEMIC,Shawn Colvin,0
+7,1,1,1,52.74279,11,461,463,23,pop,MNEMIC,MNEMIC,0
+7,1,2,0,75.0098,13,1127,996,17,pop,K.U.K.L,Takagi Masakatsu,0
+7,1,2,1,39.40179,11,996,996,17,pop,K.U.K.L,K.U.K.L,1
+7,1,3,0,33.28864,1,2426,3986,43,pop,Nevermore,Blue Oyster Cult,0
+7,1,3,1,30.18431,16,3983,3986,43,pop,Nevermore,Nevermore,0
+7,2,1,0,125.7984,12,251,251,201,punk,Funkstoerung,Funkstoerung,1
+7,2,1,1,76.07216,12,251,251,201,punk,Funkstoerung,Funkstoerung,1
+7,2,2,0,34.417,5,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+7,2,2,1,46.103,10,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+7,2,3,0,57.60801,8,411,412,36,pop,Culture,Culture,0
+7,2,3,1,85.91965,26,412,412,36,pop,Culture,Culture,1
+7,3,1,0,63.81888,6,9,32,38,pop,Luis Miguel,Luis Miguel,0
+7,3,1,1,71.8456,10,7,32,38,pop,Luis Miguel,Luis Miguel,0
+7,3,2,0,70.33398,22,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+7,3,2,1,77.58742,15,492,1570,581,folk,Arve Henriksen & Elling Vanberg,Shawn Colvin,0
+7,3,3,0,104.6545,30,3806,3752,3778,metal,The Subtle Way,Moonspell,0
+7,3,3,1,63.39281,17,3738,3752,3778,metal,The Subtle Way,Carnivore,0
+7,4,1,0,84.77625,11,311, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+7,4,1,1,71.25935,23,340, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+7,4,2,0,54.38917,5,1149, , ,,Dub Pistols,Dub Pistols,1
+7,4,2,1,61.49642,9,1163, , ,,Dub Pistols,Dub Pistols,1
+7,4,3,0,55.90868,9,133, , ,,Rocio Durcal,Rocio Durcal,1
+7,4,3,1,83.54794,19,482, , ,,Rocio Durcal,Chris Clark,0
+8,1,1,0,75.80359,13,461,463,23,pop,MNEMIC,MNEMIC,0
+8,1,1,1,115.2829,30,461,463,23,pop,MNEMIC,MNEMIC,0
+8,1,2,0,63.37368,15,368,996,17,pop,K.U.K.L,Boyz II Men,0
+8,1,2,1,47.61541,18,996,996,17,pop,K.U.K.L,K.U.K.L,1
+8,1,3,0,41.75542,13,3986,3986,43,pop,Nevermore,Nevermore,1
+8,1,3,1,62.9668,11,3986,3986,43,pop,Nevermore,Nevermore,1
+8,2,1,0,41.13979,8,251,251,201,punk,Funkstoerung,Funkstoerung,1
+8,2,1,1,78.6289,13,251,251,201,punk,Funkstoerung,Funkstoerung,1
+8,2,2,0,16.17396,4,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+8,2,2,1,40.16467,11,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+8,2,3,0,42.00255,9,412,412,36,pop,Culture,Culture,1
+8,2,3,1,57.96667,15,412,412,36,pop,Culture,Culture,1
+8,3,1,0,55.91018,10,48,32,38,pop,Luis Miguel,Ke$ha,0
+8,3,1,1,164.9094,47,13,32,38,pop,Luis Miguel,Luis Miguel,0
+8,3,2,0,59.47799,11,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+8,3,2,1,108.8939,35,571,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+8,3,3,0,61.09422,11,3738,3752,3778,metal,The Subtle Way,Carnivore,0
+8,3,3,1,150.1048,30,3907,3752,3778,metal,The Subtle Way,Thierry Noritop & Daniel Finot,0
+8,4,1,0,55.27407,12,329, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+8,4,1,1,74.34886,15,336, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+8,4,2,0,45.91628,7,1159, , ,,Dub Pistols,Dub Pistols,1
+8,4,2,1,81.92137,18,1373, , ,,Dub Pistols,American Hi-Fi,0
+8,4,3,0,49.50352,6,125, , ,,Rocio Durcal,Rocio Durcal,1
+8,4,3,1,105.3714,11,131, , ,,Rocio Durcal,Rocio Durcal,1
+9,1,1,0,105.0009,25,22,463,23,pop,MNEMIC,Luis Miguel,0
+9,1,1,1,70.89384,20,463,463,23,pop,MNEMIC,MNEMIC,1
+9,1,2,0,79.39993,38,996,996,17,pop,K.U.K.L,K.U.K.L,1
+9,1,2,1,55.79846,11,996,996,17,pop,K.U.K.L,K.U.K.L,1
+9,1,3,0,94.47312,56,3986,3986,43,pop,Nevermore,Nevermore,1
+9,1,3,1,30.31362,19,3986,3986,43,pop,Nevermore,Nevermore,1
+9,2,1,0,65.88911,6,251,251,201,punk,Funkstoerung,Funkstoerung,1
+9,2,1,1,74.37743,30,251,251,201,punk,Funkstoerung,Funkstoerung,1
+9,2,2,0,38.49014,4,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+9,2,2,1,48.942,12,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+9,2,3,0,51.61113,16,412,412,36,pop,Culture,Culture,1
+9,2,3,1,72.52865,52,412,412,36,pop,Culture,Culture,1
+9,3,1,0,43.04602,7,32,32,38,pop,Luis Miguel,Luis Miguel,1
+9,3,1,1,137.4674,59,2,32,38,pop,Luis Miguel,Luis Miguel,0
+9,3,2,0,40.16457,19,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+9,3,2,1,60.24326,15,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+9,3,3,0,42.58812,18,3752,3752,3778,metal,The Subtle Way,The Subtle Way,1
+9,3,3,1,39.83562,11,3907,3752,3778,metal,The Subtle Way,Thierry Noritop & Daniel Finot,0
+9,4,1,0,41.20472,6,341, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+9,4,1,1,36.56482,8,345, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+9,4,2,0,55.98167,9,1360, , ,,Dub Pistols,American Hi-Fi,0
+9,4,2,1,75.04064,29,1138, , ,,Dub Pistols,Dub Pistols,1
+9,4,3,0,65.57146,8,134, , ,,Rocio Durcal,Rocio Durcal,1
+9,4,3,1,99.51405,30,473, , ,,Rocio Durcal,Chris Clark,0
+10,1,1,0,47.02201,8,463,463,23,pop,MNEMIC,MNEMIC,1
+10,1,1,1,222.9534,68,461,463,23,pop,MNEMIC,MNEMIC,0
+10,1,2,0,117.9305,23,996,996,17,pop,K.U.K.L,K.U.K.L,1
+10,1,2,1,47.7527,14,368,996,17,pop,K.U.K.L,Boyz II Men,0
+10,1,3,0,60.32273,18,3986,3986,43,pop,Nevermore,Nevermore,1
+10,1,3,1,41.75728,11,3983,3986,43,pop,Nevermore,Nevermore,0
+10,2,1,0,95.46396,13,251,251,201,punk,Funkstoerung,Funkstoerung,1
+10,2,1,1,76.57488,11,251,251,201,punk,Funkstoerung,Funkstoerung,1
+10,2,2,0,18.88734,4,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+10,2,2,1,32.67108,9,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+10,2,3,0,45.45991,6,412,412,36,pop,Culture,Culture,1
+10,2,3,1,75.75961,27,412,412,36,pop,Culture,Culture,1
+10,3,1,0,119.2152,25,32,32,38,pop,Luis Miguel,Luis Miguel,1
+10,3,1,1,79.00932,18,2,32,38,pop,Luis Miguel,Luis Miguel,0
+10,3,2,0,85.33228,12,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+10,3,2,1,139.4236,28,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+10,3,3,0,75.52151,11,3907,3752,3778,metal,The Subtle Way,Thierry Noritop & Daniel Finot,0
+10,3,3,1,135.5961,28,3907,3752,3778,metal,The Subtle Way,Thierry Noritop & Daniel Finot,0
+10,4,1,0,48.66647,10,330, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+10,4,1,1,66.96452,16,316, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+10,4,2,0,57.94303,10,1156, , ,,Dub Pistols,Dub Pistols,1
+10,4,2,1,66.81728,22,1150, , ,,Dub Pistols,Dub Pistols,1
+10,4,3,0,51.77873,11,95, , ,,Rocio Durcal,Rocio Durcal,1
+10,4,3,1,128.2483,34,519, , ,,Rocio Durcal,Chris Clark,0
+11,1,1,0,76.59535,25,463,463,23,pop,MNEMIC,MNEMIC,1
+11,1,1,1,66.68903,13,463,463,23,pop,MNEMIC,MNEMIC,1
+11,1,2,0,30.84886,5,996,996,17,pop,K.U.K.L,K.U.K.L,1
+11,1,2,1,30.95977,7,368,996,17,pop,K.U.K.L,Boyz II Men,0
+11,1,3,0,64.21951,33,3986,3986,43,pop,Nevermore,Nevermore,1
+11,1,3,1,49.26967,17,3986,3986,43,pop,Nevermore,Nevermore,1
+11,2,1,0,60.8709,18,251,251,201,punk,Funkstoerung,Funkstoerung,1
+11,2,1,1,58.24991,21,251,251,201,punk,Funkstoerung,Funkstoerung,1
+11,2,2,0,15.59288,6,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+11,2,2,1,58.14126,14,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+11,2,3,0,69.68076,11,412,412,36,pop,Culture,Culture,1
+11,2,3,1,97.35931,27,412,412,36,pop,Culture,Culture,1
+11,3,1,0,46.46188,5,48,32,38,pop,Luis Miguel,Ke$ha,0
+11,3,1,1,51.48634,11,7,32,38,pop,Luis Miguel,Luis Miguel,0
+11,3,2,0,28.52997,6,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+11,3,2,1,49.44529,8,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+11,3,3,0,29.81546,5,3738,3752,3778,metal,The Subtle Way,Carnivore,0
+11,3,3,1,68.24252,14,3907,3752,3778,metal,The Subtle Way,Thierry Noritop & Daniel Finot,0
+11,4,1,0,27.77902,4,313, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+11,4,1,1,54.15404,12,311, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+11,4,2,0,26.97138,5,1150, , ,,Dub Pistols,Dub Pistols,1
+11,4,2,1,49.95167,19,1137, , ,,Dub Pistols,Dub Pistols,1
+11,4,3,0,43.58954,7,133, , ,,Rocio Durcal,Rocio Durcal,1
+11,4,3,1,67.05256,27,470, , ,,Rocio Durcal,Chris Clark,0
+12,1,1,0,52.64005,6,463,463,23,pop,MNEMIC,MNEMIC,1
+12,1,1,1,50.12423,25,459,463,23,pop,MNEMIC,MNEMIC,0
+12,1,2,0,50.33686,11,368,996,17,pop,K.U.K.L,Boyz II Men,0
+12,1,2,1,26.19668,17,368,996,17,pop,K.U.K.L,Boyz II Men,0
+12,1,3,0,93.98573,18,3986,3986,43,pop,Nevermore,Nevermore,1
+12,1,3,1,43.07291,27,3986,3986,43,pop,Nevermore,Nevermore,1
+12,2,1,0,106.3789,23,251,251,201,punk,Funkstoerung,Funkstoerung,1
+12,2,1,1,80.11794,33,251,251,201,punk,Funkstoerung,Funkstoerung,1
+12,2,2,0,44.21965,8,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+12,2,2,1,52.34312,14,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+12,2,3,0,44.03667,5,412,412,36,pop,Culture,Culture,1
+12,2,3,1,120.2883,36,412,412,36,pop,Culture,Culture,1
+12,3,1,0,57.58775,15,13,32,38,pop,Luis Miguel,Luis Miguel,0
+12,3,1,1,48.11407,8,48,32,38,pop,Luis Miguel,Ke$ha,0
+12,3,2,0,64.62421,6,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+12,3,2,1,84.00335,25,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+12,3,3,0,77.18673,13,3738,3752,3778,metal,The Subtle Way,Carnivore,0
+12,3,3,1,95.31842,27,3738,3752,3778,metal,The Subtle Way,Carnivore,0
+12,4,1,0,77.20364,4,156, , ,,Blue Oyster Cult,DJ Yoda,0
+12,4,1,1,114.787,39,305, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+12,4,2,0,47.28633,7,1170, , ,,Dub Pistols,Dub Pistols,1
+12,4,2,1,107.2353,40,1146, , ,,Dub Pistols,Dub Pistols,1
+12,4,3,0,62.54372,4,129, , ,,Rocio Durcal,Rocio Durcal,1
+12,4,3,1,154.8332,26,525, , ,,Rocio Durcal,Chris Clark,0
+13,1,1,0,64.91264,11,22,463,23,pop,MNEMIC,Luis Miguel,0
+13,1,1,1,43.0177,7,8,463,23,pop,MNEMIC,Luis Miguel,0
+13,1,2,0,23.64777,7,996,996,17,pop,K.U.K.L,K.U.K.L,1
+13,1,2,1,23.0737,6,996,996,17,pop,K.U.K.L,K.U.K.L,1
+13,1,3,0,46.4721,23,620,3986,43,pop,Nevermore,Boyz II Men,0
+13,1,3,1,32.34942,13,3983,3986,43,pop,Nevermore,Nevermore,0
+13,2,1,0,61.29983,15,251,251,201,punk,Funkstoerung,Funkstoerung,1
+13,2,1,1,40.39305,6,251,251,201,punk,Funkstoerung,Funkstoerung,1
+13,2,2,0,18.01783,7,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+13,2,2,1,47.9981,11,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+13,2,3,0,53.29226,27,412,412,36,pop,Culture,Culture,1
+13,2,3,1,62.3271,16,412,412,36,pop,Culture,Culture,1
+13,3,1,0,23.2046,4,32,32,38,pop,Luis Miguel,Luis Miguel,1
+13,3,1,1,56.19324,13,48,32,38,pop,Luis Miguel,Ke$ha,0
+13,3,2,0,26.54534,14,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+13,3,2,1,70.78664,13,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+13,3,3,0,30.94469,10,3738,3752,3778,metal,The Subtle Way,Carnivore,0
+13,3,3,1,47.21719,14,3738,3752,3778,metal,The Subtle Way,Carnivore,0
+13,4,1,0,40.9824,8,309, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+13,4,1,1,53.53796,15,311, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+13,4,2,0,27.22385,7,1158, , ,,Dub Pistols,Dub Pistols,1
+13,4,2,1,77.67879,19,1137, , ,,Dub Pistols,Dub Pistols,1
+13,4,3,0,33.03012,7,473, , ,,Rocio Durcal,Chris Clark,0
+13,4,3,1,74.03516,21,103, , ,,Rocio Durcal,Rocio Durcal,1
+14,1,1,0,94.41695,12,22,463,23,pop,MNEMIC,Luis Miguel,0
+14,1,1,1,103.2894,29,22,463,23,pop,MNEMIC,Luis Miguel,0
+14,1,2,0,32.34559,8,996,996,17,pop,K.U.K.L,K.U.K.L,1
+14,1,2,1,53.06547,21,368,996,17,pop,K.U.K.L,Boyz II Men,0
+14,1,3,0,39.38224,9,620,3986,43,pop,Nevermore,Boyz II Men,0
+14,1,3,1,35.02163,16,3986,3986,43,pop,Nevermore,Nevermore,1
+14,2,1,0,70.32693,6,251,251,201,punk,Funkstoerung,Funkstoerung,1
+14,2,1,1,51.90703,18,251,251,201,punk,Funkstoerung,Funkstoerung,1
+14,2,2,0,35.60564,6,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+14,2,2,1,42.85822,16,776,1194,208,soul and reggae,Alex Smoke,Akil,0
+14,2,3,0,112.1231,30,412,412,36,pop,Culture,Culture,1
+14,2,3,1,160.0484,23,412,412,36,pop,Culture,Culture,1
+14,3,1,0,107.4805,33,32,32,38,pop,Luis Miguel,Luis Miguel,1
+14,3,1,1,92.05729,23,48,32,38,pop,Luis Miguel,Ke$ha,0
+14,3,2,0,62.96332,10,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+14,3,2,1,153.0501,23,587,1570,581,folk,Arve Henriksen & Elling Vanberg,Asylum Street Spankers,0
+14,3,3,0,76.39043,6,3647,3752,3778,metal,The Subtle Way,MNEMIC,0
+14,3,3,1,177.528,33,3738,3752,3778,metal,The Subtle Way,Carnivore,0
+14,4,1,0,48.38007,8,305, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+14,4,1,1,161.6958,36,305, , ,,Blue Oyster Cult,Blue Oyster Cult,1
+14,4,2,0,45.42184,6,1137, , ,,Dub Pistols,Dub Pistols,1
+14,4,2,1,72.13324,17,1162, , ,,Dub Pistols,Dub Pistols,1
+14,4,3,0,78.08222,8,112, , ,,Rocio Durcal,Rocio Durcal,1
+14,4,3,1,123.9608,32,131, , ,,Rocio Durcal,Rocio Durcal,1
