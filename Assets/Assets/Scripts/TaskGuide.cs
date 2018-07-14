@@ -84,7 +84,7 @@ public class TaskGuide : MonoBehaviour {
 
     //msd-subdataset2
     //================
-    //jazz  581             1570          
+    //pop  581             587          
 
 
 
